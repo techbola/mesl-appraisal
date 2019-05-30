@@ -47,7 +47,7 @@ class User extends Authenticatable
 
     public function staff()
     {
-        return $this->hasOne('MESL\Staff', 'UserID');
+        return $this->hasOne('App\Staff', 'UserID');
     }
     // public function type()
     // {
@@ -55,32 +55,32 @@ class User extends Authenticatable
     // }
     public function types()
     {
-        return $this->belongsToMany('MESL\UserType', 'usertype', 'user_id', 'type_id');
+        return $this->belongsToMany('App\UserType', 'usertype', 'user_id', 'type_id');
     }
     public function roles()
     {
-        return $this->belongsToMany('MESL\Role', 'role_user', 'user_id', 'role_id');
+        return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');
     }
     public function inbox()
     {
-        return $this->belongsToMany('MESL\Message', 'tblMessageRecipients', 'UserID', 'MessageID')->orderBy('MessageRef', 'desc')->with('sender')->withPivot('IsRead', 'IsDeleted');
+        return $this->belongsToMany('App\Message', 'tblMessageRecipients', 'UserID', 'MessageID')->orderBy('MessageRef', 'desc')->with('sender')->withPivot('IsRead', 'IsDeleted');
     }
     public function unread_messages()
     {
-        return $this->belongsToMany('MESL\Message', 'tblMessageRecipients', 'UserID', 'MessageID')->orderBy('MessageRef', 'desc')->with('sender')->withPivot('IsRead', 'IsDeleted')->wherePivot('IsRead', false);
+        return $this->belongsToMany('App\Message', 'tblMessageRecipients', 'UserID', 'MessageID')->orderBy('MessageRef', 'desc')->with('sender')->withPivot('IsRead', 'IsDeleted')->wherePivot('IsRead', false);
     }
     public function sent_messages()
     {
-        return $this->hasMany('MESL\Message', 'FromID')->orderBy('MessageRef', 'desc');
+        return $this->hasMany('App\Message', 'FromID')->orderBy('MessageRef', 'desc');
     }
     public function unread_inbox()
     {
-        return $this->hasMany('MESL\MessageRecipient', 'UserID')->where('IsRead', false);
+        return $this->hasMany('App\MessageRecipient', 'UserID')->where('IsRead', false);
     }
     // Start Chats
     public function unread_chats()
     {
-        return $this->hasMany('MESL\Chat', 'ToID')->where('IsRead', false);
+        return $this->hasMany('App\Chat', 'ToID')->where('IsRead', false);
     }
     public function unread_chats_from($id)
     {
@@ -144,12 +144,12 @@ class User extends Authenticatable
 
     public function todos()
     {
-        return $this->hasMany('MESL\Todo', 'UserID')->orderBy('DueDate', 'desc');
+        return $this->hasMany('App\Todo', 'UserID')->orderBy('DueDate', 'desc');
     }
 
     public function sticky_notes()
     {
-        return $this->hasMany('MESL\StickyNote', 'UserID')->orderBy('created_at', 'desc');
+        return $this->hasMany('App\StickyNote', 'UserID')->orderBy('created_at', 'desc');
     }
 
     public function menus()

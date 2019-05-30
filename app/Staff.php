@@ -22,34 +22,34 @@ class Staff extends Model
 
     public function user()
     {
-        return $this->belongsTo('MESL\User', 'UserID');
+        return $this->belongsTo('App\User', 'UserID');
     }
     public function company()
     {
-        return $this->belongsTo('MESL\Company', 'CompanyID');
+        return $this->belongsTo('App\Company', 'CompanyID');
     }
     public function country()
     {
-        return $this->belongsTo('MESL\Country', 'CountryID');
+        return $this->belongsTo('App\Country', 'CountryID');
     }
     public function state()
     {
-        return $this->belongsTo('MESL\State', 'StateID');
+        return $this->belongsTo('App\State', 'StateID');
     }
 
     public function state_of_origin()
     {
-        return $this->belongsTo('MESL\State', 'StateofOrigin');
+        return $this->belongsTo('App\State', 'StateofOrigin');
     }
 
     public function country_of_origin()
     {
-        return $this->belongsTo('MESL\Country', 'CountryOfOrigin');
+        return $this->belongsTo('App\Country', 'CountryOfOrigin');
     }
 
     public function country_of_birth()
     {
-        return $this->belongsTo('MESL\Country', 'CountryOfBirth');
+        return $this->belongsTo('App\Country', 'CountryOfBirth');
     }
 
     public function gender()
@@ -64,11 +64,11 @@ class Staff extends Model
 
     public function location()
     {
-        return $this->belongsTo('MESL\Location', 'LocationID');
+        return $this->belongsTo('App\Location', 'LocationID');
     }
     public function tasks()
     {
-        return $this->hasMany('MESL\ProjectTask', 'StaffID', 'StaffRef');
+        return $this->hasMany('App\ProjectTask', 'StaffID', 'StaffRef');
     }
     // singular
     public function department()
@@ -86,7 +86,7 @@ class Staff extends Model
 
     public function religion()
     {
-        return $this->belongsTo('MESL\Religion', 'ReligionID');
+        return $this->belongsTo('App\Religion', 'ReligionID');
     }
 
     public function company_department()
@@ -144,17 +144,17 @@ class Staff extends Model
 
     public function scorecards()
     {
-        return $this->hasMany('MESL\ScoreCard', 'StaffID');
+        return $this->hasMany('App\ScoreCard', 'StaffID');
     }
 
     public function nysc_location()
     {
-        return $this->belongsTo('MESL\State', 'NYSCLocationID');
+        return $this->belongsTo('App\State', 'NYSCLocationID');
     }
 
     public function subordinates()
     {
-        return $this->hasMany('MESL\Staff', 'SupervisorID');
+        return $this->hasMany('App\Staff', 'SupervisorID');
     }
 
     public function references()
@@ -178,5 +178,10 @@ class Staff extends Model
     //
     //     parent::__construct($attributes);
     // }
+
+    public function appraisal()
+    {
+        return $this->hasOne('App\Appraisal');
+    }
 
 }

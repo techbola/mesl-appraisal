@@ -6,10 +6,17 @@ Route::get('/', [
 ]);
 
 Route::middleware(['auth'])->prefix('appraisal')->group(function () {
+
     Route::get('/dashboard', [
-        'uses' => 'AppraisalController@dashboard',
+        'uses' => 'AppraisalController@index',
         'as' => 'dashboard'
     ]);
+
+    Route::post('/appraisal/store', [
+        'uses' => 'AppraisalController@store',
+        'as' => 'appraisal.store'
+    ]);
+
 });
 
 Auth::routes();
