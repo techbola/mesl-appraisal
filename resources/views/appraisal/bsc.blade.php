@@ -7,12 +7,6 @@
 		<!-- START CONTAINER FLUID -->
 		<div class="container-fluid container-fixed-lg">
 
-			<div class="row">
-				<div class="col-md-12">
-					@include('appraisal.includes.errors')
-				</div>
-			</div>
-
 			<div id="rootwizard" class="m-t-50">
 				<!-- Nav tabs -->
 				<ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm">
@@ -868,6 +862,16 @@
 @endsection
 
 @push('scripts')
+
+	@if(count($errors) > 0)
+		<script>
+			@foreach($errors->all() as $error)
+
+				toastr.error("{{ $error }}");
+
+			@endforeach
+		</script>
+	@endif
 
 	@if(auth()->user()->staff->SupervisorFlag)
 

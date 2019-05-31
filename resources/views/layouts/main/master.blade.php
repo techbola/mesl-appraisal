@@ -26,7 +26,10 @@
 	<!--[if lte IE 9]>
 	<link href="{{ asset('main/assets/plugins/codrops-dialogFx/dialog.ie.css') }}" rel="stylesheet" type="text/css" media="screen" />
 	<![endif]-->
+
+	<link rel="stylesheet" href="{{ asset('main/assets/css/toastr.css') }}">
 	<link rel="stylesheet" href="{{ asset('main/assets/css/custom.css') }}">
+
 </head>
 <body class="fixed-header ">
 
@@ -177,6 +180,8 @@
 	<script src="{{ asset('main/assets/js/form_wizard.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('main/assets/js/scripts.js') }}" type="text/javascript"></script>
 	<!-- END PAGE LEVEL JS -->
+
+	<script src="{{ asset('main/assets/js/toastr.js') }}"></script>
 
 	@stack('scripts')
 
