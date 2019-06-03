@@ -27,9 +27,9 @@ class Appraisal extends Model
         'ethics_supervisor_ass',
     ];
 
-    public function staff()
+    public function user()
     {
-        return $this->belongsTo('App\Staff');
+        return $this->belongsTo('App\User');
     }
 
 }

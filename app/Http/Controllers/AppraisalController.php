@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\StaffSendAppraisal;
 use App\Staff;
+use App\User;
 use Illuminate\Http\Request;
 use App\Traits\UploadTrait;
 use App\Appraisal;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 
 class AppraisalController extends Controller
@@ -15,7 +18,20 @@ class AppraisalController extends Controller
 
     public function index()
     {
-        return view('appraisal.bsc');
+
+        if (!auth()->user()->staff->SupervisorFlag){
+
+            return view('appraisal.staff');
+
+        }
+        elseif (auth()->user()->staff->SupervisorFlag){
+
+            $appraisals = Appraisal::where('supervisor_id', auth()->user()->id)->get();
+
+            return view('appraisal.supervisor')->with(['appraisals', $appraisals]);
+
+    }
+
     }
 
     public function store(Request $request)
@@ -26,8 +42,8 @@ class AppraisalController extends Controller
             $this->validate($request, [
 
                 'employee_name' => 'required|string',
-                'job_position' => 'required|string',
-                'department' => 'required|string',
+//                'job_position' => 'required|string',
+//                'department' => 'required|string',
 
                 'financial_objective.*' => 'required|string',
                 'financial_kpi.*' => 'required|string',
@@ -92,10 +108,18 @@ class AppraisalController extends Controller
             $data['appraisee_sign'] = $appraisee_sign;
             $data['user_id'] = auth()->user()->id;
 
-            $q = Staff::where('UserID',auth()->user()->id)->first();
-            $data['supervisor_id'] = $q->SupervisorID;
+            $staff = Staff::where('UserID',auth()->user()->id)->first();
+            $data['supervisor_id'] = $staff->SupervisorID;
+
+            $supervisor = Staff::where('StaffRef',$data['supervisor_id'])->first();
+            $supervisorUser = User::where('id', $supervisor->UserID)->first();
+            $supervisor_email = $supervisorUser->email;
+
+            dd($supervisor_email);
 
             $appraisal->create($data);
+
+            Mail::to($supervisor_email)->send(new StaffSendAppraisal($supervisor, $staff));
 
             Session::flash('success', 'Appraisal Submitted.');
 

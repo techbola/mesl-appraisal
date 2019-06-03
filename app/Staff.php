@@ -179,9 +179,4 @@ class Staff extends Model
     //     parent::__construct($attributes);
     // }
 
-    public function appraisal()
-    {
-        return $this->hasOne('App\Appraisal');
-    }
-
 }

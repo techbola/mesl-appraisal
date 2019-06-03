@@ -21,6 +21,9 @@
 	<link href="{{ asset('main/assets/plugins/jquery-scrollbar/jquery.scrollbar.css') }}" rel="stylesheet" type="text/css" media="screen" />
 	<link href="{{ asset('main/assets/plugins/bootstrap-select2/select2.css') }}" rel="stylesheet" type="text/css" media="screen" />
 	<link href="{{ asset('main/assets/plugins/switchery/css/switchery.min.css') }}" rel="stylesheet" type="text/css" media="screen" />
+
+	@stack('styles')
+
 	<link href="{{ asset('main/pages/css/pages-icons.css') }}" rel="stylesheet" type="text/css">
 	<link class="main-stylesheet" href="{{ asset('main/pages/css/pages.css') }}" rel="stylesheet" type="text/css" />
 	<!--[if lte IE 9]>
