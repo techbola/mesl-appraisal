@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAppraisalRecommendationsTable extends Migration
+class CreateStaffBehaviouralItemsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateAppraisalRecommendationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appraisal_recommendations', function (Blueprint $table) {
+        Schema::create('staff_behavioural_items', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('staffID')->unsigned();
             $table->integer('supervisorID')->unsigned();
-
-            $table->string('promote')->nullable();
-            $table->string('commendation')->nullable();
-            $table->string('performance')->nullable();
-            $table->string('exit')->nullable();
-
+            $table->integer('behaviouralCatID')->unsigned();
+            $table->integer('behaviouralItemCatID')->unsigned();
+            $table->decimal('selfAssessment', 3, 1);
+            $table->decimal('supervisorAssessment', 3, 1)->nullable();
             $table->timestamps();
         });
     }
@@ -34,6 +32,6 @@ class CreateAppraisalRecommendationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appraisal_recommendations');
+        Schema::dropIfExists('staff_behavioural_items');
     }
 }

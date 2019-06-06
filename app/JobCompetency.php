@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AppraisalPersonal extends Model
+class JobCompetency extends Model
 {
     //
 }

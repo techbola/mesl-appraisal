@@ -15,17 +15,18 @@ class CreateAppraisalLearningsTable extends Migration
     {
         Schema::create('appraisal_learnings', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('supervisor_id')->unsigned();
+            $table->integer('staffID')->unsigned();
+            $table->integer('supervisorID')->unsigned();
 
-            $table->string('learning_objective');
-            $table->string('learning_kpi');
-            $table->decimal('learning_target',3,1);
-            $table->decimal('learning_weight',3,1);
-            $table->decimal('learning_self_ass',3,1);
+            $table->string('objective');
+            $table->string('kpi');
+            $table->decimal('target', 3,1);
+            $table->decimal('selfAssessment', 3,1);
+            $table->string('constraint');
 
-            $table->decimal('learning_supervisor_ass',3,1)->nullable();
-            $table->string('learning_justification')->nullable();
+            $table->decimal('weight', 3,1)->nullable();
+            $table->decimal('supervisorAssessment',3,1)->nullable();
+            $table->string('justification')->nullable();
 
             $table->timestamps();
         });

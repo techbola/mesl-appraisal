@@ -15,17 +15,18 @@ class CreateAppraisalFinancesTable extends Migration
     {
         Schema::create('appraisal_finances', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('supervisor_id')->unsigned();
+            $table->integer('staffID')->unsigned();
+            $table->integer('supervisorID')->unsigned();
 
-            $table->string('financial_objective');
-            $table->string('financial_kpi');
-            $table->decimal('financial_target', 3,1);
-            $table->decimal('financial_weight', 3,1);
-            $table->decimal('financial_self_ass', 3,1);
+            $table->string('objective');
+            $table->string('kpi');
+            $table->decimal('target', 3,1);
+            $table->decimal('selfAssessment', 3,1);
+            $table->string('constraint');
 
-            $table->decimal('financial_supervisor_ass',3,1)->nullable();
-            $table->string('financial_justification')->nullable();
+            $table->decimal('weight', 3,1)->nullable();
+            $table->decimal('supervisorAssessment',3,1)->nullable();
+            $table->string('justification')->nullable();
 
             $table->timestamps();
         });

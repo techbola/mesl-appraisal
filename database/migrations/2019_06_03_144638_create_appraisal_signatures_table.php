@@ -15,13 +15,13 @@ class CreateAppraisalSignaturesTable extends Migration
     {
         Schema::create('appraisal_signatures', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('supervisor_id')->unsigned();
+            $table->integer('staffID')->unsigned();
+            $table->integer('supervisorID')->unsigned();
 
-            $table->string('appraisee_sign');
-            $table->string('appraiser_sign');
-            $table->string('executive_sign');
-            $table->string('hr_sign');
+            $table->string('appraiseeSign');
+            $table->string('appraiserSign');
+            $table->string('executiveSign');
+            $table->string('hrSign');
 
             $table->timestamps();
         });

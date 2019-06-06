@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class AppraisalCompliance extends Model
+class Compliance extends Model
 {
     //
 }

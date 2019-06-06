@@ -15,11 +15,11 @@ class CreateAppraisalCommentsTable extends Migration
     {
         Schema::create('appraisal_comments', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('supervisor_id')->unsigned();
+            $table->integer('staffID')->unsigned();
+            $table->integer('supervisorID')->unsigned();
 
-            $table->string('appraisee_comment');
-            $table->string('appraiser_comment')->nullable();
+            $table->string('appraiseeComment');
+            $table->string('appraiserComment')->nullable();
 
             $table->timestamps();
         });

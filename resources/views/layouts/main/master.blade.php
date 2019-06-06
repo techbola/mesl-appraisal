@@ -104,7 +104,7 @@
 				</div>
 				<div class="dropdown pull-right">
 					<button class="profile-dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                		<span class="thumbnail-wrapper d32 circular inline m-t-5"></span>
+                		<span class="fa fa-caret-down inline m-t-15"></span>
 					</button>
 					<ul class="dropdown-menu profile-dropdown" role="menu">
 						<li class="bg-master-lighter">

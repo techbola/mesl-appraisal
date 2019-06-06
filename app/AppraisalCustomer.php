@@ -6,5 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class AppraisalCustomer extends Model
 {
-    //
+    protected $fillable = [
+        'staffID', 'supervisorID', 'objective', 'kpi', 'target', 'selfAssessment', 'constraint', 'supervisorAssessment', 'weight', 'justification'
+    ];
+
+    public function staff()
+    {
+        return $this->belongsTo('App\Staff');
+    }
+    
 }

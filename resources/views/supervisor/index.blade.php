@@ -17,13 +17,13 @@
 			<!-- START PANEL -->
 			<div class="panel panel-transparent">
 				<div class="panel-heading">
-					<div class="panel-title">Appraisals
+					<div class="panel-title">Staffs
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="panel-body">
 
-					@if($appraisals)
+					@if(count($staffs) > 0)
 
 						<div class="table-responsive">
 							<table class="table table-hover" id="basicTable">
@@ -36,7 +36,7 @@
 								</thead>
 								<tbody>
 
-									@foreach($appraisals as $appraisal)
+									@foreach($staffs as $staff)
 
 										<tr>
 											<td class="v-align-middle ">
@@ -53,7 +53,7 @@
 									@endforeach
 								@else
 									<tr>
-										<td>No Appraisals!</td>
+										<td>No Staff!</td>
 									</tr>
 
 								</tbody>

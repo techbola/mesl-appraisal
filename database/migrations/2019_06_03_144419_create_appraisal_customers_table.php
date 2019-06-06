@@ -15,17 +15,18 @@ class CreateAppraisalCustomersTable extends Migration
     {
         Schema::create('appraisal_customers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('supervisor_id')->unsigned();
+            $table->integer('staffID')->unsigned();
+            $table->integer('supervisorID')->unsigned();
 
-            $table->decimal('stakeholders_objective');
-            $table->string('stakeholders_kpi');
-            $table->decimal('stakeholders_target', 3, 1);
-            $table->decimal('stakeholders_weight', 3,1);
-            $table->decimal('stakeholders_self_ass', 3,1);
+            $table->string('objective');
+            $table->string('kpi');
+            $table->decimal('target', 3,1);
+            $table->decimal('selfAssessment', 3,1);
+            $table->string('constraint');
 
-            $table->decimal('stakeholders_supervisor_ass',3,1)->nullable();
-            $table->string('stakeholders_justification')->nullable();
+            $table->decimal('weight', 3,1)->nullable();
+            $table->decimal('supervisorAssessment',3,1)->nullable();
+            $table->string('justification')->nullable();
 
             $table->timestamps();
         });

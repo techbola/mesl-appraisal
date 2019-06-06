@@ -15,17 +15,18 @@ class CreateAppraisalInternalsTable extends Migration
     {
         Schema::create('appraisal_internals', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('supervisor_id')->unsigned();
+            $table->integer('staffID')->unsigned();
+            $table->integer('supervisorID')->unsigned();
 
-            $table->string('internal_process_objective');
-            $table->string('internal_process_kpi');
-            $table->decimal('internal_process_target', 3,1);
-            $table->decimal('internal_process_weight', 3,1);
-            $table->decimal('internal_process_self_ass', 3,1);
+            $table->string('objective');
+            $table->string('kpi');
+            $table->decimal('target', 3,1);
+            $table->decimal('selfAssessment', 3,1);
+            $table->string('constraint');
 
-            $table->decimal('internal_process_supervisor_ass',3,1)->nullable();
-            $table->string('internal_process_justification')->nullable();
+            $table->decimal('weight', 3,1)->nullable();
+            $table->decimal('supervisorAssessment',3,1)->nullable();
+            $table->string('justification')->nullable();
 
             $table->timestamps();
         });

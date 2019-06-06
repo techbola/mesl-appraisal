@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAppraisalTrainingsTable extends Migration
+class CreateJobCompetenciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,8 @@ class CreateAppraisalTrainingsTable extends Migration
      */
     public function up()
     {
-        Schema::create('appraisal_trainings', function (Blueprint $table) {
+        Schema::create('job_competencies', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('staffID')->unsigned();
-            $table->integer('supervisorID')->unsigned();
-
-            $table->string('need')->nullable();
-
             $table->timestamps();
         });
     }
@@ -31,6 +26,6 @@ class CreateAppraisalTrainingsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('appraisal_trainings');
+        Schema::dropIfExists('job_competencies');
     }
 }

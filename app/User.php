@@ -49,16 +49,6 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Staff', 'UserID');
     }
-
-    public function appraisal()
-    {
-        return $this->hasOne('App\Appraisal');
-    }
-
-    // public function type()
-    // {
-    //   return $this->belongsToMany('MESL\UserType', 'user_id', 'type_id');
-    // }
     public function types()
     {
         return $this->belongsToMany('App\UserType', 'usertype', 'user_id', 'type_id');

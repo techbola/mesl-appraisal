@@ -16,16 +16,16 @@ class CreateAppraisalTable extends Migration
         Schema::create('appraisal', function (Blueprint $table) {
 
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('supervisor_id')->unsigned();
+            $table->integer('staffID')->unsigned();
+            $table->integer('supervisorID')->unsigned();
 
             $table->string('employee_name');
-            $table->string('job_position');
-            $table->string('department');
+            $table->string('job_position')->nullable();
+            $table->string('department')->nullable();
+            $table->string('period');
 
-            $table->string('appraiser_designation')->nullable();
-            $table->string('appraiser_name')->nullable();
-            $table->string('appraiser_period')->nullable();
+            $table->string('appraiserDesignation')->nullable();
+            $table->string('appraiserName')->nullable();
 
             $table->timestamps();
         });

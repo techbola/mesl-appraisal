@@ -167,16 +167,45 @@ class Staff extends Model
         return $this->belongsTo(Country::class, 'Nationality');
     }
 
-    // public function __construct(array $attributes = array())
-    // {
-    //     $this->hasAttachedFile('PhotographLocation', [
-    //         'styles' => [
-    //             'medium' => '300x400',
-    //             'thumb'  => '200x300',
-    //         ],
-    //     ]);
-    //
-    //     parent::__construct($attributes);
-    // }
+    public function appraisals()
+    {
+        return $this->hasMany('App\Appraisal');
+    }
+    public function appraisalcomments()
+    {
+        return $this->hasMany('App\AppraisalComment');
+    }
+    public function appraisalcustomers()
+    {
+        return $this->hasMany('App\AppraisalCustomer');
+    }
+    public function appraisalfinances()
+    {
+        return $this->hasMany('App\AppraisalFinance');
+    }
+    public function appraisalinternals()
+    {
+        return $this->hasMany('App\AppraisalInternal');
+    }
+    public function appraisallearnings()
+    {
+        return $this->hasMany('App\AppraisalLearning');
+    }
+    public function appraisalrecommendations()
+    {
+        return $this->hasMany('App\AppraisalRecommendation');
+    }
+    public function appraisalsignatures()
+    {
+        return $this->hasMany('App\AppraisalSignature');
+    }
+    public function appraisaltrainings()
+    {
+        return $this->hasMany('App\AppraisalTraining');
+    }
+    public function staffbevaviouralitems()
+    {
+        return $this->hasMany('App\StaffBehaviouralItem');
+    }
 
 }
