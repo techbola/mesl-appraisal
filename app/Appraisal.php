@@ -10,7 +10,8 @@ class Appraisal extends Model
 	protected $table = 'appraisal';
 	
     protected $fillable = [
-        'staffID', 'supervisorID', 'employee_name', 'job_position', 'department', 'period', 'appraiserDesignation', 'appraiserName',
+        'staffID', 'supervisorID', 'employee_name', 'job_position', 'department', 'period', 'appraiserDesignation',
+        'appraiserName', 'status', 'sentFlag',
     ];
 
     public function staff()

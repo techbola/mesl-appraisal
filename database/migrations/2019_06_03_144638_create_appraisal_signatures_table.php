@@ -17,11 +17,12 @@ class CreateAppraisalSignaturesTable extends Migration
             $table->bigIncrements('id');
             $table->integer('staffID')->unsigned();
             $table->integer('supervisorID')->unsigned();
+            $table->integer('appraisal_id')->unsigned();
 
             $table->string('appraiseeSign');
-            $table->string('appraiserSign');
-            $table->string('executiveSign');
-            $table->string('hrSign');
+            $table->string('appraiserSign')->nullable();
+            $table->string('executiveSign')->nullable();
+            $table->string('hrSign')->nullable();
 
             $table->timestamps();
         });

@@ -24,6 +24,9 @@ class CreateAppraisalTable extends Migration
             $table->string('department')->nullable();
             $table->string('period');
 
+            $table->boolean('sentFlag')->default(0);
+            $table->integer('status')->default(0);
+
             $table->string('appraiserDesignation')->nullable();
             $table->string('appraiserName')->nullable();
 

@@ -102,6 +102,7 @@
 				<div class="form-group-attached">
 					<div class="row clearfix">
 						<div class="col-md-12">
+							<input type="hidden" name="appraisalID" value="{{ $appraisalID }}">
 							<button class="btn btn-primary btn-cons btn-animated" type="submit">
 								<span>Submit & Click Next</span>
 							</button>

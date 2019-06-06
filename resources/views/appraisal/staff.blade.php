@@ -14,7 +14,6 @@
 
 					<div class="tab-content">
 
-						@include('appraisal.includes.staff_details')
 						@include('appraisal.includes.bsc_financial')
 						@include('appraisal.includes.bsc_customer')
 						@include('appraisal.includes.bsc_internal')
@@ -54,6 +53,12 @@
     		toastr.success("{{ Session::get('success') }}")
 		</script>
     @endif
+
+	@if(Session::has('error'))
+		<script>
+            toastr.error("{{ Session::get('error') }}")
+		</script>
+	@endif
 
 	@if(count($errors) > 0)
 		<script>

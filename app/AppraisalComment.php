@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class AppraisalComment extends Model
 {
     protected $fillable = [
-        'staffID', 'supervisorID', 'appraiseeComment', 'appraiserComment',
+        'staffID', 'supervisorID', 'appraiseeComment', 'appraiserComment', 'appraisal_id',
     ];
 
     public function staff()

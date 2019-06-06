@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Compliance;
+use App\JobCompetency;
 use App\Mail\StaffSendAppraisal;
+use App\PersonalAttribute;
 use App\Staff;
 use App\User;
 use Illuminate\Http\Request;
@@ -19,28 +22,57 @@ use App\AppraisalTraining;
 use App\StaffBehaviouralItem;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use function PHPSTORM_META\override;
 
 class AppraisalController extends Controller
 {
 
     use UploadTrait;
 
-    public function users()
+    public function index()
     {
-        $users = User::all();
-        dd($users);
+
+        return view('appraisal.index');
+
     }
 
-    public function index()
+
+    public function allAppraisals()
+    {
+
+        $appraisals = Appraisal::where('StaffID', auth()->user()->staff->UserID)->get();
+
+        return view('appraisal.queues')->with([
+            'appraisals' => $appraisals
+        ]);
+
+    }
+
+    public function dashboard()
     {
 
         if (!auth()->user()->staff->SupervisorFlag){
 
-            $appraisal_period = Appraisal::where('StaffID', auth()->user()->staff->UserID)->first();
-            $period = $appraisal_period;
+            $appraisalID = Session::get('appraisalID');
+
+            $appraisal_finances = AppraisalFinance::where('StaffID', auth()->user()->staff->UserID)->get();
+            $appraisal_customers = AppraisalCustomer::where('StaffID', auth()->user()->staff->UserID)->get();
+            $appraisal_internals = AppraisalInternal::where('StaffID', auth()->user()->staff->UserID)->get();
+            $appraisal_learnings = AppraisalLearning::where('StaffID', auth()->user()->staff->UserID)->get();
+
+            $personal_attribute = PersonalAttribute::where('StaffID', auth()->user()->staff->UserID)->first();
+            $job_competency = JobCompetency::where('StaffID', auth()->user()->staff->UserID)->first();
+            $compliance = Compliance::where('StaffID', auth()->user()->staff->UserID)->first();
 
             return view('appraisal.staff')->with([
-                'appraisal_period' => $period,
+                'appraisalID' => $appraisalID,
+                'appraisal_finances' => $appraisal_finances,
+                'appraisal_customers' => $appraisal_customers,
+                'appraisal_internals' => $appraisal_internals,
+                'appraisal_learnings' => $appraisal_learnings,
+                'personal_attribute' => $personal_attribute,
+                'job_competency' => $job_competency,
+                'compliance' => $compliance,
             ]);
 
         }
@@ -68,20 +100,35 @@ class AppraisalController extends Controller
 
             ]);
 
-            $appraisal = new Appraisal;
+            $data = Appraisal::where('period', $request->appraiser_period)->first();
 
-            $staff = Staff::where('UserID',auth()->user()->id)->first();
+            if ($data){
 
-            $appraisal->supervisorID = $staff->SupervisorID;
-            $appraisal->staffID = $staff->UserID;
-            $appraisal->employee_name = $request->employee_name;
-            $appraisal->period = $request->appraiser_period;
+                Session::flash('errorFlag', 'Appraisal for this period already started, check your queue.');
 
-            $appraisal->save();
+                return back();
 
-            Session::flash('success', 'Submitted, move to the next section.');
+            } else{
 
-            return back();
+                $appraisal = new Appraisal;
+
+                $staff = Staff::where('UserID',auth()->user()->id)->first();
+
+                $appraisal->supervisorID = $staff->SupervisorID;
+                $appraisal->staffID = $staff->UserID;
+                $appraisal->employee_name = $request->employee_name;
+                $appraisal->period = $request->appraiser_period;
+
+                $appraisal->save();
+
+                Session::flash('success', 'Submitted, move to the next section.');
+
+                return redirect()->route('dashboard')->with([
+                    'appraisalID' => $appraisal->id,
+                ]);
+
+            }
+
 
         }
 
@@ -112,6 +159,7 @@ class AppraisalController extends Controller
                 $appraisal->selfAssessment = $request->financial_self_ass[$i];
                 $appraisal->supervisorID = $staff->SupervisorID;
                 $appraisal->staffID = $staff->UserID;
+                $appraisal->appraisal_id = $request->appraisalID;
                 $appraisal->save();
 
             }
@@ -151,6 +199,7 @@ class AppraisalController extends Controller
                 $appraisal->selfAssessment = $request->stakeholders_self_ass[$i];
                 $appraisal->supervisorID = $staff->SupervisorID;
                 $appraisal->staffID = $staff->UserID;
+                $appraisal->appraisal_id = $request->appraisalID;
                 $appraisal->save();
 
             }
@@ -190,6 +239,7 @@ class AppraisalController extends Controller
                 $appraisal->selfAssessment = $request->internal_process_self_ass[$i];
                 $appraisal->supervisorID = $staff->SupervisorID;
                 $appraisal->staffID = $staff->UserID;
+                $appraisal->appraisal_id = $request->appraisalID;
                 $appraisal->save();
 
             }
@@ -229,6 +279,7 @@ class AppraisalController extends Controller
                 $appraisal->selfAssessment = $request->learning_self_ass[$i];
                 $appraisal->supervisorID = $staff->SupervisorID;
                 $appraisal->staffID = $staff->UserID;
+                $appraisal->appraisal_id = $request->appraisalID;
                 $appraisal->save();
 
             }
@@ -260,6 +311,7 @@ class AppraisalController extends Controller
             $appraisal->staffID = $staff->UserID;
             $appraisal->supervisorID = $staff->SupervisorID;
             $appraisal->appraiseeComment = $request->appraisee_comment;
+            $appraisal->appraisal_id = $request->appraisalID;
 
             $appraisal->save();
 
@@ -279,6 +331,7 @@ class AppraisalController extends Controller
             $appraisal2->staffID = $staff->UserID;
             $appraisal2->supervisorID = $staff->SupervisorID;
             $appraisal2->appraiseeSign = $filePath;
+            $appraisal2->appraisal_id = $request->appraisalID;
 
             $appraisal2->save();
 
@@ -297,33 +350,63 @@ class AppraisalController extends Controller
 
             $this->validate($request, [
 
-                'team_work_self_ass' => 'required|numeric',
-                'responsibility_self_ass' => 'required|numeric',
-                'integrity_self_ass' => 'required|numeric',
-                'innovation_self_ass' => 'required|numeric',
-                'passion_self_ass' => 'required|numeric',
+                'team_work' => 'required|numeric',
+                'responsibility' => 'required|numeric',
+                'integrity' => 'required|numeric',
+                'innovation' => 'required|numeric',
+                'passion' => 'required|numeric',
 
-                'self_starter_self_ass' => 'required|numeric',
-                'problem_solving_self_ass' => 'required|numeric',
-                'analytical_skill_self_ass' => 'required|numeric',
-                'technical_skill_self_ass' => 'required|numeric',
-                'leadership_self_ass' => 'required|numeric',
+                'self_starter' => 'required|numeric',
+                'problem_solving' => 'required|numeric',
+                'analytical_skill' => 'required|numeric',
+                'technical_skill' => 'required|numeric',
+                'leadership' => 'required|numeric',
 
-                'time_management_self_ass' => 'required|numeric',
-                'punctuality_self_ass' => 'required|numeric',
-                'policy_self_ass' => 'required|numeric',
-                'process_mgt_self_ass' => 'required|numeric',
-                'ethics_self_ass' => 'required|numeric',
+                'time_management' => 'required|numeric',
+                'punctuality' => 'required|numeric',
+                'policy' => 'required|numeric',
+                'process_mgt' => 'required|numeric',
+                'ethics' => 'required|numeric',
 
             ]);
 
-            $behavioural = new StaffBehaviouralItem;
+            $personal_attribute = new PersonalAttribute();
+            $job_competency = new JobCompetency();
+            $compliance = new Compliance();
 
             
             
             $staff = Staff::where('UserID',auth()->user()->id)->first();
-            $behavioural->staffID = $staff->UserID;
-            $behavioural->supervisorID = $staff->SupervisorID;
+
+            $personal_attribute->staffID = $staff->UserID;
+            $personal_attribute->supervisorID = $staff->SupervisorID;
+            $personal_attribute->team_work = $request->team_work;
+            $personal_attribute->responsibility = $request->responsibility;
+            $personal_attribute->integrity = $request->integrity;
+            $personal_attribute->innovation = $request->innovation;
+            $personal_attribute->passion = $request->passion;
+            $personal_attribute->appraisal_id = $request->appraisalID;
+            $personal_attribute->save();
+
+            $job_competency->staffID = $staff->UserID;
+            $job_competency->supervisorID = $staff->SupervisorID;
+            $job_competency->self_starter = $request->self_starter;
+            $job_competency->problem_solving = $request->problem_solving;
+            $job_competency->analytical_skill = $request->analytical_skill;
+            $job_competency->technical_skill = $request->technical_skill;
+            $job_competency->leadership = $request->leadership;
+            $job_competency->appraisal_id = $request->appraisalID;
+            $job_competency->save();
+
+            $compliance->staffID = $staff->UserID;
+            $compliance->supervisorID = $staff->SupervisorID;
+            $compliance->time_management = $request->time_management;
+            $compliance->punctuality = $request->punctuality;
+            $compliance->policy = $request->policy;
+            $compliance->process_mgt = $request->process_mgt;
+            $compliance->ethics = $request->ethics;
+            $compliance->appraisal_id = $request->appraisalID;
+            $compliance->save();
 
             // Mail::to($supervisor_email)->send(new StaffSendAppraisal($supervisor, $staff));
 
@@ -332,6 +415,50 @@ class AppraisalController extends Controller
             return back();
 
         }
+
+    }
+
+    public function editAppraisal($id)
+    {
+
+        $appraisal_finances = AppraisalFinance::where('StaffID', auth()->user()->staff->UserID)
+                                                    ->where('appraisal_id', $id)->get();
+        $appraisal_customers = AppraisalCustomer::where('StaffID', auth()->user()->staff->UserID)
+                                                    ->where('appraisal_id', $id)->get();
+        $appraisal_internals = AppraisalInternal::where('StaffID', auth()->user()->staff->UserID)
+                                                    ->where('appraisal_id', $id)->get();
+        $appraisal_learnings = AppraisalLearning::where('StaffID', auth()->user()->staff->UserID)
+                                                    ->where('appraisal_id', $id)->get();
+
+        $personal_attribute = PersonalAttribute::where('StaffID', auth()->user()->staff->UserID)
+                                                    ->where('appraisal_id', $id)->first();
+        $job_competency = JobCompetency::where('StaffID', auth()->user()->staff->UserID)
+                                            ->where('appraisal_id', $id)->first();
+        $compliance = Compliance::where('StaffID', auth()->user()->staff->UserID)
+                                    ->where('appraisal_id', $id)->first();
+
+        return view('appraisal.staff')->with([
+            'appraisalID' => $id,
+            'appraisal_finances' => $appraisal_finances,
+            'appraisal_customers' => $appraisal_customers,
+            'appraisal_internals' => $appraisal_internals,
+            'appraisal_learnings' => $appraisal_learnings,
+            'personal_attribute' => $personal_attribute,
+            'job_competency' => $job_competency,
+            'compliance' => $compliance,
+        ]);
+
+    }
+
+    public function deleteAppraisal($id)
+    {
+        $appraisal = Appraisal::find($id);
+
+        $appraisal->delete();
+
+        Session::flash('success', 'Appraisal Deleted.');
+
+        return back();
 
     }
 

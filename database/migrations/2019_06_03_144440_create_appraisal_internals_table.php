@@ -17,6 +17,7 @@ class CreateAppraisalInternalsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('staffID')->unsigned();
             $table->integer('supervisorID')->unsigned();
+            $table->integer('appraisal_id')->unsigned();
 
             $table->string('objective');
             $table->string('kpi');

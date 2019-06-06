@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class AppraisalSignature extends Model
 {
     protected $fillable = [
-        'staffID', 'supervisorID', 'appraiseeSign', 'appraiserSign', 'executiveSign', 'hrSign',
+        'staffID', 'supervisorID', 'appraiseeSign', 'appraiserSign', 'executiveSign', 'hrSign', 'appraisal_id',
     ];
 
     public function staff()

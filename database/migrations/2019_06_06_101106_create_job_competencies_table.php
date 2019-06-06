@@ -15,6 +15,14 @@ class CreateJobCompetenciesTable extends Migration
     {
         Schema::create('job_competencies', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->integer('staffID')->unsigned();
+            $table->integer('supervisorID')->unsigned();
+            $table->integer('appraisal_id')->unsigned();
+            $table->decimal('self_starter', 3, 1)->unsigned();
+            $table->decimal('problem_solving', 3, 1)->unsigned();
+            $table->decimal('analytical_skill', 3, 1)->unsigned();
+            $table->decimal('technical_skill', 3, 1)->unsigned();
+            $table->decimal('leadership', 3, 1)->unsigned();
             $table->timestamps();
         });
     }

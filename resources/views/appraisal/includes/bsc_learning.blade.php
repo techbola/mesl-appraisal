@@ -1,7 +1,7 @@
 <div class="tab-pane padding-20 slide-left" id="tab5">
 	<div class="row row-same-height">
-		<div class="col-md-12">
 
+		<div class="col-md-12">
 			<form action="{{ route('bsc_learning.store') }}" method="post" enctype="multipart/form-data">
 				@csrf
 				{{-- People/Learning --}}
@@ -81,6 +81,7 @@
 				<div class="form-group-attached">
 					<div class="row clearfix">
 						<div class="col-md-12">
+							<input type="hidden" name="appraisalID" value="{{ $appraisalID }}">
 							<button class="btn btn-primary btn-cons btn-animated" type="submit">
 								<span>Submit & Click Next</span>
 							</button>
@@ -89,7 +90,78 @@
 				</div>
 
 			</form>
-
 		</div>
+
+		@if($appraisal_learnings->count() > 0)
+
+			<div class="col-md-12" style="margin-top: 20px;">
+				<div class="panel panel-transparent">
+					<div class="panel-heading">
+						<div class="panel-title">People/Learning</div>
+						<div class="clearfix"></div>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive">
+							<table class="table table-hover" id="basicTable">
+								<thead>
+								<tr>
+									<th style="width:1%">
+										<button class="btn"><i class="pg-trash"></i>
+										</button>
+									</th>
+									<th style="width:20%">Objectives</th>
+									<th style="width:20%">KPIs</th>
+									<th style="width:29%">Targets</th>
+									<th style="width:15%">Constraints</th>
+									<th style="width:15%">Self Assessment</th>
+								</tr>
+								</thead>
+								<tbody>
+
+								@foreach($appraisal_learnings as $appraisal_learning)
+									<tr>
+										<td class="v-align-middle">
+											<div class="checkbox ">
+												<input type="checkbox" value="3" id="checkbox1">
+												<label for="checkbox1"></label>
+											</div>
+										</td>
+										<td class="v-align-middle ">
+											<p>
+												{{ $appraisal_learning->objective }}
+											</p>
+										</td>
+										<td class="v-align-middle">
+											<p>
+												{{ $appraisal_learning->kpi }}
+											</p>
+										</td>
+										<td class="v-align-middle">
+											<p>
+												{{ $appraisal_learning->target }}
+											</p>
+										</td>
+										<td class="v-align-middle">
+											<p>
+												{{ $appraisal_learning->constraint }}
+											</p>
+										</td>
+										<td class="v-align-middle">
+											<p>
+												{{ $appraisal_learning->selfAssessment }}
+											</p>
+										</td>
+									</tr>
+								@endforeach
+
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		@endif
+
 	</div>
 </div>

@@ -12,8 +12,18 @@ Route::get('/users', [
 
 Route::middleware(['auth'])->prefix('appraisal')->group(function () {
 
-    Route::get('/dashboard', [
+    Route::get('/', [
         'uses' => 'AppraisalController@index',
+        'as' => 'appraisal.index'
+    ]);
+
+    Route::get('/all/appraisals', [
+        'uses' => 'AppraisalController@allAppraisals',
+        'as' => 'allAppraisals'
+    ]);
+
+    Route::get('/dashboard', [
+        'uses' => 'AppraisalController@dashboard',
         'as' => 'dashboard'
     ]);
 
@@ -50,6 +60,16 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
     Route::post('/other_appraisal/store', [
         'uses' => 'AppraisalController@otherAppraisalStore',
         'as' => 'other_appraisal.store'
+    ]);
+
+    Route::get('/delete/appraisal/{id}', [
+        'uses' => 'AppraisalController@deleteAppraisal',
+        'as' => 'deleteAppraisal'
+    ]);
+
+    Route::get('/edit/appraisal/{id}', [
+        'uses' => 'AppraisalController@editAppraisal',
+        'as' => 'editAppraisal'
     ]);
 
 });

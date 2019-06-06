@@ -78,10 +78,16 @@
 		<!-- BEGIN SIDEBAR MENU ITEMS-->
 		<ul class="menu-items">
 			<li class="m-t-30 ">
-				<a href="#" class="detailed">
+				<a href="{{ route('appraisal.index') }}" class="detailed">
 					<span class="title">Dashboard</span>
 				</a>
 				<span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
+			</li>
+			<li class="">
+				<a href="{{ route('allAppraisals') }}">
+					<span class="title">Appraisals</span>
+				</a>
+				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
 			</li>
 		</ul>
 		<div class="clearfix"></div>

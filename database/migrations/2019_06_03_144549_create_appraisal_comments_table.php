@@ -17,6 +17,7 @@ class CreateAppraisalCommentsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('staffID')->unsigned();
             $table->integer('supervisorID')->unsigned();
+            $table->integer('appraisal_id')->unsigned();
 
             $table->string('appraiseeComment');
             $table->string('appraiserComment')->nullable();

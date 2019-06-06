@@ -29,13 +29,14 @@
 									</td>
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="team_work_self_ass">
+											<input type="text" class="form-control" name="team_work"
+												   value="{!! !empty($personal_attribute) ? $personal_attribute->team_work : '' !!}">
 										</div>
 									</td>
 									@if(auth()->user()->staff->SupervisorFlag)
 										<td>
 											<div class="form-group form-group-default">
-												<input type="text" class="form-control" name="team_work_supervisor_ass">
+												<input type="text" class="form-control" name="team_work2">
 											</div>
 										</td>
 									@endif
@@ -49,13 +50,14 @@
 									</td>
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="responsibility_self_ass">
+											<input type="text" class="form-control" name="responsibility"
+												   value="{!! !empty($personal_attribute) ? $personal_attribute->responsibility : '' !!}">
 										</div>
 									</td>
 									@if(auth()->user()->staff->SupervisorFlag)
 										<td>
 											<div class="form-group form-group-default">
-												<input type="text" class="form-control" name="responsibility_supervisor_ass">
+												<input type="text" class="form-control" name="responsibility2">
 											</div>
 										</td>
 									@endif
@@ -69,13 +71,14 @@
 									</td>
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="integrity_self_ass">
+											<input type="text" class="form-control" name="integrity"
+												   value="{!! !empty($personal_attribute) ? $personal_attribute->integrity : '' !!}">
 										</div>
 									</td>
 									@if(auth()->user()->staff->SupervisorFlag)
 										<td>
 											<div class="form-group form-group-default">
-												<input type="text" class="form-control" name="integrity_supervisor_ass">
+												<input type="text" class="form-control" name="integrity2">
 											</div>
 										</td>
 									@endif
@@ -89,13 +92,14 @@
 									</td>
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="innovation_self_ass">
+											<input type="text" class="form-control" name="innovation"
+												   value="{!! !empty($personal_attribute) ? $personal_attribute->innovation : '' !!}">
 										</div>
 									</td>
 									@if(auth()->user()->staff->SupervisorFlag)
 										<td>
 											<div class="form-group form-group-default">
-												<input type="text" class="form-control" name="innovation_supervisor_ass">
+												<input type="text" class="form-control" name="innovation2">
 											</div>
 										</td>
 									@endif
@@ -109,13 +113,14 @@
 									</td>
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="passion_self_ass">
+											<input type="text" class="form-control" name="passion"
+												   value="{!! !empty($personal_attribute) ? $personal_attribute->passion : '' !!}">
 										</div>
 									</td>
 									@if(auth()->user()->staff->SupervisorFlag)
 										<td>
 											<div class="form-group form-group-default">
-												<input type="text" class="form-control" name="passion_supervisor_ass">
+												<input type="text" class="form-control" name="passion2">
 											</div>
 										</td>
 									@endif
@@ -149,13 +154,14 @@
 								</td>
 								<td>
 									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="self_starter_self_ass">
+										<input type="text" class="form-control" name="self_starter"
+											   value="{!! !empty($job_competency) ? $job_competency->self_starter : '' !!}">
 									</div>
 								</td>
 								@if(auth()->user()->staff->SupervisorFlag)
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="self_starter_supervisor_ass">
+											<input type="text" class="form-control" name="self_starter2">
 										</div>
 									</td>
 								@endif
@@ -169,13 +175,14 @@
 								</td>
 								<td>
 									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="problem_solving_self_ass">
+										<input type="text" class="form-control" name="problem_solving"
+											   value="{!! !empty($job_competency) ? $job_competency->problem_solving : '' !!}">
 									</div>
 								</td>
 								@if(auth()->user()->staff->SupervisorFlag)
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="problem_solving_supervisor_ass">
+											<input type="text" class="form-control" name="problem_solving2">
 										</div>
 									</td>
 								@endif
@@ -189,13 +196,14 @@
 								</td>
 								<td>
 									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="analytical_skill_self_ass">
+										<input type="text" class="form-control" name="analytical_skill"
+											   value="{!! !empty($job_competency) ? $job_competency->analytical_skill : '' !!}">
 									</div>
 								</td>
 								@if(auth()->user()->staff->SupervisorFlag)
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="analytical_skill_supervisor_ass">
+											<input type="text" class="form-control" name="analytical_skill2">
 										</div>
 									</td>
 								@endif
@@ -209,13 +217,14 @@
 								</td>
 								<td>
 									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="technical_skill_self_ass">
+										<input type="text" class="form-control" name="technical_skill"
+											   value="{!! !empty($job_competency) ? $job_competency->technical_skill : '' !!}">
 									</div>
 								</td>
 								@if(auth()->user()->staff->SupervisorFlag)
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="technical_skill_supervisor_ass">
+											<input type="text" class="form-control" name="technical_skill2">
 										</div>
 									</td>
 								@endif
@@ -229,13 +238,14 @@
 								</td>
 								<td>
 									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="leadership_self_ass">
+										<input type="text" class="form-control" name="leadership"
+											   value="{!! !empty($job_competency) ? $job_competency->leadership : '' !!}">
 									</div>
 								</td>
 								@if(auth()->user()->staff->SupervisorFlag)
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="leadership_supervisor_ass">
+											<input type="text" class="form-control" name="leadership2">
 										</div>
 									</td>
 								@endif
@@ -269,13 +279,14 @@
 								</td>
 								<td>
 									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="time_management_self_ass">
+										<input type="text" class="form-control" name="time_management"
+										value="{!! !empty($compliance) ? $compliance->time_management : '' !!}">
 									</div>
 								</td>
 								@if(auth()->user()->staff->SupervisorFlag)
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="time_management_supervisor_ass">
+											<input type="text" class="form-control" name="time_management2">
 										</div>
 									</td>
 								@endif
@@ -289,13 +300,14 @@
 								</td>
 								<td>
 									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="punctuality_self_ass">
+										<input type="text" class="form-control" name="punctuality"
+										value="{!! !empty($compliance) ? $compliance->punctuality : '' !!}">
 									</div>
 								</td>
 								@if(auth()->user()->staff->SupervisorFlag)
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="punctuality_supervisor_ass">
+											<input type="text" class="form-control" name="punctuality2">
 										</div>
 									</td>
 								@endif
@@ -309,13 +321,14 @@
 								</td>
 								<td>
 									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="policy_self_ass">
+										<input type="text" class="form-control" name="policy"
+										value="{!! !empty($compliance) ? $compliance->policy : '' !!}">
 									</div>
 								</td>
 								@if(auth()->user()->staff->SupervisorFlag)
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="policy_supervisor_ass">
+											<input type="text" class="form-control" name="policy2">
 										</div>
 									</td>
 								@endif
@@ -329,13 +342,14 @@
 								</td>
 								<td>
 									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="process_mgt_self_ass">
+										<input type="text" class="form-control" name="process_mgt"
+										value="{!! !empty($compliance) ? $compliance->process_mgt : '' !!}">
 									</div>
 								</td>
 								@if(auth()->user()->staff->SupervisorFlag)
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="process_mgt_supervisor_ass">
+											<input type="text" class="form-control" name="process_mgt2">
 										</div>
 									</td>
 								@endif
@@ -349,13 +363,14 @@
 								</td>
 								<td>
 									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="ethics_self_ass">
+										<input type="text" class="form-control" name="ethics"
+											   value="{!! !empty($compliance) ? $compliance->ethics : '' !!}">
 									</div>
 								</td>
 								@if(auth()->user()->staff->SupervisorFlag)
 									<td>
 										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="ethics_supervisor_ass">
+											<input type="text" class="form-control" name="ethics2">
 										</div>
 									</td>
 								@endif
@@ -369,8 +384,9 @@
 				<div class="form-group-attached">
 					<div class="row clearfix">
 						<div class="col-md-12">
+							<input type="hidden" name="appraisalID" value="{{ $appraisalID }}">
 							<button class="btn btn-primary btn-cons btn-animated" type="submit">
-								<span>Final Submit</span>
+								<span>Submit</span>
 							</button>
 						</div>
 					</div>

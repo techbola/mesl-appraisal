@@ -1,7 +1,4 @@
 <ul class="nav nav-tabs nav-tabs-linetriangle nav-tabs-separator nav-stack-sm">
-	<li class="active">
-		<a data-toggle="tab" href="#tab1"><i class="fa fa-star tab-icon"></i> <span>Staff Details</span></a>
-	</li>
 	<li>
 		<a data-toggle="tab" href="#tab2"><i class="fa fa-star tab-icon"></i> <span>BSC (Finacial)</span></a>
 	</li>
