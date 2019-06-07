@@ -12,37 +12,39 @@
 					@include('appraisal.includes.appraisal_nav')
 				<!-- Tab panes -->
 
-					<div class="tab-content">
+				<div class="tab-content">
 
-						@include('appraisal.includes.bsc_financial')
-						@include('appraisal.includes.bsc_customer')
-						@include('appraisal.includes.bsc_internal')
-						@include('appraisal.includes.bsc_learning')
-						@include('appraisal.includes.staff_behavioural')
-						@include('appraisal.includes.others')
+					@include('appraisal.includes.bsc_financial')
+					@include('appraisal.includes.bsc_customer')
+					@include('appraisal.includes.bsc_internal')
+					@include('appraisal.includes.bsc_learning')
+					@include('appraisal.includes.staff_behavioural')
+					@include('appraisal.includes.others')
 
-						<div class="padding-20">
-							<ul class="pager wizard">
-								<li class="next">
-									<button class="btn btn-primary pull-right" type="button">
-										<span>Next</span>
-									</button>
-								</li>
-								<li class="previous">
-									<button class="btn btn-default pull-right" type="button">
-										<span>Previous</span>
-									</button>
-								</li>
-							</ul>
-						</div>
-
+					<div class="padding-20">
+						<ul class="pager wizard">
+							<li class="next">
+								<button class="btn btn-primary pull-right" type="button">
+									<span>Next</span>
+								</button>
+							</li>
+							<li class="previous">
+								<button class="btn btn-default pull-right" type="button">
+									<span>Previous</span>
+								</button>
+							</li>
+						</ul>
 					</div>
+
+				</div>
 
 			</div>
 		</div>
 		<!-- END CONTAINER FLUID -->
 	</div>
 	<!-- END PAGE CONTENT -->
+
+	@include('appraisal.includes.edit_appraisal_modals')
 
 @endsection
 
@@ -81,5 +83,9 @@
 		<script type="text/javascript" src="{{ asset('main/js/staff_add_row.js') }}"></script>
 
 	@endif
+
+	<script type="text/javascript" src="{{ asset('main/js/delete_checkbox_ids.js') }}"></script>
+
+	<script type="text/javascript" src="{{ asset('main/js/pass_appraisalid_to_modal.js') }}"></script>
 
 @endpush

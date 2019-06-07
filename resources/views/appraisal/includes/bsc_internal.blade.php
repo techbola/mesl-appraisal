@@ -83,7 +83,7 @@
 						<div class="col-md-12">
 							<input type="hidden" name="appraisalID" value="{{ $appraisalID }}">
 							<button class="btn btn-primary btn-cons btn-animated" type="submit">
-								<span>Submit & Click Next</span>
+								<span>Save & Continue</span>
 							</button>
 						</div>
 					</div>
@@ -106,14 +106,20 @@
 								<thead>
 								<tr>
 									<th style="width:1%">
-										<button class="btn"><i class="pg-trash"></i>
-										</button>
+										<form action="{{ route('deleteInternalAppraisals') }}" method="post">
+											{{ csrf_field() }}
+											<input type="hidden" name="appraisalIDs[]" id="appraisalIDs2">
+											<button type="submit" class="btn btn-danger">
+												<i class="pg-trash"></i>
+											</button>
+										</form>
 									</th>
 									<th style="width:20%">Objectives</th>
 									<th style="width:20%">KPIs</th>
-									<th style="width:29%">Targets</th>
-									<th style="width:15%">Constraints</th>
-									<th style="width:15%">Self Assessment</th>
+									<th style="width:15%">Targets</th>
+									<th style="width:20%">Constraints</th>
+									<th style="width:19%">Self Assessment</th>
+									<th style="width:5%">Action</th>
 								</tr>
 								</thead>
 								<tbody>
@@ -122,8 +128,8 @@
 									<tr>
 										<td class="v-align-middle">
 											<div class="checkbox ">
-												<input type="checkbox" value="3" id="checkbox1">
-												<label for="checkbox1"></label>
+												<input type="checkbox"  id="internalAppraisal-{{ $appraisal_internal->id }}" value="{{ $appraisal_internal->id }}" onclick="displayMsg2()">
+												<label for="internalAppraisal-{{ $appraisal_internal->id }}"></label>
 											</div>
 										</td>
 										<td class="v-align-middle ">
@@ -150,6 +156,20 @@
 											<p>
 												{{ $appraisal_internal->selfAssessment }}
 											</p>
+										</td>
+										<td class="v-align-middle">
+											<!-- Button trigger modal -->
+											<button type="button" class="btn btn-primary editInternalDialog"
+													data-id="{{ $appraisal_internal->id }}"
+													data-objective="{{ $appraisal_internal->objective }}"
+													data-kpi="{{ $appraisal_internal->kpi }}"
+													data-targets="{{ $appraisal_internal->target }}"
+													data-constraint="{{ $appraisal_internal->constraint }}"
+													data-assessment="{{ $appraisal_internal->selfAssessment }}"
+													data-toggle="modal"
+													data-target="#internalModal">
+												Edit
+											</button>
 										</td>
 									</tr>
 								@endforeach

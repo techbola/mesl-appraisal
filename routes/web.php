@@ -32,26 +32,6 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
         'as' => 'staff_details.store'
     ]);
 
-    Route::post('/bsc_financial/store', [
-        'uses' => 'AppraisalController@bscFinancialStore',
-        'as' => 'bsc_financial.store'
-    ]);
-
-    Route::post('/bsc_customer/store', [
-        'uses' => 'AppraisalController@bscCustomerStore',
-        'as' => 'bsc_customer.store'
-    ]);
-
-    Route::post('/bsc_internal/store', [
-        'uses' => 'AppraisalController@bscInternalStore',
-        'as' => 'bsc_internal.store'
-    ]);
-
-    Route::post('/bsc_learning/store', [
-        'uses' => 'AppraisalController@bscLearningStore',
-        'as' => 'bsc_learning.store'
-    ]);
-
     Route::post('/staff_behavioural/store', [
         'uses' => 'AppraisalController@staffBehaviouralStore',
         'as' => 'staff_behavioural.store'
@@ -70,6 +50,67 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
     Route::get('/edit/appraisal/{id}', [
         'uses' => 'AppraisalController@editAppraisal',
         'as' => 'editAppraisal'
+    ]);
+
+    Route::get('/submit/appraisal/{id}/hr', [
+        'uses' => 'AppraisalController@submitAppraisalHR',
+        'as' => 'submitAppraisalHR'
+    ]);
+
+//    Finance Appraisal
+    Route::post('/bsc_financial/store', [
+        'uses' => 'FinanceAppraisalController@bscFinancialStore',
+        'as' => 'bsc_financial.store'
+    ]);
+    Route::post('/delete/finance/appraisals', [
+        'uses' => 'FinanceAppraisalController@deleteAppraisals',
+        'as' => 'deleteFinanceAppraisals'
+    ]);
+    Route::post('/update/finance/appraisal', [
+        'uses' => 'FinanceAppraisalController@updateFinanceAppraisal',
+        'as' => 'updateFinanceAppraisal'
+    ]);
+
+//    Customer Appraisal
+    Route::post('/bsc_customer/store', [
+        'uses' => 'CustomerAppraisalController@bscCustomerStore',
+        'as' => 'bsc_customer.store'
+    ]);
+    Route::post('/delete/customer/appraisals', [
+        'uses' => 'CustomerAppraisalController@deleteAppraisals',
+        'as' => 'deleteCustomerAppraisals'
+    ]);
+    Route::post('/update/customer/appraisal', [
+        'uses' => 'CustomerAppraisalController@updateCustomerAppraisal',
+        'as' => 'updateCustomerAppraisal'
+    ]);
+
+//    Internal process Appraisal
+    Route::post('/bsc_internal/store', [
+        'uses' => 'InternalAppraisalController@bscInternalStore',
+        'as' => 'bsc_internal.store'
+    ]);
+    Route::post('/delete/internal/appraisals', [
+        'uses' => 'InternalAppraisalController@deleteAppraisals',
+        'as' => 'deleteInternalAppraisals'
+    ]);
+    Route::post('/update/internal/appraisal', [
+        'uses' => 'InternalAppraisalController@updateInternalAppraisal',
+        'as' => 'updateInternalAppraisal'
+    ]);
+
+//    Learning Appraisal
+    Route::post('/bsc_learning/store', [
+        'uses' => 'LearningAppraisalController@bscLearningStore',
+        'as' => 'bsc_learning.store'
+    ]);
+    Route::post('/delete/learning/appraisals', [
+        'uses' => 'LearningAppraisalController@deleteAppraisals',
+        'as' => 'deleteLearningAppraisals'
+    ]);
+    Route::post('/update/learning/appraisal', [
+        'uses' => 'LearningAppraisalController@updateLearningAppraisal',
+        'as' => 'updateLearningAppraisal'
     ]);
 
 });

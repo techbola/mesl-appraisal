@@ -83,7 +83,7 @@
 						<div class="col-md-12">
 							<input type="hidden" name="appraisalID" value="{{ $appraisalID }}">
 							<button class="btn btn-primary btn-cons btn-animated" type="submit">
-								<span>Submit & Click Next</span>
+								<span>Save & Continue</span>
 							</button>
 						</div>
 					</div>
@@ -106,14 +106,20 @@
 								<thead>
 								<tr>
 									<th style="width:1%">
-										<button class="btn"><i class="pg-trash"></i>
-										</button>
+										<form action="{{ route('deleteLearningAppraisals') }}" method="post">
+											{{ csrf_field() }}
+											<input type="hidden" name="appraisalIDs[]" id="appraisalIDs3">
+											<button type="submit" class="btn btn-danger">
+												<i class="pg-trash"></i>
+											</button>
+										</form>
 									</th>
 									<th style="width:20%">Objectives</th>
 									<th style="width:20%">KPIs</th>
-									<th style="width:29%">Targets</th>
-									<th style="width:15%">Constraints</th>
-									<th style="width:15%">Self Assessment</th>
+									<th style="width:15%">Targets</th>
+									<th style="width:20%">Constraints</th>
+									<th style="width:19%">Self Assessment</th>
+									<th style="width:5%">Action</th>
 								</tr>
 								</thead>
 								<tbody>
@@ -122,8 +128,8 @@
 									<tr>
 										<td class="v-align-middle">
 											<div class="checkbox ">
-												<input type="checkbox" value="3" id="checkbox1">
-												<label for="checkbox1"></label>
+												<input type="checkbox"  id="learningAppraisal-{{ $appraisal_learning->id }}" value="{{ $appraisal_learning->id }}" onclick="displayMsg3()">
+												<label for="learningAppraisal-{{ $appraisal_learning->id }}"></label>
 											</div>
 										</td>
 										<td class="v-align-middle ">
@@ -150,6 +156,20 @@
 											<p>
 												{{ $appraisal_learning->selfAssessment }}
 											</p>
+										</td>
+										<td class="v-align-middle">
+											<!-- Button trigger modal -->
+											<button type="button" class="btn btn-primary editLearningDialog"
+													data-id="{{ $appraisal_learning->id }}"
+													data-objective="{{ $appraisal_learning->objective }}"
+													data-kpi="{{ $appraisal_learning->kpi }}"
+													data-targets="{{ $appraisal_learning->target }}"
+													data-constraint="{{ $appraisal_learning->constraint }}"
+													data-assessment="{{ $appraisal_learning->selfAssessment }}"
+													data-toggle="modal"
+													data-target="#learningModal">
+												Edit
+											</button>
 										</td>
 									</tr>
 								@endforeach

@@ -36,7 +36,6 @@ class AppraisalController extends Controller
 
     }
 
-
     public function allAppraisals()
     {
 
@@ -121,7 +120,7 @@ class AppraisalController extends Controller
 
                 $appraisal->save();
 
-                Session::flash('success', 'Submitted, move to the next section.');
+                Session::flash('success', 'Saved, move to the next section.');
 
                 return redirect()->route('dashboard')->with([
                     'appraisalID' => $appraisal->id,
@@ -129,164 +128,6 @@ class AppraisalController extends Controller
 
             }
 
-
-        }
-
-    }
-
-    public function bscFinancialStore(Request $request)
-    {
-
-        if (!auth()->user()->staff->SupervisorFlag){
-
-            $this->validate($request, [
-                'financial_objective.*' => 'required|string',
-                'financial_kpi.*' => 'required|string',
-                'financial_target.*' => 'required|string',
-                'financial_constraint.*' => 'required|string',
-                'financial_self_ass.*' => 'required|numeric',
-            ]);
-
-            $staff = Staff::where('UserID',auth()->user()->id)->first();
-
-            for($i=0;$i<count($request->financial_objective);$i++){
-
-                $appraisal = new AppraisalFinance;
-                $appraisal->objective = $request->financial_objective[$i];
-                $appraisal->kpi = $request->financial_kpi[$i];
-                $appraisal->target = $request->financial_target[$i];
-                $appraisal->constraint = $request->financial_constraint[$i];
-                $appraisal->selfAssessment = $request->financial_self_ass[$i];
-                $appraisal->supervisorID = $staff->SupervisorID;
-                $appraisal->staffID = $staff->UserID;
-                $appraisal->appraisal_id = $request->appraisalID;
-                $appraisal->save();
-
-            }
-
-            Session::flash('success', 'Submitted, move to the next section.');
-
-            return back();
-
-        }
-
-    }
-
-    public function bscCustomerStore(Request $request)
-    {
-
-        if (!auth()->user()->staff->SupervisorFlag){
-
-            $this->validate($request, [
-
-                'stakeholders_objective.*' => 'required|string',
-                'stakeholders_kpi.*' => 'required|string',
-                'stakeholders_target.*' => 'required|string',
-                'stakeholders_constraint.*' => 'required|string',
-                'stakeholders_self_ass.*' => 'required|numeric',
-
-            ]);
-
-            $staff = Staff::where('UserID',auth()->user()->id)->first();
-
-            for($i=0;$i<count($request->financial_objective);$i++){
-                
-                $appraisal = new AppraisalCustomer;
-                $appraisal->objective = $request->stakeholders_objective[$i];
-                $appraisal->kpi = $request->stakeholders_kpi[$i];
-                $appraisal->target = $request->stakeholders_target[$i];
-                $appraisal->constraint = $request->stakeholders_constraint[$i];
-                $appraisal->selfAssessment = $request->stakeholders_self_ass[$i];
-                $appraisal->supervisorID = $staff->SupervisorID;
-                $appraisal->staffID = $staff->UserID;
-                $appraisal->appraisal_id = $request->appraisalID;
-                $appraisal->save();
-
-            }
-
-            Session::flash('success', 'Submitted, move to the next section.');
-
-            return back();
-
-        }
-
-    }
-
-    public function bscInternalStore(Request $request)
-    {
-
-        if (!auth()->user()->staff->SupervisorFlag){
-
-            $this->validate($request, [
-
-                'internal_process_objective.*' => 'required|string',
-                'internal_process_kpi.*' => 'required|string',
-                'internal_process_target.*' => 'required|string',
-                'internal_process_constraint.*' => 'required|string',
-                'internal_process_self_ass.*' => 'required|numeric',
-
-            ]);
-
-            $staff = Staff::where('UserID',auth()->user()->id)->first();
-
-            for($i=0;$i<count($request->financial_objective);$i++){
-                
-                $appraisal = new AppraisalInternal;
-                $appraisal->objective = $request->internal_process_objective[$i];
-                $appraisal->kpi = $request->internal_process_kpi[$i];
-                $appraisal->target = $request->internal_process_target[$i];
-                $appraisal->constraint = $request->internal_process_constraint[$i];
-                $appraisal->selfAssessment = $request->internal_process_self_ass[$i];
-                $appraisal->supervisorID = $staff->SupervisorID;
-                $appraisal->staffID = $staff->UserID;
-                $appraisal->appraisal_id = $request->appraisalID;
-                $appraisal->save();
-
-            }
-
-            Session::flash('success', 'Submitted, move to the next section.');
-
-            return back();
-
-        }
-
-    }
-
-    public function bscLearningStore(Request $request)
-    {
-
-        if (!auth()->user()->staff->SupervisorFlag){
-
-            $this->validate($request, [
-
-                'learning_objective.*' => 'required|string',
-                'learning_kpi.*' => 'required|string',
-                'learning_target.*' => 'required|string',
-                'learning_constraint.*' => 'required|string',
-                'learning_self_ass.*' => 'required|numeric',
-
-            ]);
-
-            $staff = Staff::where('UserID',auth()->user()->id)->first();
-
-            for($i=0;$i<count($request->financial_objective);$i++){
-                
-                $appraisal = new AppraisalLearning;
-                $appraisal->objective = $request->learning_objective[$i];
-                $appraisal->kpi = $request->learning_kpi[$i];
-                $appraisal->target = $request->learning_target[$i];
-                $appraisal->constraint = $request->learning_constraint[$i];
-                $appraisal->selfAssessment = $request->learning_self_ass[$i];
-                $appraisal->supervisorID = $staff->SupervisorID;
-                $appraisal->staffID = $staff->UserID;
-                $appraisal->appraisal_id = $request->appraisalID;
-                $appraisal->save();
-
-            }
-
-            Session::flash('success', 'Submitted, move to the next section.');
-
-            return back();
 
         }
 
@@ -320,7 +161,7 @@ class AppraisalController extends Controller
             // Make a image name based on user name and current timestamp
             $name = str_slug($request->input('appraisee_sign')).'_'.time();
             // Define folder path
-            $folder = '/uploads/images';
+            $folder = '/uploads/appraisals';
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
             // Upload image
@@ -335,7 +176,7 @@ class AppraisalController extends Controller
 
             $appraisal2->save();
 
-            Session::flash('success', 'Submitted, move to the next section.');
+            Session::flash('success', 'Saved, move to the next section.');
 
             return back();
 
@@ -408,9 +249,7 @@ class AppraisalController extends Controller
             $compliance->appraisal_id = $request->appraisalID;
             $compliance->save();
 
-            // Mail::to($supervisor_email)->send(new StaffSendAppraisal($supervisor, $staff));
-
-            Session::flash('success', 'Appraisal Submitted.');
+            Session::flash('success', 'Saved!');
 
             return back();
 
@@ -447,6 +286,33 @@ class AppraisalController extends Controller
             'job_competency' => $job_competency,
             'compliance' => $compliance,
         ]);
+
+    }
+
+    public function submitAppraisalHR($id)
+    {
+
+        $appraisal = Appraisal::find($id);
+
+        $staffID = $appraisal->staffID;
+        $supervisorID = $appraisal->supervisorID;
+
+        $supervisorUserID = Staff::where('StaffRef', $supervisorID)->first()->UserID;
+
+        $supervisor_email = User::where('id', $supervisorUserID)->first()->email;
+
+        dd($supervisor_email);
+
+        Mail::to($supervisor_email)->send(new StaffSendAppraisal($supervisorUserID, $staffID));
+
+        $appraisal->sentFlag = true;
+        $appraisal->status = 1;
+
+        $appraisal->save();
+
+        Session::flash('success', 'Saved!');
+
+        return back();
 
     }
 

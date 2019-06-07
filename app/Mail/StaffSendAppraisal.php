@@ -11,19 +11,19 @@ class StaffSendAppraisal extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $supervisor;
-    public $staff;
+    public $supervisorUserID;
+    public $staffID;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($supervisor, $staff)
+    public function __construct($supervisorUserID, $staffID)
     {
 
-        $this->supervisor = $supervisor;
-        $this->staff = $staff;
+        $this->supervisorUserID = $supervisorUserID;
+        $this->staffID = $staffID;
 
     }
 
