@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -11,19 +12,13 @@ class StaffSendAppraisal extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $supervisorUserID;
-    public $staffID;
-
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($supervisorUserID, $staffID)
+    public function __construct()
     {
-
-        $this->supervisorUserID = $supervisorUserID;
-        $this->staffID = $staffID;
 
     }
 

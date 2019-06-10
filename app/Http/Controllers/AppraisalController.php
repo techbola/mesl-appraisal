@@ -39,7 +39,7 @@ class AppraisalController extends Controller
     public function allAppraisals()
     {
 
-        $appraisals = Appraisal::where('StaffID', auth()->user()->staff->UserID)->get();
+        $appraisals = Appraisal::where('StaffID', auth()->user()->staff->StaffRef)->get();
 
         return view('appraisal.queues')->with([
             'appraisals' => $appraisals
@@ -47,21 +47,23 @@ class AppraisalController extends Controller
 
     }
 
-    public function dashboard()
+    public function dashboard($appraisalID)
     {
 
         if (!auth()->user()->staff->SupervisorFlag){
 
-            $appraisalID = Session::get('appraisalID');
+            $appraisal_finances = AppraisalFinance::where('staffID', auth()->user()->staff->StaffRef)
+                                                    ->where('appraisal_id', $appraisalID)->get();
+            $appraisal_customers = AppraisalCustomer::where('staffID', auth()->user()->staff->StaffRef)->where('appraisal_id', $appraisalID)->get();
+            $appraisal_internals = AppraisalInternal::where('staffID', auth()->user()->staff->StaffRef)->where('appraisal_id', $appraisalID)->get();
+            $appraisal_learnings = AppraisalLearning::where('staffID', auth()->user()->staff->StaffRef)->where('appraisal_id', $appraisalID)->get();
 
-            $appraisal_finances = AppraisalFinance::where('StaffID', auth()->user()->staff->UserID)->get();
-            $appraisal_customers = AppraisalCustomer::where('StaffID', auth()->user()->staff->UserID)->get();
-            $appraisal_internals = AppraisalInternal::where('StaffID', auth()->user()->staff->UserID)->get();
-            $appraisal_learnings = AppraisalLearning::where('StaffID', auth()->user()->staff->UserID)->get();
+            $personal_attribute = PersonalAttribute::where('staffID', auth()->user()->staff->StaffRef)->first();
+            $job_competency = JobCompetency::where('staffID', auth()->user()->staff->StaffRef)->first();
+            $compliance = Compliance::where('staffID', auth()->user()->staff->StaffRef)->first();
 
-            $personal_attribute = PersonalAttribute::where('StaffID', auth()->user()->staff->UserID)->first();
-            $job_competency = JobCompetency::where('StaffID', auth()->user()->staff->UserID)->first();
-            $compliance = Compliance::where('StaffID', auth()->user()->staff->UserID)->first();
+            $comments = AppraisalComment::where('staffID', auth()->user()->staff->StaffRef)->first();
+            $signatures = AppraisalSignature::where('staffID', auth()->user()->staff->StaffRef)->first();
 
             return view('appraisal.staff')->with([
                 'appraisalID' => $appraisalID,
@@ -72,14 +74,14 @@ class AppraisalController extends Controller
                 'personal_attribute' => $personal_attribute,
                 'job_competency' => $job_competency,
                 'compliance' => $compliance,
+                'comments' => $comments,
+                'signatures' => $signatures,
             ]);
 
         }
         elseif (auth()->user()->staff->SupervisorFlag){
 
-            $staffs = Staff::where('SupervisorID', auth()->user()->staff->staffRef)->get()->all();
-            // dd(count($staffs));
-            return view('supervisor.index', compact('staffs'));
+            return redirect()->route('supervisor.index');
 
     }
 
@@ -114,7 +116,7 @@ class AppraisalController extends Controller
                 $staff = Staff::where('UserID',auth()->user()->id)->first();
 
                 $appraisal->supervisorID = $staff->SupervisorID;
-                $appraisal->staffID = $staff->UserID;
+                $appraisal->staffID = $staff->StaffRef;
                 $appraisal->employee_name = $request->employee_name;
                 $appraisal->period = $request->appraiser_period;
 
@@ -122,9 +124,7 @@ class AppraisalController extends Controller
 
                 Session::flash('success', 'Saved, move to the next section.');
 
-                return redirect()->route('dashboard')->with([
-                    'appraisalID' => $appraisal->id,
-                ]);
+                return redirect()->route('dashboard', ['appraisalID' => $appraisal->id]);
 
             }
 
@@ -149,7 +149,7 @@ class AppraisalController extends Controller
 
             $staff = Staff::where('UserID',auth()->user()->id)->first();
 
-            $appraisal->staffID = $staff->UserID;
+            $appraisal->staffID = $staff->StaffRef;
             $appraisal->supervisorID = $staff->SupervisorID;
             $appraisal->appraiseeComment = $request->appraisee_comment;
             $appraisal->appraisal_id = $request->appraisalID;
@@ -161,7 +161,7 @@ class AppraisalController extends Controller
             // Make a image name based on user name and current timestamp
             $name = str_slug($request->input('appraisee_sign')).'_'.time();
             // Define folder path
-            $folder = '/uploads/appraisals';
+            $folder = '/uploads/appraisals/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
             $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
             // Upload image
@@ -169,7 +169,7 @@ class AppraisalController extends Controller
 
             $appraisal2 = new AppraisalSignature;
 
-            $appraisal2->staffID = $staff->UserID;
+            $appraisal2->staffID = $staff->StaffRef;
             $appraisal2->supervisorID = $staff->SupervisorID;
             $appraisal2->appraiseeSign = $filePath;
             $appraisal2->appraisal_id = $request->appraisalID;
@@ -178,7 +178,7 @@ class AppraisalController extends Controller
 
             Session::flash('success', 'Saved, move to the next section.');
 
-            return back();
+            return redirect()->route('dashboard', ['appraisalID' => $request->appraisalID]);
 
         }
 
@@ -219,7 +219,7 @@ class AppraisalController extends Controller
             
             $staff = Staff::where('UserID',auth()->user()->id)->first();
 
-            $personal_attribute->staffID = $staff->UserID;
+            $personal_attribute->staffID = $staff->StaffRef;
             $personal_attribute->supervisorID = $staff->SupervisorID;
             $personal_attribute->team_work = $request->team_work;
             $personal_attribute->responsibility = $request->responsibility;
@@ -229,7 +229,7 @@ class AppraisalController extends Controller
             $personal_attribute->appraisal_id = $request->appraisalID;
             $personal_attribute->save();
 
-            $job_competency->staffID = $staff->UserID;
+            $job_competency->staffID = $staff->StaffRef;
             $job_competency->supervisorID = $staff->SupervisorID;
             $job_competency->self_starter = $request->self_starter;
             $job_competency->problem_solving = $request->problem_solving;
@@ -239,7 +239,7 @@ class AppraisalController extends Controller
             $job_competency->appraisal_id = $request->appraisalID;
             $job_competency->save();
 
-            $compliance->staffID = $staff->UserID;
+            $compliance->staffID = $staff->StaffRef;
             $compliance->supervisorID = $staff->SupervisorID;
             $compliance->time_management = $request->time_management;
             $compliance->punctuality = $request->punctuality;
@@ -251,7 +251,7 @@ class AppraisalController extends Controller
 
             Session::flash('success', 'Saved!');
 
-            return back();
+            return redirect()->route('dashboard', ['appraisalID' => $request->appraisalID]);
 
         }
 
@@ -260,21 +260,17 @@ class AppraisalController extends Controller
     public function editAppraisal($id)
     {
 
-        $appraisal_finances = AppraisalFinance::where('StaffID', auth()->user()->staff->UserID)
-                                                    ->where('appraisal_id', $id)->get();
-        $appraisal_customers = AppraisalCustomer::where('StaffID', auth()->user()->staff->UserID)
-                                                    ->where('appraisal_id', $id)->get();
-        $appraisal_internals = AppraisalInternal::where('StaffID', auth()->user()->staff->UserID)
-                                                    ->where('appraisal_id', $id)->get();
-        $appraisal_learnings = AppraisalLearning::where('StaffID', auth()->user()->staff->UserID)
-                                                    ->where('appraisal_id', $id)->get();
+        $appraisal_finances = AppraisalFinance::where('appraisal_id', $id)->get();
+        $appraisal_customers = AppraisalCustomer::where('appraisal_id', $id)->get();
+        $appraisal_internals = AppraisalInternal::where('appraisal_id', $id)->get();
+        $appraisal_learnings = AppraisalLearning::where('appraisal_id', $id)->get();
 
-        $personal_attribute = PersonalAttribute::where('StaffID', auth()->user()->staff->UserID)
-                                                    ->where('appraisal_id', $id)->first();
-        $job_competency = JobCompetency::where('StaffID', auth()->user()->staff->UserID)
-                                            ->where('appraisal_id', $id)->first();
-        $compliance = Compliance::where('StaffID', auth()->user()->staff->UserID)
-                                    ->where('appraisal_id', $id)->first();
+        $personal_attribute = PersonalAttribute::where('appraisal_id', $id)->first();
+        $job_competency = JobCompetency::where('appraisal_id', $id)->first();
+        $compliance = Compliance::where('appraisal_id', $id)->first();
+
+        $comments = AppraisalComment::where('appraisal_id', $id)->first();
+        $signatures = AppraisalSignature::where('appraisal_id', $id)->first();
 
         return view('appraisal.staff')->with([
             'appraisalID' => $id,
@@ -285,6 +281,8 @@ class AppraisalController extends Controller
             'personal_attribute' => $personal_attribute,
             'job_competency' => $job_competency,
             'compliance' => $compliance,
+            'comments' => $comments,
+            'signatures' => $signatures,
         ]);
 
     }
@@ -294,23 +292,21 @@ class AppraisalController extends Controller
 
         $appraisal = Appraisal::find($id);
 
-        $staffID = $appraisal->staffID;
         $supervisorID = $appraisal->supervisorID;
 
-        $supervisorUserID = Staff::where('StaffRef', $supervisorID)->first()->UserID;
+        $supervisor = Staff::find($supervisorID);
+        $supervisor_email = $supervisor->user->email;
 
-        $supervisor_email = User::where('id', $supervisorUserID)->first()->email;
+//        dd($supervisor_email);
 
-        dd($supervisor_email);
-
-        Mail::to($supervisor_email)->send(new StaffSendAppraisal($supervisorUserID, $staffID));
+        Mail::to($supervisor_email)->send(new StaffSendAppraisal());
 
         $appraisal->sentFlag = true;
         $appraisal->status = 1;
 
         $appraisal->save();
 
-        Session::flash('success', 'Saved!');
+        Session::flash('success', 'Appraisal Submitted!');
 
         return back();
 
@@ -323,6 +319,84 @@ class AppraisalController extends Controller
         $appraisal->delete();
 
         Session::flash('success', 'Appraisal Deleted.');
+
+        return back();
+
+    }
+
+    public function deleteAppraisalComment($id)
+    {
+        $appraisal = AppraisalComment::find($id);
+
+        $appraisal->delete();
+
+        Session::flash('success', 'Comment Deleted.');
+
+        return back();
+
+    }
+
+    public function updateAppraisalComment(Request $request)
+    {
+
+//        dd($request->all());
+
+        $this->validate($request, [
+            'appraiseeComment' => 'required|string',
+        ]);
+
+        $appraisal = AppraisalComment::find($request->commentID);
+
+//        dd($appraisal);
+
+        $appraisal->appraiseeComment = $request->appraiseeComment;
+
+        $appraisal->save();
+
+        Session::flash('success', 'Comment Updated!.');
+
+        return back();
+
+    }
+
+    public function deleteAppraisalSignature($id)
+    {
+        $appraisal = AppraisalSignature::find($id);
+
+        $appraisal->delete();
+
+        Session::flash('success', 'Signature Deleted.');
+
+        return back();
+
+    }
+
+    public function updateAppraisalSign(Request $request)
+    {
+
+        $this->validate($request, [
+            'appraiseeSign' => 'required|image',
+        ]);
+
+        $appraisal = AppraisalSignature::find($request->signatureID);
+
+        // Get image file
+        $image = $request->file('appraiseeSign');
+        // Make a image name based on user name and current timestamp
+        $name = str_slug($request->input('appraiseeSign')).'_'.time();
+        // Define folder path
+        $folder = '/uploads/appraisals/';
+        // Make a file path where image will be stored [ folder path + file name + file extension]
+        $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
+        // Upload image
+        $appraisee_sign = $this->uploadOne($image, $folder, 'public', $name);
+
+//        dd($filePath);
+
+        $appraisal->appraiseeSign = $filePath;
+        $appraisal->save();
+
+        Session::flash('success', 'Signature Updated!.');
 
         return back();
 

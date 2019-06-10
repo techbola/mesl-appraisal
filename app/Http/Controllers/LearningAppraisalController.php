@@ -36,7 +36,7 @@ class LearningAppraisalController extends Controller
                 $appraisal->constraint = $request->learning_constraint[$i];
                 $appraisal->selfAssessment = $request->learning_self_ass[$i];
                 $appraisal->supervisorID = $staff->SupervisorID;
-                $appraisal->staffID = $staff->UserID;
+                $appraisal->staffID = $staff->StaffRef;
                 $appraisal->appraisal_id = $request->appraisalID;
                 $appraisal->save();
 
@@ -44,7 +44,7 @@ class LearningAppraisalController extends Controller
 
             Session::flash('success', 'Submitted, move to the next section.');
 
-            return back();
+            return redirect()->route('dashboard', ['appraisalID' => $request->appraisalID]);
 
         }
 

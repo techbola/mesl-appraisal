@@ -13,7 +13,7 @@ class AppraisalFinance extends Model
 
     public function staff()
     {
-        return $this->belongsTo('App\Staff');
+        return $this->belongsTo('App\Staff', 'staffID');
     }
     
 }

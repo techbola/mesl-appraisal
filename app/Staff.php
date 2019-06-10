@@ -169,43 +169,43 @@ class Staff extends Model
 
     public function appraisals()
     {
-        return $this->hasMany('App\Appraisal');
+        return $this->hasMany('App\Appraisal', 'staffID');
     }
     public function appraisalcomments()
     {
-        return $this->hasMany('App\AppraisalComment');
+        return $this->hasMany('App\AppraisalComment', 'staffID');
     }
     public function appraisalcustomers()
     {
-        return $this->hasMany('App\AppraisalCustomer');
+        return $this->hasMany('App\AppraisalCustomer', 'staffID');
     }
     public function appraisalfinances()
     {
-        return $this->hasMany('App\AppraisalFinance');
+        return $this->hasMany('App\AppraisalFinance', 'staffID');
     }
     public function appraisalinternals()
     {
-        return $this->hasMany('App\AppraisalInternal');
+        return $this->hasMany('App\AppraisalInternal', 'staffID');
     }
     public function appraisallearnings()
     {
-        return $this->hasMany('App\AppraisalLearning');
+        return $this->hasMany('App\AppraisalLearning', 'staffID');
     }
     public function appraisalrecommendations()
     {
-        return $this->hasMany('App\AppraisalRecommendation');
+        return $this->hasMany('App\AppraisalRecommendation', 'staffID');
     }
     public function appraisalsignatures()
     {
-        return $this->hasMany('App\AppraisalSignature');
+        return $this->hasMany('App\AppraisalSignature', 'staffID');
     }
     public function appraisaltrainings()
     {
-        return $this->hasMany('App\AppraisalTraining');
+        return $this->hasMany('App\AppraisalTraining', 'staffID');
     }
     public function staffbevaviouralitems()
     {
-        return $this->hasMany('App\StaffBehaviouralItem');
+        return $this->hasMany('App\StaffBehaviouralItem', 'staffID');
     }
 
 }

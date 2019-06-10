@@ -35,7 +35,7 @@ class FinanceAppraisalController extends Controller
                 $appraisal->constraint = $request->financial_constraint[$i];
                 $appraisal->selfAssessment = $request->financial_self_ass[$i];
                 $appraisal->supervisorID = $staff->SupervisorID;
-                $appraisal->staffID = $staff->UserID;
+                $appraisal->staffID = $staff->StaffRef;
                 $appraisal->appraisal_id = $request->appraisalID;
                 $appraisal->save();
 
@@ -43,7 +43,7 @@ class FinanceAppraisalController extends Controller
 
             Session::flash('success', 'Submitted, move to the next section.');
 
-            return back();
+            return redirect()->route('dashboard', ['appraisalID' => $request->appraisalID]);
 
         }
 

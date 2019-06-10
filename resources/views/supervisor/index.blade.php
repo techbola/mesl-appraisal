@@ -17,43 +17,52 @@
 			<!-- START PANEL -->
 			<div class="panel panel-transparent">
 				<div class="panel-heading">
-					<div class="panel-title">Staffs
+					<div class="panel-title">Staff Appraisals
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="panel-body">
 
-					@if(count($staffs) > 0)
+					@if(count($appraisals) > 0)
 
 						<div class="table-responsive">
 							<table class="table table-hover" id="basicTable">
 								<thead>
 								<tr>
 									<th style="width:40%">Staff</th>
+									<th style="width:10%">Period</th>
 									<th style="width:20%">Date Submitted</th>
-									<th style="width:40%">Action</th>
+									<th style="width:30%">Action</th>
 								</tr>
 								</thead>
 								<tbody>
 
-									@foreach($staffs as $staff)
+									@foreach($appraisals as $appraisal)
 
 										<tr>
 											<td class="v-align-middle ">
-												<p>First Tour</p>
+												<p>{{ $appraisal->staff->user->first_name. ' ' .$appraisal->staff->user->last_name }}</p>
+											</td>
+											<td class="v-align-middle ">
+												<p>{{ $appraisal->period }}</p>
 											</td>
 											<td class="v-align-middle">
-												<p>United States, India, China,Africa</p>
+												<p>{{ $appraisal->updated_at->toFormattedDateString() }}</p>
 											</td>
 											<td class="v-align-middle">
-												<p>it is more then ONE nation/nationality as its fall name is The United Kingdom of Great Britain and North Ireland..</p>
+												<p>
+
+													<a href="{{ route('hrViewAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-info btn-sm">View</a>
+													<a href="#" class="btn btn-primary btn-sm" disabled="">Approve</a>
+
+												</p>
 											</td>
 										</tr>
 
 									@endforeach
 								@else
 									<tr>
-										<td>No Staff!</td>
+										<td>No Appraisal has been submitted yet!</td>
 									</tr>
 
 								</tbody>

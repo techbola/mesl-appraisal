@@ -69,3 +69,21 @@ $(document).on("click", ".editLearningDialog", function () {
     $("#learningAppraisalAssessment").val( appraisalAssessment );
 
 });
+
+$(document).on("click", ".editCommentDialog", function () {
+
+    let commentId = $(this).data('id');
+    let appraiseeComment = $(this).data('comment');
+
+    $("#commentAppraisalID").val( commentId );
+    $("#appraiseeComment").val( appraiseeComment );
+
+});
+
+$(document).on("click", ".editSignDialog", function () {
+
+    let signatureID = $(this).data('id');
+
+    $("#signatureID").val( signatureID );
+
+});

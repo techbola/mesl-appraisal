@@ -22,7 +22,7 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
         'as' => 'allAppraisals'
     ]);
 
-    Route::get('/dashboard', [
+    Route::get('/dashboard/{appraisalID}', [
         'uses' => 'AppraisalController@dashboard',
         'as' => 'dashboard'
     ]);
@@ -50,6 +50,26 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
     Route::get('/edit/appraisal/{id}', [
         'uses' => 'AppraisalController@editAppraisal',
         'as' => 'editAppraisal'
+    ]);
+
+    Route::get('/delete/comment/appraisal/{cID}', [
+        'uses' => 'AppraisalController@deleteAppraisalComment',
+        'as' => 'deleteAppraisalComment'
+    ]);
+
+    Route::post('/update/comment/appraisal', [
+        'uses' => 'AppraisalController@updateAppraisalComment',
+        'as' => 'updateAppraisalComment'
+    ]);
+
+    Route::get('/delete/signature/appraisal/{signID}', [
+        'uses' => 'AppraisalController@deleteAppraisalSignature',
+        'as' => 'deleteAppraisalSignature'
+    ]);
+
+    Route::post('/update/signature/appraisal', [
+        'uses' => 'AppraisalController@updateAppraisalSign',
+        'as' => 'updateAppraisalSign'
     ]);
 
     Route::get('/submit/appraisal/{id}/hr', [

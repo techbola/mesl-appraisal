@@ -1,9 +1,13 @@
 @component('mail::message')
-# Introduction
+# Staff Appraisal
 
-A staff appraisal has been submitted.
+Hello,
 
-@component('mail::button', ['url' => ''])
+<p>
+	New appraisal submitted by {{ auth()->user() ->last_name . " " . auth()->user() ->last_name }}.
+</p>
+
+@component('mail::button', ['url' => route('supervisor.index')])
 View Appraisal
 @endcomponent
 

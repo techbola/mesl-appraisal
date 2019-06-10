@@ -39,9 +39,17 @@
 										<p>{{ $appraisal->period }}</p>
 									</td>
 									<td class="v-align-middle">
-										<a href="{{ route('submitAppraisalHR', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">Submit To HR</a>
-										<a href="{{ route('editAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Edit</a>
-										<a href="{{ route('deleteAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-danger btn-sm">Delete</a>
+
+										@if($appraisal->sentFlag)
+											<a href="#" class="btn btn-info btn-sm" disabled="">Appraisal Submitted</a>
+										@else
+											<a href="{{ route('submitAppraisalHR', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">Submit To HR</a>
+											|
+											<a href="{{ route('editAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Edit</a>
+											|
+											<a href="{{ route('deleteAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-danger btn-sm">Delete</a>
+										@endif
+
 									</td>
 									<td class="v-align-middle">
 										@if($appraisal->status == 0)

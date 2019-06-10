@@ -2,31 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d41b074-6da4-4e61-9730-68d849b48eec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Appraisal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Appraisal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppraisalComment.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppraisalComment.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppraisalCustomer.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppraisalCustomer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppraisalFinance.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppraisalFinance.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppraisalInternal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppraisalInternal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppraisalLearning.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppraisalLearning.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppraisalRecommendation.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppraisalRecommendation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppraisalSignature.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppraisalSignature.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/AppraisalTraining.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/AppraisalTraining.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AppraisalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AppraisalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CustomerAppraisalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CustomerAppraisalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FinanceAppraisalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FinanceAppraisalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/InternalAppraisalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/InternalAppraisalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LearningAppraisalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LearningAppraisalController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/SupervisorController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/SupervisorController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Mail/StaffSendAppraisal.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Mail/StaffSendAppraisal.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559301927.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559301977.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559302002.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559302022.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559302046.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559302055.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559560542.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559560571.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559560713.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559560725.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559560750.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559560772.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559561176.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559561193.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559561214.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/images/_1559561233.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_customer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_customer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_financial.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_financial.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_internal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_internal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_learning.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_learning.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Staff.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Staff.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/main/js/pass_appraisalid_to_modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/main/js/pass_appraisalid_to_modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/appraisal/includes/appraisal_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appraisal/includes/appraisal_nav.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/appraisal/includes/edit_appraisal_modals.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appraisal/includes/edit_appraisal_modals.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/appraisal/includes/others.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appraisal/includes/others.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/appraisal/includes/staff_behavioural.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appraisal/includes/staff_behavioural.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/appraisal/queues.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appraisal/queues.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/appraisal/staff.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/appraisal/staff.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/emails/staff_appraisal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/emails/staff_appraisal.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/supervisor/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/supervisor/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -43,54 +44,95 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="426">
-              <caret line="55" column="56" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="56" />
+            <state relative-caret-position="341">
+              <caret line="70" column="52" selection-start-line="70" selection-start-column="52" selection-end-line="70" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/supervisor.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="9" column="39" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AppraisalController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="172">
+              <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="55" selection-end-column="97" />
+              <folding>
+                <element signature="e#40#59#0#PHP" expanded="true" />
+                <element signature="e#688#765#0#PHP" />
+                <element signature="e#771#1008#0#PHP" />
+                <element signature="e#3132#4460#0#PHP" />
+                <element signature="e#3912#5650#0#PHP" />
+                <element signature="e#5656#8655#0#PHP" />
+                <element signature="e#8661#9758#0#PHP" />
+                <element signature="e#9764#10452#0#PHP" />
+                <element signature="e#10458#10663#0#PHP" />
+                <element signature="e#11216#11421#0#PHP" />
+                <element signature="e#11427#11632#0#PHP" />
+                <element signature="e#11638#11843#0#PHP" />
+                <element signature="e#12392#12867#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AppraisalController.php">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SupervisorController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="293" lean-forward="true" selection-start-line="293" selection-end-line="293" />
+            <state relative-caret-position="358">
+              <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
               <folding>
-                <element signature="e#40#59#0#PHP" expanded="true" />
-                <element signature="e#688#765#0#PHP" />
-                <element signature="e#771#1006#0#PHP" />
-                <element signature="e#1012#2710#0#PHP" />
-                <element signature="e#2716#4046#0#PHP" />
-                <element signature="e#4052#5786#0#PHP" />
-                <element signature="e#5792#8895#0#PHP" />
-                <element signature="e#8901#10688#0#PHP" />
-                <element signature="e#10694#10899#0#PHP" />
+                <element signature="e#40#58#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Mail/StaffSendAppraisal.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/supervisor/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
-              <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+            <state relative-caret-position="259">
+              <caret line="54" column="86" selection-start-line="54" selection-start-column="86" selection-end-line="54" selection-end-column="86" />
               <folding>
-                <element signature="e#28#57#0#PHP" expanded="true" />
+                <element signature="e#1089#1106#0#HTML" expanded="true" />
+                <element signature="e#1126#1143#0#HTML" expanded="true" />
+                <element signature="e#1131#1148#0#HTML" expanded="true" />
+                <element signature="e#1182#1199#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/emails/staff_appraisal.blade.php">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/resources/views/supervisor/appraisal.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="16" column="65" lean-forward="true" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/appraisal/queues.blade.php">
+        <entry file="file://$PROJECT_DIR$/resources/views/supervisor/includes/bsc_financial.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="41" column="76" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="76" />
+            <state relative-caret-position="-34">
+              <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/supervisor/includes/appraisal_nav.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" selection-start-line="4" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -111,21 +153,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_03_144511_create_appraisal_personals_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_03_144528_create_appraisal_competencies_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_03_144539_create_appraisal_compliances_table.php" />
-        <option value="$PROJECT_DIR$/app/StaffBehaviouralItem.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php" />
-        <option value="$PROJECT_DIR$/resources/views/appraisal/includes/appraisal_nav.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/appraisal/includes/others.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/appraisal/includes/staff_behavioural.blade.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_03_144245_create_appraisal_finances_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_03_144419_create_appraisal_customers_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_06_03_144440_create_appraisal_internals_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_03_144455_create_appraisal_learnings_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_03_144549_create_appraisal_comments_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_03_144607_create_appraisal_recommendations_table.php" />
@@ -133,35 +160,50 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_06_06_100906_create_personal_attributes_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_06_101106_create_job_competencies_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_06_101210_create_compliances_table.php" />
-        <option value="$PROJECT_DIR$/app/AppraisalComment.php" />
-        <option value="$PROJECT_DIR$/app/AppraisalCustomer.php" />
-        <option value="$PROJECT_DIR$/app/AppraisalFinance.php" />
-        <option value="$PROJECT_DIR$/app/AppraisalInternal.php" />
-        <option value="$PROJECT_DIR$/app/AppraisalLearning.php" />
-        <option value="$PROJECT_DIR$/app/AppraisalSignature.php" />
         <option value="$PROJECT_DIR$/app/Compliance.php" />
         <option value="$PROJECT_DIR$/app/JobCompetency.php" />
         <option value="$PROJECT_DIR$/app/PersonalAttribute.php" />
-        <option value="$PROJECT_DIR$/app/Appraisal.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_30_164100_create_appraisal_table.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/main/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/appraisal/index.blade.php" />
         <option value="$PROJECT_DIR$/public/main/js/delete_checkbox_ids.js" />
         <option value="$PROJECT_DIR$/resources/views/appraisal/staff.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_financial.blade.php" />
-        <option value="$PROJECT_DIR$/public/main/js/pass_appraisalid_to_modal.js" />
         <option value="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_customer.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_internal.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/appraisal/includes/bsc_learning.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/LearningAppraisalController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/InternalAppraisalController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerAppraisalController.php" />
-        <option value="$PROJECT_DIR$/resources/views/appraisal/includes/edit_appraisal_modals.blade.php" />
+        <option value="$PROJECT_DIR$/app/Providers/RouteServiceProvider.php" />
+        <option value="$PROJECT_DIR$/app/AppraisalComment.php" />
+        <option value="$PROJECT_DIR$/app/AppraisalCustomer.php" />
+        <option value="$PROJECT_DIR$/app/AppraisalFinance.php" />
+        <option value="$PROJECT_DIR$/app/AppraisalInternal.php" />
+        <option value="$PROJECT_DIR$/app/AppraisalLearning.php" />
+        <option value="$PROJECT_DIR$/app/AppraisalRecommendation.php" />
+        <option value="$PROJECT_DIR$/app/AppraisalSignature.php" />
+        <option value="$PROJECT_DIR$/app/AppraisalTraining.php" />
+        <option value="$PROJECT_DIR$/app/Staff.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/app/Appraisal.php" />
         <option value="$PROJECT_DIR$/resources/views/appraisal/queues.blade.php" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/FinanceAppraisalController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/CustomerAppraisalController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/InternalAppraisalController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/LearningAppraisalController.php" />
+        <option value="$PROJECT_DIR$/public/main/js/pass_appraisalid_to_modal.js" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/resources/views/appraisal/includes/edit_appraisal_modals.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/AppraisalController.php" />
         <option value="$PROJECT_DIR$/app/Mail/StaffSendAppraisal.php" />
+        <option value="$PROJECT_DIR$/resources/views/emails/staff_appraisal.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/appraisal/includes/appraisal_nav.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/appraisal/includes/staff_behavioural.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/appraisal/includes/others.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/supervisor/includes/appraisal_nav.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/supervisor/index.blade.php" />
+        <option value="$PROJECT_DIR$/routes/supervisor.php" />
+        <option value="$PROJECT_DIR$/resources/views/supervisor/appraisal.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/supervisor/includes/bsc_financial.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/SupervisorController.php" />
       </list>
     </option>
   </component>
@@ -246,7 +288,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/finder" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
     <option name="width" value="1346" />
@@ -275,6 +317,19 @@
             <path>
               <item name="mesl" type="b2602c69:ProjectViewProjectNode" />
               <item name="mesl" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mesl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mesl" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mesl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mesl" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -282,13 +337,6 @@
               <item name="mesl" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mesl" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mesl" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="appraisal" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mesl" type="b2602c69:ProjectViewProjectNode" />
@@ -296,6 +344,21 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="emails" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mesl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mesl" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="supervisor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mesl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mesl" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="supervisor" type="462c0819:PsiDirectoryNode" />
+              <item name="includes" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mesl" type="b2602c69:ProjectViewProjectNode" />
@@ -347,18 +410,18 @@
       <option name="presentableId" value="Default" />
       <updated>1559033594669</updated>
       <workItem from="1559033595907" duration="55989000" />
-      <workItem from="1559816242354" duration="30698000" />
+      <workItem from="1559816242354" duration="51681000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86687000" />
+    <option name="totallyTimeSpent" value="107670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26435044" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22960725" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -387,97 +450,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/RedirectIfAuthenticated.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="39" selection-start-line="20" selection-start-column="39" selection-end-line="20" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/staff_details.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/appraisal_nav.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="79" selection-start-column="79" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/others.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="104" column="95" selection-start-line="104" selection-start-column="95" selection-end-line="104" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/staff_behavioural.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="386" column="95" selection-start-line="386" selection-start-column="95" selection-end-line="386" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_03_144607_create_appraisal_recommendations_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_03_144620_create_appraisal_trainings_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_03_144549_create_appraisal_comments_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_03_144455_create_appraisal_learnings_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_03_144440_create_appraisal_internals_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="56" selection-start-line="19" selection-start-column="56" selection-end-line="19" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_06_03_144419_create_appraisal_customers_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -520,48 +492,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppraisalCustomer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="34" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppraisalFinance.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppraisalInternal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppraisalLearning.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="74" selection-start-line="10" selection-start-column="74" selection-end-line="10" selection-end-column="74" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppraisalRecommendation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppraisalComment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="75" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Compliance.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -590,24 +520,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppraisalSignature.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="111" selection-start-line="9" selection-start-column="111" selection-end-line="9" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_30_164100_create_appraisal_table.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Appraisal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="32" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -632,27 +548,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/staff.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="88" column="83" selection-start-line="88" selection-start-column="83" selection-end-line="88" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/main/js/pass_appraisalid_to_modal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="58" column="43" lean-forward="true" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/bsc_financial.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="157" column="65" selection-start-line="157" selection-start-column="65" selection-end-line="157" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/bsc_customer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
@@ -674,102 +569,276 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LearningAppraisalController.php">
+    <entry file="file://$PROJECT_DIR$/app/AppraisalComment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+        <state relative-caret-position="238">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppraisalCustomer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppraisalInternal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppraisalRecommendation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppraisalSignature.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppraisalTraining.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppraisalLearning.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/AppraisalFinance.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="54" selection-start-line="15" selection-start-column="54" selection-end-line="15" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="7" lean-forward="true" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Appraisal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Staff.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="207" column="67" selection-start-line="207" selection-start-column="67" selection-end-line="207" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/bsc_financial.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1517">
+          <caret line="162" column="50" selection-start-line="162" selection-start-column="50" selection-end-line="162" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerAppraisalController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="46" column="92" selection-start-line="46" selection-start-column="92" selection-end-line="46" selection-end-column="92" />
           <folding>
             <element signature="e#40#66#0#PHP" expanded="true" />
-            <element signature="e#212#1593#0#PHP" />
-            <element signature="e#1599#1966#0#PHP" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/InternalAppraisalController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+        <state relative-caret-position="322">
+          <caret line="46" column="92" selection-start-line="46" selection-start-column="92" selection-end-line="46" selection-end-column="92" />
           <folding>
             <element signature="e#40#66#0#PHP" expanded="true" />
-            <element signature="e#212#1681#0#PHP" />
-            <element signature="e#1687#2054#0#PHP" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/CustomerAppraisalController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/LearningAppraisalController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="76" column="53" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+        <state relative-caret-position="358">
+          <caret line="46" column="92" selection-start-line="46" selection-start-column="92" selection-end-line="46" selection-end-column="92" />
           <folding>
             <element signature="e#40#66#0#PHP" expanded="true" />
-            <element signature="e#212#1637#0#PHP" />
-            <element signature="e#1643#2010#0#PHP" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/edit_appraisal_modals.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="250" column="66" selection-start-line="250" selection-start-column="66" selection-end-line="250" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/queues.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="41" column="76" selection-start-line="41" selection-start-column="59" selection-end-line="41" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="55" column="56" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FinanceAppraisalController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="81" column="54" selection-start-line="81" selection-start-column="54" selection-end-line="81" selection-end-column="54" />
+        <state relative-caret-position="-526">
+          <caret line="41" column="13" lean-forward="true" selection-start-line="41" selection-start-column="13" selection-end-line="41" selection-end-column="13" />
           <folding>
             <element signature="e#40#65#0#PHP" expanded="true" />
-            <element signature="e#1607#2522#0#PHP" />
-            <element signature="e#2528#2925#0#PHP" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/main/js/pass_appraisalid_to_modal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="86" column="19" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Mail/StaffSendAppraisal.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding>
-            <element signature="e#28#57#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="387">
+          <caret line="33" column="56" selection-start-line="33" selection-start-column="56" selection-end-line="33" selection-end-column="56" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/emails/staff_appraisal.blade.php">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="95" selection-start-line="6" selection-start-column="95" selection-end-line="6" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/queues.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="47" column="44" selection-start-line="47" selection-start-column="44" selection-end-line="47" selection-end-column="148" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/others.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="52" selection-start-column="52" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/staff_behavioural.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="53" selection-start-column="53" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/appraisal_nav.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="90" selection-start-line="17" selection-start-column="90" selection-end-line="17" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/staff.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="41" lean-forward="true" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/appraisal/includes/edit_appraisal_modals.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5253">
+          <caret line="309" column="75" selection-start-line="309" selection-start-column="75" selection-end-line="309" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/supervisor/includes/appraisal_nav.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-start-column="4" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="70" column="52" selection-start-line="70" selection-start-column="52" selection-end-line="70" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/RouteServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="46" column="7" lean-forward="true" selection-start-line="46" selection-start-column="7" selection-end-line="46" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/supervisor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="39" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/supervisor/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="54" column="86" selection-start-line="54" selection-start-column="86" selection-end-line="54" selection-end-column="86" />
+          <folding>
+            <element signature="e#1089#1106#0#HTML" expanded="true" />
+            <element signature="e#1126#1143#0#HTML" expanded="true" />
+            <element signature="e#1131#1148#0#HTML" expanded="true" />
+            <element signature="e#1182#1199#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/supervisor/appraisal.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="16" column="65" lean-forward="true" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/supervisor/includes/bsc_financial.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/AppraisalController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="293" lean-forward="true" selection-start-line="293" selection-end-line="293" />
+        <state relative-caret-position="172">
+          <caret line="54" column="12" selection-start-line="54" selection-start-column="12" selection-end-line="55" selection-end-column="97" />
           <folding>
             <element signature="e#40#59#0#PHP" expanded="true" />
             <element signature="e#688#765#0#PHP" />
-            <element signature="e#771#1006#0#PHP" />
-            <element signature="e#1012#2710#0#PHP" />
-            <element signature="e#2716#4046#0#PHP" />
-            <element signature="e#4052#5786#0#PHP" />
-            <element signature="e#5792#8895#0#PHP" />
-            <element signature="e#8901#10688#0#PHP" />
-            <element signature="e#10694#10899#0#PHP" />
+            <element signature="e#771#1008#0#PHP" />
+            <element signature="e#3132#4460#0#PHP" />
+            <element signature="e#3912#5650#0#PHP" />
+            <element signature="e#5656#8655#0#PHP" />
+            <element signature="e#8661#9758#0#PHP" />
+            <element signature="e#9764#10452#0#PHP" />
+            <element signature="e#10458#10663#0#PHP" />
+            <element signature="e#11216#11421#0#PHP" />
+            <element signature="e#11427#11632#0#PHP" />
+            <element signature="e#11638#11843#0#PHP" />
+            <element signature="e#12392#12867#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/SupervisorController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+          <folding>
+            <element signature="e#40#58#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
