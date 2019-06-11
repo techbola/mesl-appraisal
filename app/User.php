@@ -175,4 +175,9 @@ class User extends Authenticatable
         return array_intersect((array) $checkrole, $roles);
     }
 
+    public function level()
+    {
+        return $this->hasOne('App\Level');
+    }
+
 }

@@ -76,20 +76,9 @@
 	<!-- START SIDEBAR MENU -->
 	<div class="sidebar-menu">
 		<!-- BEGIN SIDEBAR MENU ITEMS-->
-		<ul class="menu-items">
-			<li class="m-t-30 ">
-				<a href="{{ route('appraisal.index') }}" class="detailed">
-					<span class="title">Dashboard</span>
-				</a>
-				<span class="bg-success icon-thumbnail"><i class="pg-home"></i></span>
-			</li>
-			<li class="">
-				<a href="{{ route('allAppraisals') }}">
-					<span class="title">Appraisals</span>
-				</a>
-				<span class="icon-thumbnail"><i class="pg-grid"></i></span>
-			</li>
-		</ul>
+
+		@include('layouts.main.includes.sidebar')
+
 		<div class="clearfix"></div>
 	</div>
 	<!-- END SIDEBAR MENU -->

@@ -21,9 +21,9 @@ class CreateAppraisalFinancesTable extends Migration
 
             $table->string('objective');
             $table->string('kpi');
-            $table->decimal('target', 3,1);
-            $table->decimal('selfAssessment', 3,1);
-            $table->string('constraint');
+            $table->string('target');
+            $table->decimal('selfAssessment', 3,1)->nullable();
+            $table->string('constraint')->nullable();
 
             $table->decimal('weight', 3,1)->nullable();
             $table->decimal('supervisorAssessment',3,1)->nullable();

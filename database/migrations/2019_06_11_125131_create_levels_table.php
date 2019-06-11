@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBehaviouralItemsTable extends Migration
+class CreateLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateBehaviouralItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('behavioural_items', function (Blueprint $table) {
+        Schema::create('levels', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('behaviouralCat_id')->unsigned();
-            $table->integer('level_id')->unsigned();
-            $table->string('behaviouralItem');
-            $table->integer('weight');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ class CreateBehaviouralItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('behavioural_items');
+        Schema::dropIfExists('levels');
     }
 }

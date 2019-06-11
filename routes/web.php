@@ -14,12 +14,12 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
 
     Route::get('/', [
         'uses' => 'AppraisalController@index',
-        'as' => 'appraisal.index'
+        'as' => 'staff.index'
     ]);
 
     Route::get('/all/appraisals', [
         'uses' => 'AppraisalController@allAppraisals',
-        'as' => 'allAppraisals'
+        'as' => 'staff.appraisals'
     ]);
 
     Route::get('/dashboard/{appraisalID}', [

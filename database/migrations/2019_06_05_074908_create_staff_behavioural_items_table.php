@@ -17,10 +17,11 @@ class CreateStaffBehaviouralItemsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('staffID')->unsigned();
             $table->integer('supervisorID')->unsigned();
-            $table->integer('behaviouralCatID')->unsigned();
-            $table->integer('behaviouralItemCatID')->unsigned();
+            $table->integer('behaviouralCat_id')->unsigned();
+            $table->integer('behaviouralItem_id')->unsigned();
             $table->decimal('selfAssessment', 3, 1);
             $table->decimal('supervisorAssessment', 3, 1)->nullable();
+            $table->string('supervisorComment');
             $table->timestamps();
         });
     }

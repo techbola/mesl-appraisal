@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Behavioural;
+use App\BehaviouralItem;
 use App\Compliance;
 use App\JobCompetency;
 use App\Mail\StaffSendAppraisal;
@@ -32,7 +34,29 @@ class AppraisalController extends Controller
     public function index()
     {
 
-        return view('appraisal.index');
+        if (!auth()->user()->staff->SupervisorFlag && !auth()->user()->hasRole('HR Supervisor')){
+
+            return view('appraisal.index');
+
+        }
+
+        elseif (auth()->user()->hasRole('HR Supervisor') && auth()->user()->staff->SupervisorFlag){
+
+            return redirect()->route('hr.index');
+
+        }
+
+        elseif (auth()->user()->hasRole('HR Supervisor')){
+
+            return redirect()->route('hr.index');
+
+        }
+
+        elseif (auth()->user()->staff->SupervisorFlag){
+
+            return redirect()->route('supervisor.index');
+
+        }
 
     }
 
@@ -50,7 +74,9 @@ class AppraisalController extends Controller
     public function dashboard($appraisalID)
     {
 
-        if (!auth()->user()->staff->SupervisorFlag){
+//        dd(auth()->user()->level_id);
+
+        if (!auth()->user()->staff->SupervisorFlag && !auth()->user()->hasRole('HR Supervisor')){
 
             $appraisal_finances = AppraisalFinance::where('staffID', auth()->user()->staff->StaffRef)
                                                     ->where('appraisal_id', $appraisalID)->get();
@@ -65,6 +91,26 @@ class AppraisalController extends Controller
             $comments = AppraisalComment::where('staffID', auth()->user()->staff->StaffRef)->first();
             $signatures = AppraisalSignature::where('staffID', auth()->user()->staff->StaffRef)->first();
 
+            $staffBehaviouralCats = [];
+
+            $staff_behavioural_items_catids = BehaviouralItem::where('level_id', auth()->user()->level_id)->pluck('behaviouralCat_id')->all();
+
+            foreach ($staff_behavioural_items_catids as $staff_behavioural_items_catid){
+                array_push($staffBehaviouralCats, (int) $staff_behavioural_items_catid);
+            }
+
+//            dd($staffBehaviouralCats);
+
+            $behaviourals = Behavioural::pluck('id')->all();
+
+//            dd($behaviourals, $staffBehaviouralCats);
+
+            $behaviourals2 = array_intersect ($behaviourals, $staffBehaviouralCats);
+
+//            dd($behaviourals2);
+
+            $behaviourals3 = Behavioural::whereIn('id', $behaviourals2)->get();
+
             return view('appraisal.staff')->with([
                 'appraisalID' => $appraisalID,
                 'appraisal_finances' => $appraisal_finances,
@@ -76,14 +122,20 @@ class AppraisalController extends Controller
                 'compliance' => $compliance,
                 'comments' => $comments,
                 'signatures' => $signatures,
+                'behaviourals' => $behaviourals3,
             ]);
+
+        }
+        elseif (auth()->user()->hasRole('HR Supervisor') && !auth()->user()->staff->SupervisorFlag){
+
+            return redirect()->route('hr.index');
 
         }
         elseif (auth()->user()->staff->SupervisorFlag){
 
             return redirect()->route('supervisor.index');
 
-    }
+         }
 
     }
 

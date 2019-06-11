@@ -17,8 +17,6 @@ class SupervisorController extends Controller
             ->where('sentFlag', True)
             ->get()->all();
 
-//        dd($appraisals);
-
         return view('supervisor.index')->with([
             'appraisals' => $appraisals,
         ]);

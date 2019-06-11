@@ -20,8 +20,8 @@ class InternalAppraisalController extends Controller
                 'internal_process_objective.*' => 'required|string',
                 'internal_process_kpi.*' => 'required|string',
                 'internal_process_target.*' => 'required|string',
-                'internal_process_constraint.*' => 'required|string',
-                'internal_process_self_ass.*' => 'required|numeric',
+//                'internal_process_constraint.*' => 'required|string',
+//                'internal_process_self_ass.*' => 'required|numeric',
 
             ]);
 
@@ -33,8 +33,8 @@ class InternalAppraisalController extends Controller
                 $appraisal->objective = $request->internal_process_objective[$i];
                 $appraisal->kpi = $request->internal_process_kpi[$i];
                 $appraisal->target = $request->internal_process_target[$i];
-                $appraisal->constraint = $request->internal_process_constraint[$i];
-                $appraisal->selfAssessment = $request->internal_process_self_ass[$i];
+//                $appraisal->constraint = $request->internal_process_constraint[$i];
+//                $appraisal->selfAssessment = $request->internal_process_self_ass[$i];
                 $appraisal->supervisorID = $staff->SupervisorID;
                 $appraisal->staffID = $staff->StaffRef;
                 $appraisal->appraisal_id = $request->appraisalID;
@@ -58,8 +58,8 @@ class InternalAppraisalController extends Controller
             'internal_process_objective.*' => 'required|string',
             'internal_process_kpi.*' => 'required|string',
             'internal_process_target.*' => 'required|string',
-            'internal_process_constraint.*' => 'required|string',
-            'internal_process_self_ass.*' => 'required|numeric',
+//            'internal_process_constraint.*' => 'required|string',
+//            'internal_process_self_ass.*' => 'required|numeric',
 
         ]);
 
@@ -68,8 +68,8 @@ class InternalAppraisalController extends Controller
         $appraisal->objective = $request->internal_process_objective;
         $appraisal->kpi = $request->internal_process_kpi;
         $appraisal->target = $request->internal_process_target;
-        $appraisal->constraint = $request->internal_process_constraint;
-        $appraisal->selfAssessment = $request->internal_process_self_ass;
+//        $appraisal->constraint = $request->internal_process_constraint;
+//        $appraisal->selfAssessment = $request->internal_process_self_ass;
 
         $appraisal->save();
 

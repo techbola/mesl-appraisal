@@ -15,6 +15,6 @@
 		<a data-toggle="tab" href="#tab6"><i class="fa fa-star tab-icon"></i> <span>Behavioural</span></a>
 	</li>
 	<li class="">
-		<a data-toggle="tab" href="#tab7"><i class="fa fa-star tab-icon"></i> <span>Others</span></a>
+		<a data-toggle="tab" href="#tab7"><i class="fa fa-star tab-icon"></i> <span>Comment</span></a>
 	</li>
 </ul>

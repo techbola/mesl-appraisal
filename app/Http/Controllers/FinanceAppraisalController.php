@@ -20,8 +20,8 @@ class FinanceAppraisalController extends Controller
                 'financial_objective.*' => 'required|string',
                 'financial_kpi.*' => 'required|string',
                 'financial_target.*' => 'required|string',
-                'financial_constraint.*' => 'required|string',
-                'financial_self_ass.*' => 'required|numeric',
+//                'financial_constraint.*' => 'required|string',
+//                'financial_self_ass.*' => 'required|numeric',
             ]);
 
             $staff = Staff::where('UserID',auth()->user()->id)->first();
@@ -32,8 +32,8 @@ class FinanceAppraisalController extends Controller
                 $appraisal->objective = $request->financial_objective[$i];
                 $appraisal->kpi = $request->financial_kpi[$i];
                 $appraisal->target = $request->financial_target[$i];
-                $appraisal->constraint = $request->financial_constraint[$i];
-                $appraisal->selfAssessment = $request->financial_self_ass[$i];
+//                $appraisal->constraint = $request->financial_constraint[$i];
+//                $appraisal->selfAssessment = $request->financial_self_ass[$i];
                 $appraisal->supervisorID = $staff->SupervisorID;
                 $appraisal->staffID = $staff->StaffRef;
                 $appraisal->appraisal_id = $request->appraisalID;
@@ -58,8 +58,8 @@ class FinanceAppraisalController extends Controller
             'financial_objective' => 'required|string',
             'financial_kpi' => 'required|string',
             'financial_target' => 'required|string',
-            'financial_constraint' => 'required|string',
-            'financial_self_ass' => 'required|numeric',
+//            'financial_constraint' => 'required|string',
+//            'financial_self_ass' => 'required|numeric',
         ]);
 
         $appraisal = AppraisalFinance::find($request->financeAppraisalID);
@@ -67,8 +67,8 @@ class FinanceAppraisalController extends Controller
         $appraisal->objective = $request->financial_objective;
         $appraisal->kpi = $request->financial_kpi;
         $appraisal->target = $request->financial_target;
-        $appraisal->constraint = $request->financial_constraint;
-        $appraisal->selfAssessment = $request->financial_self_ass;
+//        $appraisal->constraint = $request->financial_constraint;
+//        $appraisal->selfAssessment = $request->financial_self_ass;
 
         $appraisal->save();
 
