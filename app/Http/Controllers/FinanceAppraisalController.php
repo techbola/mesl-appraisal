@@ -84,7 +84,7 @@ class FinanceAppraisalController extends Controller
 
         $allAppraisalIDs = $request->appraisalIDs;
 
-//        dd($allAppraisalIDs);
+        $allAppraisalIDs = explode(',', $allAppraisalIDs);
 
         foreach ($allAppraisalIDs as $allAppraisalID){
 

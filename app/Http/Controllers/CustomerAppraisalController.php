@@ -85,6 +85,10 @@ class CustomerAppraisalController extends Controller
 
         $allAppraisalIDs = $request->appraisalIDs;
 
+        $allAppraisalIDs = explode(',', $allAppraisalIDs);
+
+//        dd($allAppraisalIDs);
+
         foreach ($allAppraisalIDs as $allAppraisalID){
 
             $appraisal = AppraisalCustomer::find($allAppraisalID);

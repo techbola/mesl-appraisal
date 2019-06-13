@@ -26,7 +26,7 @@ class SupervisorController extends Controller
     public function appraisal($appraisalID)
     {
 
-        $appraisal_finances = AppraisalFinance::where('appraisal_id', $appraisalID)->get()->all();
+        $appraisal_finances = AppraisalFinance::where('appraisal_id', $appraisalID)->get();
 
         dd($appraisal_finances);
 

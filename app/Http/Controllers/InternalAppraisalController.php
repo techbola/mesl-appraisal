@@ -85,6 +85,8 @@ class InternalAppraisalController extends Controller
 
         $allAppraisalIDs = $request->appraisalIDs;
 
+        $allAppraisalIDs = explode(',', $allAppraisalIDs);
+
         foreach ($allAppraisalIDs as $allAppraisalID){
 
             $appraisal = AppraisalInternal::find($allAppraisalID);

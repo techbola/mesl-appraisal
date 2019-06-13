@@ -86,6 +86,8 @@ class LearningAppraisalController extends Controller
 
         $allAppraisalIDs = $request->appraisalIDs;
 
+        $allAppraisalIDs = explode(',', $allAppraisalIDs);
+
         foreach ($allAppraisalIDs as $allAppraisalID){
 
             $appraisal = AppraisalLearning::find($allAppraisalID);

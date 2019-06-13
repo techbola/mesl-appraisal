@@ -108,7 +108,7 @@
 									<th style="width:1%">
 										<form action="{{ route('deleteInternalAppraisals') }}" method="post">
 											{{ csrf_field() }}
-											<input type="hidden" name="appraisalIDs[]" id="appraisalIDs2">
+											<input type="hidden" name="appraisalIDs" id="appraisalIDs2">
 											<button type="submit" class="btn btn-danger">
 												<i class="pg-trash"></i>
 											</button>
