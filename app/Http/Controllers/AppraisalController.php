@@ -74,8 +74,6 @@ class AppraisalController extends Controller
     public function dashboard($appraisalID)
     {
 
-//        dd(auth()->user()->level_id);
-
         if (!auth()->user()->staff->SupervisorFlag && !auth()->user()->hasRole('HR Supervisor')){
 
             $appraisal_finances = AppraisalFinance::where('staffID', auth()->user()->staff->StaffRef)
@@ -84,32 +82,11 @@ class AppraisalController extends Controller
             $appraisal_internals = AppraisalInternal::where('staffID', auth()->user()->staff->StaffRef)->where('appraisal_id', $appraisalID)->get();
             $appraisal_learnings = AppraisalLearning::where('staffID', auth()->user()->staff->StaffRef)->where('appraisal_id', $appraisalID)->get();
 
-            $personal_attribute = PersonalAttribute::where('staffID', auth()->user()->staff->StaffRef)->first();
-            $job_competency = JobCompetency::where('staffID', auth()->user()->staff->StaffRef)->first();
-            $compliance = Compliance::where('staffID', auth()->user()->staff->StaffRef)->first();
-
             $comments = AppraisalComment::where('staffID', auth()->user()->staff->StaffRef)->first();
             $signatures = AppraisalSignature::where('staffID', auth()->user()->staff->StaffRef)->first();
 
-            $staffBehaviouralCats = [];
-
-            $staff_behavioural_items_catids = BehaviouralItem::where('level_id', auth()->user()->level_id)->pluck('behaviouralCat_id')->all();
-
-            foreach ($staff_behavioural_items_catids as $staff_behavioural_items_catid){
-                array_push($staffBehaviouralCats, (int) $staff_behavioural_items_catid);
-            }
-
-//            dd($staffBehaviouralCats);
-
-            $behaviourals = Behavioural::pluck('id')->all();
-
-//            dd($behaviourals, $staffBehaviouralCats);
-
-            $behaviourals2 = array_intersect ($behaviourals, $staffBehaviouralCats);
-
-//            dd($behaviourals2);
-
-            $behaviourals3 = Behavioural::whereIn('id', $behaviourals2)->get();
+            $behavioural = new Behavioural();
+            $behaviourals = $behavioural->getUserBehaviourals();
 
             return view('appraisal.staff')->with([
                 'appraisalID' => $appraisalID,
@@ -117,12 +94,9 @@ class AppraisalController extends Controller
                 'appraisal_customers' => $appraisal_customers,
                 'appraisal_internals' => $appraisal_internals,
                 'appraisal_learnings' => $appraisal_learnings,
-                'personal_attribute' => $personal_attribute,
-                'job_competency' => $job_competency,
-                'compliance' => $compliance,
                 'comments' => $comments,
                 'signatures' => $signatures,
-                'behaviourals' => $behaviourals3,
+                'behaviourals' => $behaviourals,
             ]);
 
         }
@@ -236,79 +210,6 @@ class AppraisalController extends Controller
 
     }
 
-    public function staffBehaviouralStore(Request $request)
-    {
-
-        if (!auth()->user()->staff->SupervisorFlag){
-
-            $this->validate($request, [
-
-                'team_work' => 'required|numeric',
-                'responsibility' => 'required|numeric',
-                'integrity' => 'required|numeric',
-                'innovation' => 'required|numeric',
-                'passion' => 'required|numeric',
-
-                'self_starter' => 'required|numeric',
-                'problem_solving' => 'required|numeric',
-                'analytical_skill' => 'required|numeric',
-                'technical_skill' => 'required|numeric',
-                'leadership' => 'required|numeric',
-
-                'time_management' => 'required|numeric',
-                'punctuality' => 'required|numeric',
-                'policy' => 'required|numeric',
-                'process_mgt' => 'required|numeric',
-                'ethics' => 'required|numeric',
-
-            ]);
-
-            $personal_attribute = new PersonalAttribute();
-            $job_competency = new JobCompetency();
-            $compliance = new Compliance();
-
-            
-            
-            $staff = Staff::where('UserID',auth()->user()->id)->first();
-
-            $personal_attribute->staffID = $staff->StaffRef;
-            $personal_attribute->supervisorID = $staff->SupervisorID;
-            $personal_attribute->team_work = $request->team_work;
-            $personal_attribute->responsibility = $request->responsibility;
-            $personal_attribute->integrity = $request->integrity;
-            $personal_attribute->innovation = $request->innovation;
-            $personal_attribute->passion = $request->passion;
-            $personal_attribute->appraisal_id = $request->appraisalID;
-            $personal_attribute->save();
-
-            $job_competency->staffID = $staff->StaffRef;
-            $job_competency->supervisorID = $staff->SupervisorID;
-            $job_competency->self_starter = $request->self_starter;
-            $job_competency->problem_solving = $request->problem_solving;
-            $job_competency->analytical_skill = $request->analytical_skill;
-            $job_competency->technical_skill = $request->technical_skill;
-            $job_competency->leadership = $request->leadership;
-            $job_competency->appraisal_id = $request->appraisalID;
-            $job_competency->save();
-
-            $compliance->staffID = $staff->StaffRef;
-            $compliance->supervisorID = $staff->SupervisorID;
-            $compliance->time_management = $request->time_management;
-            $compliance->punctuality = $request->punctuality;
-            $compliance->policy = $request->policy;
-            $compliance->process_mgt = $request->process_mgt;
-            $compliance->ethics = $request->ethics;
-            $compliance->appraisal_id = $request->appraisalID;
-            $compliance->save();
-
-            Session::flash('success', 'Saved!');
-
-            return redirect()->route('dashboard', ['appraisalID' => $request->appraisalID]);
-
-        }
-
-    }
-
     public function editAppraisal($id)
     {
 
@@ -317,24 +218,23 @@ class AppraisalController extends Controller
         $appraisal_internals = AppraisalInternal::where('appraisal_id', $id)->get();
         $appraisal_learnings = AppraisalLearning::where('appraisal_id', $id)->get();
 
-        $personal_attribute = PersonalAttribute::where('appraisal_id', $id)->first();
-        $job_competency = JobCompetency::where('appraisal_id', $id)->first();
-        $compliance = Compliance::where('appraisal_id', $id)->first();
-
         $comments = AppraisalComment::where('appraisal_id', $id)->first();
         $signatures = AppraisalSignature::where('appraisal_id', $id)->first();
 
-        return view('appraisal.staff')->with([
+        $behavioural = new Behavioural();
+        $behaviourals = $behavioural->getUserBehaviourals();
+        $staffBehaviouralItems = StaffBehaviouralItem::where('appraisal_id', $id);
+
+        return view('edit_appraisal.staff')->with([
             'appraisalID' => $id,
             'appraisal_finances' => $appraisal_finances,
             'appraisal_customers' => $appraisal_customers,
             'appraisal_internals' => $appraisal_internals,
             'appraisal_learnings' => $appraisal_learnings,
-            'personal_attribute' => $personal_attribute,
-            'job_competency' => $job_competency,
-            'compliance' => $compliance,
             'comments' => $comments,
             'signatures' => $signatures,
+            'behaviourals' => $behaviourals,
+            'staffBehaviouralItems' => $staffBehaviouralItems,
         ]);
 
     }
@@ -371,84 +271,6 @@ class AppraisalController extends Controller
         $appraisal->delete();
 
         Session::flash('success', 'Appraisal Deleted.');
-
-        return back();
-
-    }
-
-    public function deleteAppraisalComment($id)
-    {
-        $appraisal = AppraisalComment::find($id);
-
-        $appraisal->delete();
-
-        Session::flash('success', 'Comment Deleted.');
-
-        return back();
-
-    }
-
-    public function updateAppraisalComment(Request $request)
-    {
-
-//        dd($request->all());
-
-        $this->validate($request, [
-            'appraiseeComment' => 'required|string',
-        ]);
-
-        $appraisal = AppraisalComment::find($request->commentID);
-
-//        dd($appraisal);
-
-        $appraisal->appraiseeComment = $request->appraiseeComment;
-
-        $appraisal->save();
-
-        Session::flash('success', 'Comment Updated!.');
-
-        return back();
-
-    }
-
-    public function deleteAppraisalSignature($id)
-    {
-        $appraisal = AppraisalSignature::find($id);
-
-        $appraisal->delete();
-
-        Session::flash('success', 'Signature Deleted.');
-
-        return back();
-
-    }
-
-    public function updateAppraisalSign(Request $request)
-    {
-
-        $this->validate($request, [
-            'appraiseeSign' => 'required|image',
-        ]);
-
-        $appraisal = AppraisalSignature::find($request->signatureID);
-
-        // Get image file
-        $image = $request->file('appraiseeSign');
-        // Make a image name based on user name and current timestamp
-        $name = str_slug($request->input('appraiseeSign')).'_'.time();
-        // Define folder path
-        $folder = '/uploads/appraisals/';
-        // Make a file path where image will be stored [ folder path + file name + file extension]
-        $filePath = $folder . $name. '.' . $image->getClientOriginalExtension();
-        // Upload image
-        $appraisee_sign = $this->uploadOne($image, $folder, 'public', $name);
-
-//        dd($filePath);
-
-        $appraisal->appraiseeSign = $filePath;
-        $appraisal->save();
-
-        Session::flash('success', 'Signature Updated!.');
 
         return back();
 

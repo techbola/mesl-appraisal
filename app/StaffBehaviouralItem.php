@@ -8,7 +8,7 @@ class StaffBehaviouralItem extends Model
 {
     protected $fillable = [
         'staffID', 'supervisorID', 'behaviouralCat_id', 'behaviouralItem_id', 'selfAssessment', 'supervisorAssessment',
-        'supervisorComment',
+        'supervisorComment', 'appraisal_id'
     ];
 
     public $primaryKey = 'id';
@@ -16,6 +16,11 @@ class StaffBehaviouralItem extends Model
     public function staff()
     {
         return $this->belongsTo('App\Staff', 'staffID');
+    }
+
+    public function behaviouralItem()
+    {
+        return $this->belongsTo('App\BehaviouralItem', 'behaviouralItem_id');
     }
 
 }

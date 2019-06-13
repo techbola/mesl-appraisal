@@ -15,13 +15,18 @@ class CreateStaffBehaviouralItemsTable extends Migration
     {
         Schema::create('staff_behavioural_items', function (Blueprint $table) {
             $table->bigIncrements('id');
+
             $table->integer('staffID')->unsigned();
             $table->integer('supervisorID')->unsigned();
+
+            $table->integer('appraisal_id')->unsigned();
+
             $table->integer('behaviouralCat_id')->unsigned();
             $table->integer('behaviouralItem_id')->unsigned();
-            $table->decimal('selfAssessment', 3, 1);
-            $table->decimal('supervisorAssessment', 3, 1)->nullable();
-            $table->string('supervisorComment');
+
+            $table->integer('selfAssessment')->nullable();
+            $table->integer('supervisorAssessment')->nullable();
+            $table->string('supervisorComment')->nullable();
             $table->timestamps();
         });
     }

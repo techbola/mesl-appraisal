@@ -203,7 +203,7 @@ class Staff extends Model
     {
         return $this->hasMany('App\AppraisalTraining', 'staffID');
     }
-    public function staffbevaviouralitems()
+    public function staffbehaviouralitems()
     {
         return $this->hasMany('App\StaffBehaviouralItem', 'staffID');
     }

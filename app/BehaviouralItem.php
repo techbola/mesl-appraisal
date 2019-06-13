@@ -23,4 +23,9 @@ class BehaviouralItem extends Model
         return $this->belongsTo('App\Level', 'level_id');
     }
 
+    public function staffBehaviouralItem()
+    {
+        return $this->hasOne('App\StaffBehaviouralItem', 'behaviouralItem_id');
+    }
+
 }

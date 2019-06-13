@@ -32,11 +32,6 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
         'as' => 'staff_details.store'
     ]);
 
-    Route::post('/staff_behavioural/store', [
-        'uses' => 'AppraisalController@staffBehaviouralStore',
-        'as' => 'staff_behavioural.store'
-    ]);
-
     Route::post('/other_appraisal/store', [
         'uses' => 'AppraisalController@otherAppraisalStore',
         'as' => 'other_appraisal.store'
@@ -50,26 +45,6 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
     Route::get('/edit/appraisal/{id}', [
         'uses' => 'AppraisalController@editAppraisal',
         'as' => 'editAppraisal'
-    ]);
-
-    Route::get('/delete/comment/appraisal/{cID}', [
-        'uses' => 'AppraisalController@deleteAppraisalComment',
-        'as' => 'deleteAppraisalComment'
-    ]);
-
-    Route::post('/update/comment/appraisal', [
-        'uses' => 'AppraisalController@updateAppraisalComment',
-        'as' => 'updateAppraisalComment'
-    ]);
-
-    Route::get('/delete/signature/appraisal/{signID}', [
-        'uses' => 'AppraisalController@deleteAppraisalSignature',
-        'as' => 'deleteAppraisalSignature'
-    ]);
-
-    Route::post('/update/signature/appraisal', [
-        'uses' => 'AppraisalController@updateAppraisalSign',
-        'as' => 'updateAppraisalSign'
     ]);
 
     Route::get('/submit/appraisal/{id}/hr', [
@@ -131,6 +106,39 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
     Route::post('/update/learning/appraisal', [
         'uses' => 'LearningAppraisalController@updateLearningAppraisal',
         'as' => 'updateLearningAppraisal'
+    ]);
+
+//    Appraisal Comment
+    Route::get('/delete/comment/appraisal/{cID}', [
+        'uses' => 'AppraisalCommentController@deleteAppraisalComment',
+        'as' => 'deleteAppraisalComment'
+    ]);
+
+    Route::post('/update/comment/appraisal', [
+        'uses' => 'AppraisalCommentController@updateAppraisalComment',
+        'as' => 'updateAppraisalComment'
+    ]);
+
+//    Appraisal Signature
+    Route::get('/delete/signature/appraisal/{signID}', [
+        'uses' => 'AppraisalSignatureController@deleteAppraisalSignature',
+        'as' => 'deleteAppraisalSignature'
+    ]);
+
+    Route::post('/update/signature/appraisal', [
+        'uses' => 'AppraisalSignatureController@updateAppraisalSign',
+        'as' => 'updateAppraisalSign'
+    ]);
+
+//    Staff Behavioural
+    Route::post('/staff_behavioural/store', [
+        'uses' => 'StaffBehaviouralItemController@staffBehaviouralStore',
+        'as' => 'staff_behavioural.store'
+    ]);
+
+    Route::post('/staff_behavioural/update', [
+        'uses' => 'StaffBehaviouralItemController@updateStaffBehavioural',
+        'as' => 'updateStaffBehavioural'
     ]);
 
 });
