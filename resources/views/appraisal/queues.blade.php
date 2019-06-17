@@ -43,7 +43,7 @@
 										@if($appraisal->sentFlag && $appraisal->status == 1)
 											<a href="#" class="btn btn-info btn-sm" disabled="">Appraisal Submitted</a>
 										@elseif($appraisal->sentFlag && $appraisal->status == 2)
-											<a href="#" class="btn btn-info btn-sm">View Appraisal</a>
+											<a href="{{ route('viewGoals', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">View Goals</a>
 										@else
 											<a href="{{ route('submitAppraisalHR', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">Submit To HR</a>
 											|

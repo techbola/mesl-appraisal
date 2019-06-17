@@ -239,6 +239,35 @@ class AppraisalController extends Controller
 
     }
 
+    public function viewGoals($id)
+    {
+
+        $appraisal_finances = AppraisalFinance::where('appraisal_id', $id)->get();
+        $appraisal_customers = AppraisalCustomer::where('appraisal_id', $id)->get();
+        $appraisal_internals = AppraisalInternal::where('appraisal_id', $id)->get();
+        $appraisal_learnings = AppraisalLearning::where('appraisal_id', $id)->get();
+
+        $comments = AppraisalComment::where('appraisal_id', $id)->first();
+        $signatures = AppraisalSignature::where('appraisal_id', $id)->first();
+
+        $behavioural = new Behavioural();
+        $behaviourals = $behavioural->getUserBehaviourals();
+        $staffBehaviouralItems = StaffBehaviouralItem::where('appraisal_id', $id);
+
+        return view('goals.view_goals.staff')->with([
+            'appraisalID' => $id,
+            'appraisal_finances' => $appraisal_finances,
+            'appraisal_customers' => $appraisal_customers,
+            'appraisal_internals' => $appraisal_internals,
+            'appraisal_learnings' => $appraisal_learnings,
+            'comments' => $comments,
+            'signatures' => $signatures,
+            'behaviourals' => $behaviourals,
+            'staffBehaviouralItems' => $staffBehaviouralItems,
+        ]);
+
+    }
+
     public function submitAppraisalHR($id)
     {
 

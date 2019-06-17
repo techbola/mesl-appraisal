@@ -52,6 +52,11 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
         'as' => 'submitAppraisalHR'
     ]);
 
+    Route::get('/view/goals/{id}', [
+        'uses' => 'AppraisalController@viewGoals',
+        'as' => 'viewGoals'
+    ]);
+
 //    Finance Appraisal
     Route::post('/bsc_financial/store', [
         'uses' => 'FinanceAppraisalController@bscFinancialStore',

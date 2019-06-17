@@ -52,9 +52,12 @@
 											</td>
 											<td class="v-align-middle">
 												<p>
-
 													<a href="{{ route('supervisorViewAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-info btn-sm">View</a>
-
+												</p>
+												<p>
+													@if($appraisal->status == 2)
+														<a href="#" class="btn btn-primary btn-sm">Submit to HR</a>
+													@endif
 												</p>
 											</td>
 											<td>
