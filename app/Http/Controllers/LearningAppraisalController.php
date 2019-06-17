@@ -20,8 +20,7 @@ class LearningAppraisalController extends Controller
                 'learning_objective.*' => 'required|string',
                 'learning_kpi.*' => 'required|string',
                 'learning_target.*' => 'required|string',
-//                'learning_constraint.*' => 'required|string',
-//                'learning_self_ass.*' => 'required|numeric',
+                'learning_constraint.*' => 'required|string',
 
             ]);
 
@@ -33,8 +32,7 @@ class LearningAppraisalController extends Controller
                 $appraisal->objective = $request->learning_objective[$i];
                 $appraisal->kpi = $request->learning_kpi[$i];
                 $appraisal->target = $request->learning_target[$i];
-//                $appraisal->constraint = $request->learning_constraint[$i];
-//                $appraisal->selfAssessment = $request->learning_self_ass[$i];
+                $appraisal->constraint = $request->learning_constraint[$i];
                 $appraisal->supervisorID = $staff->SupervisorID;
                 $appraisal->staffID = $staff->StaffRef;
                 $appraisal->appraisal_id = $request->appraisalID;
@@ -58,8 +56,7 @@ class LearningAppraisalController extends Controller
             'learning_objective' => 'required|string',
             'learning_kpi' => 'required|string',
             'learning_target' => 'required|string',
-//            'learning_constraint' => 'required|string',
-//            'learning_self_ass' => 'required|numeric',
+            'learning_constraint' => 'required|string',
 
         ]);
 
@@ -68,8 +65,7 @@ class LearningAppraisalController extends Controller
         $appraisal->objective = $request->learning_objective;
         $appraisal->kpi = $request->learning_kpi;
         $appraisal->target = $request->learning_target;
-//        $appraisal->constraint = $request->learning_constraint;
-//        $appraisal->selfAssessment = $request->learning_self_ass;
+        $appraisal->constraint = $request->learning_constraint;
 
         $appraisal->save();
 

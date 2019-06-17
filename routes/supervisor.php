@@ -9,7 +9,12 @@ Route::middleware(['auth'])->prefix('supervisor')->group(function () {
 
     Route::get('/appraisal/{appraisalID}', [
         'uses' => 'SupervisorController@appraisal',
-        'as' => 'hrViewAppraisal'
+        'as' => 'supervisorViewAppraisal'
+    ]);
+
+    Route::post('/goals/{appraisalID}/approval', [
+        'uses' => 'SupervisorController@goalsApproval',
+        'as' => 'goalsApproval'
     ]);
 
 });

@@ -15,9 +15,8 @@
 								<table class="table">
 									<thead>
 									<tr>
-										<th scope="col" class="text-center text-white bg-primary">{{ $behavioural->behaviouralCat }}</th>
-										<th scope="col" class="text-center text-white bg-primary">Weight</th>
-										<th scope="col" class="text-center text-white bg-primary">Self Assessment</th>
+										<th scope="col" class="text-left text-white bg-primary">{{ $behavioural->behaviouralCat }}</th>
+										<th scope="col" class="text-left text-white bg-primary">Weight</th>
 									</tr>
 									</thead>
 									<tbody>
@@ -30,16 +29,6 @@
 												<td>
 													{{ $behavioural_item->weight }}
 												</td>
-												<td>
-													<div class="form-group form-group-default">
-														<input type="hidden" name="staffBehaviouralItem_id[]"
-															   value="{{ $behavioural_item->staffBehaviouralItem->id }}">
-														<input type="text" class="form-control" name="selfAssess[]"
-															   value="{{ $behavioural_item->staffBehaviouralItem ?
-															    $behavioural_item->staffBehaviouralItem->selfAssessment :
-															    '' }}">
-													</div>
-												</td>
 											</tr>
 										@endforeach
 
@@ -50,17 +39,17 @@
 					</div>
 					<br>
 
-					<div class="form-group-attached">
-						<div class="row clearfix">
-							<div class="col-md-12">
-								<input type="hidden" name="appraisalID" value="{{ $appraisalID }}">
-								<input type="hidden" name="behaviourals" value="{{ $behaviourals->pluck('id') }}">
-								<button class="btn btn-primary btn-cons btn-animated" type="submit">
-									<span>Update</span>
-								</button>
-							</div>
-						</div>
-					</div>
+{{--					<div class="form-group-attached">--}}
+{{--						<div class="row clearfix">--}}
+{{--							<div class="col-md-12">--}}
+{{--								<input type="hidden" name="appraisalID" value="{{ $appraisalID }}">--}}
+{{--								<input type="hidden" name="behaviourals" value="{{ $behaviourals->pluck('id') }}">--}}
+{{--								<button class="btn btn-primary btn-cons btn-animated" type="submit">--}}
+{{--									<span>Update</span>--}}
+{{--								</button>--}}
+{{--							</div>--}}
+{{--						</div>--}}
+{{--					</div>--}}
 
 				</form>
 

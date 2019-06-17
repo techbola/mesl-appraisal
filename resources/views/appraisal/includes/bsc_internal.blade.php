@@ -15,12 +15,6 @@
 								<th scope="col" class="text-center text-white bg-primary">KPIs</th>
 								<th scope="col" class="text-center text-white bg-primary">Target</th>
 								<th scope="col" class="text-center text-white bg-primary">Constraint</th>
-								<th scope="col" class="text-center text-white bg-primary">Self Assessment</th>
-								@if(auth()->user()->staff->SupervisorFlag)
-								<th scope="col" class="text-center text-white bg-primary">Weight</th>
-								<th scope="col" class="text-center text-white bg-primary">Supervisor's Assessment</th>
-								<th scope="col" class="text-center text-white bg-primary">Justification</th>
-								@endif
 								<th scope="col" class="text-center text-white bg-info">
 									<a style="color: Mediumslateblue;font-size: 30px;" title="Add More Field" id="addInternalRow">
 										<i class="fa fa-plus-circle"></i>
@@ -50,28 +44,6 @@
 										<input type="text" class="form-control" name="internal_process_constraint[]">
 									</div>
 								</td>
-								<td>
-									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="internal_process_self_ass[]">
-									</div>
-								</td>
-								@if(auth()->user()->staff->SupervisorFlag)
-									<td>
-										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="internal_process_weight[]">
-										</div>
-									</td>
-									<td>
-										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="internal_process_supervisor_ass[]">
-										</div>
-									</td>
-									<td>
-										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="internal_process_justification[]">
-										</div>
-									</td>
-								@endif
 							</tr>
 							</tbody>
 						</table>
@@ -118,7 +90,6 @@
 									<th style="width:20%">KPIs</th>
 									<th style="width:15%">Targets</th>
 									<th style="width:20%">Constraints</th>
-									<th style="width:19%">Self Assessment</th>
 									<th style="width:5%">Action</th>
 								</tr>
 								</thead>
@@ -153,11 +124,6 @@
 											</p>
 										</td>
 										<td class="v-align-middle">
-											<p>
-												{{ $appraisal_internal->selfAssessment }}
-											</p>
-										</td>
-										<td class="v-align-middle">
 											<!-- Button trigger modal -->
 											<button type="button" class="btn btn-primary editInternalDialog"
 													data-id="{{ $appraisal_internal->id }}"
@@ -165,7 +131,6 @@
 													data-kpi="{{ $appraisal_internal->kpi }}"
 													data-targets="{{ $appraisal_internal->target }}"
 													data-constraint="{{ $appraisal_internal->constraint }}"
-													data-assessment="{{ $appraisal_internal->selfAssessment }}"
 													data-toggle="modal"
 													data-target="#internalModal">
 												Edit

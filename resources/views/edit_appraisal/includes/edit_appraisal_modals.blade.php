@@ -16,7 +16,6 @@
 							<th scope="col" class="text-center text-white bg-primary">KPIs</th>
 							<th scope="col" class="text-center text-white bg-primary">Target</th>
 							<th scope="col" class="text-center text-white bg-primary">Constraints</th>
-							<th scope="col" class="text-center text-white bg-primary">Self Assessment</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -40,11 +39,6 @@
 							<td>
 								<div class="form-group form-group-default">
 									<input type="text" class="form-control" name="financial_constraint" value="" id="financeAppraisalConstraint">
-								</div>
-							</td>
-							<td>
-								<div class="form-group form-group-default">
-									<input type="text" class="form-control" name="financial_self_ass" value="" id="financeAppraisalAssessment">
 								</div>
 							</td>
 						</tr>
@@ -81,7 +75,6 @@
 							<th scope="col" class="text-center text-white bg-primary">KPIs</th>
 							<th scope="col" class="text-center text-white bg-primary">Target</th>
 							<th scope="col" class="text-center text-white bg-primary">Constraints</th>
-							<th scope="col" class="text-center text-white bg-primary">Self Assessment</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -105,11 +98,6 @@
 							<td>
 								<div class="form-group form-group-default">
 									<input type="text" class="form-control" name="stakeholders_constraint" value="" id="customerAppraisalConstraint">
-								</div>
-							</td>
-							<td>
-								<div class="form-group form-group-default">
-									<input type="text" class="form-control" name="stakeholders_self_ass" value="" id="customerAppraisalAssessment">
 								</div>
 							</td>
 						</tr>
@@ -146,7 +134,6 @@
 							<th scope="col" class="text-center text-white bg-primary">KPIs</th>
 							<th scope="col" class="text-center text-white bg-primary">Target</th>
 							<th scope="col" class="text-center text-white bg-primary">Constraints</th>
-							<th scope="col" class="text-center text-white bg-primary">Self Assessment</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -170,11 +157,6 @@
 							<td>
 								<div class="form-group form-group-default">
 									<input type="text" class="form-control" name="internal_process_constraint" value="" id="internalAppraisalConstraint">
-								</div>
-							</td>
-							<td>
-								<div class="form-group form-group-default">
-									<input type="text" class="form-control" name="internal_process_self_ass" value="" id="internalAppraisalAssessment">
 								</div>
 							</td>
 						</tr>
@@ -211,7 +193,6 @@
 							<th scope="col" class="text-center text-white bg-primary">KPIs</th>
 							<th scope="col" class="text-center text-white bg-primary">Target</th>
 							<th scope="col" class="text-center text-white bg-primary">Constraints</th>
-							<th scope="col" class="text-center text-white bg-primary">Self Assessment</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -235,11 +216,6 @@
 							<td>
 								<div class="form-group form-group-default">
 									<input type="text" class="form-control" name="learning_constraint" value="" id="learningAppraisalConstraint">
-								</div>
-							</td>
-							<td>
-								<div class="form-group form-group-default">
-									<input type="text" class="form-control" name="learning_self_ass" value="" id="learningAppraisalAssessment">
 								</div>
 							</td>
 						</tr>

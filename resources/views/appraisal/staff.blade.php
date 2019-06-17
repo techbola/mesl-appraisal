@@ -72,17 +72,7 @@
 		</script>
 	@endif
 
-	@if(auth()->user()->staff->SupervisorFlag)
-
-		<script type="text/javascript" src="{{ asset('main/js/staff_add_row.js') }}"></script>
-
-	@endif
-
-	@if(!auth()->user()->staff->SupervisorFlag)
-
-		<script type="text/javascript" src="{{ asset('main/js/staff_add_row.js') }}"></script>
-
-	@endif
+	<script type="text/javascript" src="{{ asset('main/js/staff_add_row.js') }}"></script>
 
 	<script type="text/javascript" src="{{ asset('main/js/delete_checkbox_ids.js') }}"></script>
 

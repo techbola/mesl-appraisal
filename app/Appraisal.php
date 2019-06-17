@@ -11,7 +11,7 @@ class Appraisal extends Model
 	
     protected $fillable = [
         'staffID', 'supervisorID', 'employee_name', 'job_position', 'department', 'period', 'appraiserDesignation',
-        'appraiserName', 'status', 'sentFlag',
+        'appraiserName', 'status', 'sentFlag', 'supervisorComment',
     ];
 
     protected $primaryKey = 'id';

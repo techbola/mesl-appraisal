@@ -7,6 +7,8 @@
 		<!-- START CONTAINER FLUID -->
 		<div class="container-fluid container-fixed-lg">
 
+			<h4><strong>{{ $staffName }}</strong></h4>
+
 			<div id="rootwizard" class="m-t-50">
 				<!-- Nav tabs -->
 			@include('supervisor.includes.appraisal_nav')
@@ -15,11 +17,11 @@
 				<div class="tab-content">
 
 					@include('supervisor.includes.bsc_financial')
-{{--					@include('supervisor.includes.bsc_customer')--}}
-{{--					@include('supervisor.includes.bsc_internal')--}}
-{{--					@include('supervisor.includes.bsc_learning')--}}
-{{--					@include('supervisor.includes.staff_behavioural')--}}
-{{--					@include('supervisor.includes.others')--}}
+					@include('supervisor.includes.bsc_customer')
+					@include('supervisor.includes.bsc_internal')
+					@include('supervisor.includes.bsc_learning')
+					@include('supervisor.includes.staff_behavioural')
+					@include('supervisor.includes.others')
 
 					<div class="padding-20">
 						<ul class="pager wizard">
@@ -39,12 +41,22 @@
 				</div>
 
 			</div>
+
+			<form action="{{ route('goalsApproval', ['appraisalID' => $appraisalID]) }}" method="post">
+				@csrf
+				<div class="form-group">
+					<label for="comment">Comment</label>
+					<textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
+					<br>
+					<button type="submit" class="btn btn-primary pull-left" name="action" value="approve">Approve</button>
+					<button type="submit" class="btn btn-danger pull-right" name="action" value="reject">Reject</button>
+				</div>
+			</form>
+
 		</div>
 		<!-- END CONTAINER FLUID -->
 	</div>
 	<!-- END PAGE CONTENT -->
-
-	@include('supervisor.includes.edit_appraisal_modals')
 
 @endsection
 
@@ -71,21 +83,5 @@
 			@endforeach
 		</script>
 	@endif
-
-	@if(auth()->user()->staff->SupervisorFlag)
-
-		<script type="text/javascript" src="{{ asset('main/js/staff_add_row.js') }}"></script>
-
-	@endif
-
-	@if(!auth()->user()->staff->SupervisorFlag)
-
-		<script type="text/javascript" src="{{ asset('main/js/staff_add_row.js') }}"></script>
-
-	@endif
-
-	<script type="text/javascript" src="{{ asset('main/js/delete_checkbox_ids.js') }}"></script>
-
-	<script type="text/javascript" src="{{ asset('main/js/pass_appraisalid_to_modal.js') }}"></script>
 
 @endpush

@@ -33,6 +33,7 @@
 									<th style="width:10%">Period</th>
 									<th style="width:20%">Date Submitted</th>
 									<th style="width:30%">Action</th>
+									<th style="width:30%">Status</th>
 								</tr>
 								</thead>
 								<tbody>
@@ -52,10 +53,16 @@
 											<td class="v-align-middle">
 												<p>
 
-													<a href="{{ route('hrViewAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-info btn-sm">View</a>
-													<a href="#" class="btn btn-primary btn-sm" disabled="">Approve</a>
+													<a href="{{ route('supervisorViewAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-info btn-sm">View</a>
 
 												</p>
+											</td>
+											<td>
+												@if($appraisal->status == 2)
+													<p>Approved</p>
+												@else
+													<p>Not Yet Seen</p>
+												@endif
 											</td>
 										</tr>
 

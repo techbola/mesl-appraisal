@@ -33,11 +33,6 @@ $(document).ready(function () {
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class="form-group form-group-default">\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type="text" class="form-control" name="financial_self_ass[]">\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t  \t<button name="remove" id="'+i+'" style="color: red;font-size: 20px;" class="financial_btn_remove">\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i class="fa fa-minus-circle"></i>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t  \t</button>\n' +
@@ -81,11 +76,6 @@ $(document).ready(function () {
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class="form-group form-group-default">\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type="text" class="form-control" name="stakeholders_constraint[]">\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class="form-group form-group-default">\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type="text" class="form-control" name="stakeholders_self_ass[]">\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n' +
@@ -135,11 +125,6 @@ $(document).ready(function () {
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class="form-group form-group-default">\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type="text" class="form-control" name="internal_process_self_ass[]">\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t  \t<button name="remove" id="'+k+'" style="color: red;font-size: 20px;" class="internal_btn_remove">\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<i class="fa fa-minus-circle"></i>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t  \t</button>\n' +
@@ -183,11 +168,6 @@ $(document).ready(function () {
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class="form-group form-group-default">\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type="text" class="form-control" name="learning_constraint[]">\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<div class="form-group form-group-default">\n' +
-            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<input type="text" class="form-control" name="learning_self_ass[]">\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t</div>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t</td>\n' +
             '\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>\n' +

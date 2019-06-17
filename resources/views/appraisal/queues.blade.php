@@ -40,8 +40,10 @@
 									</td>
 									<td class="v-align-middle">
 
-										@if($appraisal->sentFlag)
+										@if($appraisal->sentFlag && $appraisal->status == 1)
 											<a href="#" class="btn btn-info btn-sm" disabled="">Appraisal Submitted</a>
+										@elseif($appraisal->sentFlag && $appraisal->status == 2)
+											<a href="#" class="btn btn-info btn-sm">View Appraisal</a>
 										@else
 											<a href="{{ route('submitAppraisalHR', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">Submit To HR</a>
 											|
@@ -59,7 +61,15 @@
 										@elseif($appraisal->status == 2)
 											<p>Approved</p>
 										@elseif($appraisal->status == 3)
-											<p>Rejected, edit and resubmit.</p>
+											<p>
+												<strong>Rejected,</strong>
+												<button type="button" class="btn btn-primary commentDialog"
+														data-comment="{{ $appraisal->supervisorComment }}"
+														data-toggle="modal"
+														data-target="#supervisorCommentModal">
+													View Comment/Reason
+												</button>
+											</p>
 										@endif
 									</td>
 								</tr>
@@ -77,6 +87,30 @@
 
 		@endif
 
+	</div>
+
+	<div class="modal fade" id="supervisorCommentModal" tabindex="-1" role="dialog" aria-labelledby="supervisorCommentModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="supervisorCommentModalLabel">Comment/Reason</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="supervisorComment">Comment</label>
+							<input class="form-control" name="supervisorComment" id="supervisorComment">
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+		</div>
 	</div>
 
 @endsection
@@ -104,5 +138,19 @@
 			@endforeach
 		</script>
 	@endif
+
+	<script>
+
+        $(document).on("click", ".commentDialog", function () {
+
+            let supervisorComment = $(this).data('comment');
+
+            // console.log(supervisorComment)
+
+            $("#supervisorComment").val( supervisorComment );
+
+        });
+
+	</script>
 
 @endpush

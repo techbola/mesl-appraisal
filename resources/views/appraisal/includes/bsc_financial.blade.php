@@ -15,12 +15,6 @@
 								<th scope="col" class="text-center text-white bg-primary">KPIs</th>
 								<th scope="col" class="text-center text-white bg-primary">Target</th>
 								<th scope="col" class="text-center text-white bg-primary">Constraints</th>
-								<th scope="col" class="text-center text-white bg-primary">Self Assessment</th>
-								@if(auth()->user()->staff->SupervisorFlag)
-								<th scope="col" class="text-center text-white bg-primary">Weight</th>
-								<th scope="col" class="text-center text-white bg-primary">Supervisor's Assessment</th>
-								<th scope="col" class="text-center text-white bg-primary">Justification</th>
-								@endif
 								<th scope="col" class="text-center text-white bg-info">
 									<a style="color: Mediumslateblue;font-size: 30px;" title="Add More Field" id="addFinancialRow">
 										<i class="fa fa-plus-circle"></i>
@@ -51,28 +45,6 @@
 											<input type="text" class="form-control" name="financial_constraint[]">
 										</div>
 									</td>
-									<td>
-										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="financial_self_ass[]">
-										</div>
-									</td>
-									@if(auth()->user()->staff->SupervisorFlag)
-										<td>
-											<div class="form-group form-group-default">
-												<input type="text" class="form-control" name="financial_weight[]">
-											</div>
-										</td>
-										<td>
-											<div class="form-group form-group-default">
-												<input type="text" class="form-control" name="financial_supervisor_ass[]">
-											</div>
-										</td>
-										<td>
-											<div class="form-group form-group-default">
-												<input type="text" class="form-control" name="financial_justification[]">
-											</div>
-										</td>
-									@endif
 								</tr>
 
 							</tbody>
@@ -121,7 +93,6 @@
 									<th style="width:20%">KPIs</th>
 									<th style="width:15%">Targets</th>
 									<th style="width:20%">Constraints</th>
-									<th style="width:19%">Self Assessment</th>
 									<th style="width:5%">Action</th>
 								</tr>
 								</thead>
@@ -156,11 +127,6 @@
 												</p>
 											</td>
 											<td class="v-align-middle">
-												<p>
-													{{ $appraisal_finance->selfAssessment }}
-												</p>
-											</td>
-											<td class="v-align-middle">
 												<!-- Button trigger modal -->
 												<button type="button" class="btn btn-primary editFinanceDialog"
 														data-id="{{ $appraisal_finance->id }}"
@@ -168,7 +134,6 @@
 														data-kpi="{{ $appraisal_finance->kpi }}"
 														data-targets="{{ $appraisal_finance->target }}"
 														data-constraint="{{ $appraisal_finance->constraint }}"
-														data-assessment="{{ $appraisal_finance->selfAssessment }}"
 														data-toggle="modal"
 														data-target="#financeModal">
 													Edit

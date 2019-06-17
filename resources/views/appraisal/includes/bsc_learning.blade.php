@@ -15,12 +15,6 @@
 								<th scope="col" class="text-center text-white bg-primary">KPIs</th>
 								<th scope="col" class="text-center text-white bg-primary">Target</th>
 								<th scope="col" class="text-center text-white bg-primary">Constraint</th>
-								<th scope="col" class="text-center text-white bg-primary">Self Assessment</th>
-								@if(auth()->user()->staff->SupervisorFlag)
-								<th scope="col" class="text-center text-white bg-primary">Weight</th>
-								<th scope="col" class="text-center text-white bg-primary">Supervisor's Assessment</th>
-								<th scope="col" class="text-center text-white bg-primary">Justification</th>
-								@endif
 								<th scope="col" class="text-center text-white bg-info">
 									<a style="color: Mediumslateblue;font-size: 30px;" title="Add More Field" id="addLearningRow">
 										<i class="fa fa-plus-circle"></i>
@@ -50,28 +44,6 @@
 										<input type="text" class="form-control" name="learning_constraint[]">
 									</div>
 								</td>
-								<td>
-									<div class="form-group form-group-default">
-										<input type="text" class="form-control" name="learning_self_ass[]">
-									</div>
-								</td>
-								@if(auth()->user()->staff->SupervisorFlag)
-									<td>
-										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="learning_weight[]">
-										</div>
-									</td>
-									<td>
-										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name=learning_supervisor_ass[]">
-										</div>
-									</td>
-									<td>
-										<div class="form-group form-group-default">
-											<input type="text" class="form-control" name="learning_justification[]">
-										</div>
-									</td>
-								@endif
 							</tr>
 							</tbody>
 						</table>
@@ -118,7 +90,6 @@
 									<th style="width:20%">KPIs</th>
 									<th style="width:15%">Targets</th>
 									<th style="width:20%">Constraints</th>
-									<th style="width:19%">Self Assessment</th>
 									<th style="width:5%">Action</th>
 								</tr>
 								</thead>
@@ -153,11 +124,6 @@
 											</p>
 										</td>
 										<td class="v-align-middle">
-											<p>
-												{{ $appraisal_learning->selfAssessment }}
-											</p>
-										</td>
-										<td class="v-align-middle">
 											<!-- Button trigger modal -->
 											<button type="button" class="btn btn-primary editLearningDialog"
 													data-id="{{ $appraisal_learning->id }}"
@@ -165,7 +131,6 @@
 													data-kpi="{{ $appraisal_learning->kpi }}"
 													data-targets="{{ $appraisal_learning->target }}"
 													data-constraint="{{ $appraisal_learning->constraint }}"
-													data-assessment="{{ $appraisal_learning->selfAssessment }}"
 													data-toggle="modal"
 													data-target="#learningModal">
 												Edit

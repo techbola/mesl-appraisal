@@ -20,8 +20,7 @@ class CustomerAppraisalController extends Controller
                 'stakeholders_objective.*' => 'required|string',
                 'stakeholders_kpi.*' => 'required|string',
                 'stakeholders_target.*' => 'required|string',
-//                'stakeholders_constraint.*' => 'required|string',
-//                'stakeholders_self_ass.*' => 'required|numeric',
+                'stakeholders_constraint.*' => 'required|string',
 
             ]);
 
@@ -33,8 +32,7 @@ class CustomerAppraisalController extends Controller
                 $appraisal->objective = $request->stakeholders_objective[$i];
                 $appraisal->kpi = $request->stakeholders_kpi[$i];
                 $appraisal->target = $request->stakeholders_target[$i];
-//                $appraisal->constraint = $request->stakeholders_constraint[$i];
-//                $appraisal->selfAssessment = $request->stakeholders_self_ass[$i];
+                $appraisal->constraint = $request->stakeholders_constraint[$i];
                 $appraisal->supervisorID = $staff->SupervisorID;
                 $appraisal->staffID = $staff->StaffRef;
                 $appraisal->appraisal_id = $request->appraisalID;
@@ -58,8 +56,7 @@ class CustomerAppraisalController extends Controller
             'stakeholders_objective' => 'required|string',
             'stakeholders_kpi' => 'required|string',
             'stakeholders_target' => 'required|string',
-//            'stakeholders_constraint' => 'required|string',
-//            'stakeholders_self_ass' => 'required|numeric',
+            'stakeholders_constraint' => 'required|string',
 
         ]);
 
@@ -68,8 +65,7 @@ class CustomerAppraisalController extends Controller
         $appraisal->objective = $request->stakeholders_objective;
         $appraisal->kpi = $request->stakeholders_kpi;
         $appraisal->target = $request->stakeholders_target;
-//        $appraisal->constraint = $request->stakeholders_constraint;
-//        $appraisal->selfAssessment = $request->stakeholders_self_ass;
+        $appraisal->constraint = $request->stakeholders_constraint;
 
         $appraisal->save();
 

@@ -121,13 +121,11 @@ class AppraisalController extends Controller
             $this->validate($request, [
 
                 'employee_name' => 'required|string',
-               // 'job_position' => 'required|string',
-               // 'department' => 'required|string',
                'appraiser_period' => 'required|string',
 
             ]);
 
-            $data = Appraisal::where('period', $request->appraiser_period)->first();
+            $data = Appraisal::where('period', $request->appraiser_period)->where('StaffID', auth()->user()->staff->StaffRef)->first();
 
             if ($data){
 
@@ -139,7 +137,9 @@ class AppraisalController extends Controller
 
                 $appraisal = new Appraisal;
 
-                $staff = Staff::where('UserID',auth()->user()->id)->first();
+                $staff = Staff::where('UserID', auth()->user()->id)->first();
+
+//                dd($staff->SupervisorID);
 
                 $appraisal->supervisorID = $staff->SupervisorID;
                 $appraisal->staffID = $staff->StaffRef;

@@ -41,4 +41,10 @@ class Behavioural extends Model
             ->where('level_id', auth()->user()->level_id);
     }
 
+    public function behaviouralStaffItems($staffLevelID)
+    {
+        return $this->hasMany('App\BehaviouralItem', 'behaviouralCat_id')
+            ->where('level_id', $staffLevelID)->get();
+    }
+
 }
