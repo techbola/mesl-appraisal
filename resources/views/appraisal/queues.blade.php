@@ -44,8 +44,10 @@
 											<a href="#" class="btn btn-info btn-sm" disabled="">Appraisal Submitted</a>
 										@elseif($appraisal->sentFlag && $appraisal->status == 2)
 											<a href="{{ route('viewGoals', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">View Goals</a>
+										@elseif($appraisal->sentFlag && $appraisal->status == 4)
+											<a href="{{ route('viewGoals', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">View Goals</a>
 										@else
-											<a href="{{ route('submitAppraisalHR', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">Submit To HR</a>
+											<a href="{{ route('submitAppraisalHR', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">Submit To Supervisor</a>
 											|
 											<a href="{{ route('editAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Edit</a>
 											|
@@ -60,6 +62,8 @@
 											<p>Submitted, awaiting supervisor's feedback.</p>
 										@elseif($appraisal->status == 2)
 											<p>Approved</p>
+										@elseif($appraisal->status == 4)
+											<p>Approved, sent to HR</p>
 										@elseif($appraisal->status == 3)
 											<p>
 												<strong>Rejected,</strong>

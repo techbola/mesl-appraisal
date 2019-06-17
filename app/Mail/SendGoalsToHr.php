@@ -2,29 +2,26 @@
 
 namespace App\Mail;
 
-use App\Appraisal;
 use App\Staff;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class RejectStaffGoals extends Mailable
+class SendGoalsToHr extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $staff;
-    public $appraisal;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Staff $staff, Appraisal $appraisal)
+    public function __construct(Staff $staff)
     {
         $this->staff = $staff;
-        $this->appraisal = $appraisal;
     }
 
     /**
@@ -35,7 +32,7 @@ class RejectStaffGoals extends Mailable
     public function build()
     {
         return $this->from('noreply@mesl.test')
-                    ->subject('Staff Appraisal - Goals Approval Status')
-                    ->markdown('emails.reject_staff_goals');
+                    ->subject('Staff Goals Submitted For Approval')
+                    ->markdown('emails.send_goals_to_hr');
     }
 }

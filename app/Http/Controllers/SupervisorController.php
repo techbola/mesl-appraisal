@@ -13,7 +13,10 @@ use App\Behavioural;
 use App\BehaviouralItem;
 use App\Mail\ApproveStaffGoals;
 use App\Mail\RejectStaffGoals;
+use App\Mail\SendGoalsToHr;
+use App\Role;
 use App\Staff;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -92,8 +95,6 @@ class SupervisorController extends Controller
                 $staff = Staff::find($staffID);
                 $staff_email = $staff->user->email;
 
-//                dd($staff_email);
-
                 if (!empty($request->comment)){
 
                     $comment = $request->comment;
@@ -135,8 +136,6 @@ class SupervisorController extends Controller
                 $staff = Staff::find($staffID);
                 $staff_email = $staff->user->email;
 
-//                dd($staff_email);
-
                 $comment = $request->comment;
 
                 Mail::to($staff_email)->send(new RejectStaffGoals($staff, $appraisal));
@@ -154,6 +153,33 @@ class SupervisorController extends Controller
                 break;
 
         }
+
+    }
+
+    public function submitToHr($appraisalID)
+    {
+
+        $users = Role::where('name', 'HR Supervisor')->first()->users()->get()->all();
+
+        $hr = $users[0];
+
+//        dd($hr->email);
+
+        $appraisal = Appraisal::find($appraisalID);
+
+        $staffID = $appraisal->staffID;
+
+        $staff = Staff::find($staffID);
+
+        Mail::to($hr->email)->send(new SendGoalsToHr($staff));
+
+        $appraisal->status = 4;
+
+        $appraisal->save();
+
+        Session::flash('success', 'Goals Sent to HR!');
+
+        return redirect()->route('supervisor.index');
 
     }
 

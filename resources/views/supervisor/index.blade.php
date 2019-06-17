@@ -30,10 +30,10 @@
 								<thead>
 								<tr>
 									<th style="width:40%">Staff</th>
-									<th style="width:10%">Period</th>
-									<th style="width:20%">Date Submitted</th>
-									<th style="width:30%">Action</th>
-									<th style="width:30%">Status</th>
+									<th style="width:5%">Period</th>
+									<th style="width:25%">Date Submitted</th>
+									<th style="width:15%">Action</th>
+									<th style="width:15%">Status</th>
 								</tr>
 								</thead>
 								<tbody>
@@ -56,13 +56,15 @@
 												</p>
 												<p>
 													@if($appraisal->status == 2)
-														<a href="#" class="btn btn-primary btn-sm">Submit to HR</a>
+														<a href="{{ route('submitToHr', ['appraisalID' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Submit to HR</a>
 													@endif
 												</p>
 											</td>
-											<td>
+											<td class="v-align-middle">
 												@if($appraisal->status == 2)
 													<p>Approved</p>
+												@elseif($appraisal->status == 4)
+													<p>Approved, sent to HR</p>
 												@else
 													<p>Not Yet Seen</p>
 												@endif

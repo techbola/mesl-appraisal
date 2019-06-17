@@ -17,4 +17,9 @@ Route::middleware(['auth'])->prefix('supervisor')->group(function () {
         'as' => 'goalsApproval'
     ]);
 
+    Route::get('/submit/appraisal/{appraisalID}/hr', [
+        'uses' => 'SupervisorController@submitToHr',
+        'as' => 'submitToHr'
+    ]);
+
 });

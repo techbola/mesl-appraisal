@@ -34,6 +34,8 @@ class ApproveStaffGoals extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.approve_staff_goals');
+        return $this->from('noreply@mesl.test')
+                    ->subject('Staff Appraisal - Goals Approval Status')
+                    ->markdown('emails.approve_staff_goals');
     }
 }
