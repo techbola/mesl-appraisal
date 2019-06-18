@@ -36,7 +36,7 @@ class AppraisalController extends Controller
 
         if (!auth()->user()->staff->SupervisorFlag && !auth()->user()->hasRole('HR Supervisor')){
 
-            return view('appraisal.index');
+            return view('staff.goals.new_goal.index');
 
         }
 
@@ -65,7 +65,7 @@ class AppraisalController extends Controller
 
         $appraisals = Appraisal::where('StaffID', auth()->user()->staff->StaffRef)->get();
 
-        return view('appraisal.queues')->with([
+        return view('staff.goals.new_goal.queues')->with([
             'appraisals' => $appraisals
         ]);
 
@@ -88,7 +88,7 @@ class AppraisalController extends Controller
             $behavioural = new Behavioural();
             $behaviourals = $behavioural->getUserBehaviourals();
 
-            return view('appraisal.staff')->with([
+            return view('staff.goals.new_goal.staff')->with([
                 'appraisalID' => $appraisalID,
                 'appraisal_finances' => $appraisal_finances,
                 'appraisal_customers' => $appraisal_customers,
@@ -225,7 +225,7 @@ class AppraisalController extends Controller
         $behaviourals = $behavioural->getUserBehaviourals();
         $staffBehaviouralItems = StaffBehaviouralItem::where('appraisal_id', $id);
 
-        return view('edit_appraisal.staff')->with([
+        return view('staff.goals.edit_goal.staff')->with([
             'appraisalID' => $id,
             'appraisal_finances' => $appraisal_finances,
             'appraisal_customers' => $appraisal_customers,
@@ -254,7 +254,7 @@ class AppraisalController extends Controller
         $behaviourals = $behavioural->getUserBehaviourals();
         $staffBehaviouralItems = StaffBehaviouralItem::where('appraisal_id', $id);
 
-        return view('goals.view_goals.staff')->with([
+        return view('staff.goals.view_goals.staff')->with([
             'appraisalID' => $id,
             'appraisal_finances' => $appraisal_finances,
             'appraisal_customers' => $appraisal_customers,

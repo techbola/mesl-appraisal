@@ -9,17 +9,17 @@
 		</li>
 		<li class="">
 			<a href="{{ route('staff.appraisals') }}">
-				<span class="title">Appraisals</span>
+				<span class="title">Goals Setting</span>
 			</a>
-			<span class="icon-thumbnail">ap</span>
+			<span class="icon-thumbnail">gs</span>
 		</li>
 
 	@elseif(auth()->user()->hasRole('HR Supervisor') && auth()->user()->staff->SupervisorFlag)
 		<li class="m-t-30">
 			<a href="{{ route('supervisor.index') }}" class="detailed">
-				<span class="title">Appraisals</span>
+				<span class="title">Staff Goals</span>
 			</a>
-			<span class="icon-thumbnail">ap</span>
+			<span class="icon-thumbnail">sg</span>
 		</li>
 		<li>
 			<a href="javascript:;"><span class="title">Behavioural</span>
@@ -69,9 +69,9 @@
 	@elseif(auth()->user()->staff->SupervisorFlag)
 		<li class="m-t-30">
 			<a href="{{ route('supervisor.index') }}" class="detailed">
-				<span class="title">Appraisals</span>
+				<span class="title">Staff Goals</span>
 			</a>
-			<span class="icon-thumbnail">ap</span>
+			<span class="icon-thumbnail">sg</span>
 		</li>
 
 	@endif

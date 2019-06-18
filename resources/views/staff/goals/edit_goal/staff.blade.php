@@ -9,17 +9,17 @@
 
 			<div id="rootwizard" class="m-t-50">
 				<!-- Nav tabs -->
-					@include('appraisal.includes.appraisal_nav')
+					@include('staff.goals.edit_goal.includes.appraisal_nav')
 				<!-- Tab panes -->
 
 				<div class="tab-content">
 
-					@include('appraisal.includes.bsc_financial')
-					@include('appraisal.includes.bsc_customer')
-					@include('appraisal.includes.bsc_internal')
-					@include('appraisal.includes.bsc_learning')
-					@include('appraisal.includes.staff_behavioural')
-					@include('appraisal.includes.others')
+					@include('staff.goals.edit_goal.includes.bsc_financial')
+					@include('staff.goals.edit_goal.includes.bsc_customer')
+					@include('staff.goals.edit_goal.includes.bsc_internal')
+					@include('staff.goals.edit_goal.includes.bsc_learning')
+					@include('staff.goals.edit_goal.includes.staff_behavioural')
+					@include('staff.goals.edit_goal.includes.others')
 
 					<div class="padding-20">
 						<ul class="pager wizard">
@@ -44,7 +44,7 @@
 	</div>
 	<!-- END PAGE CONTENT -->
 
-	@include('appraisal.includes.edit_appraisal_modals')
+	@include('staff.goals.edit_goal.includes.edit_appraisal_modals')
 
 @endsection
 
@@ -72,7 +72,17 @@
 		</script>
 	@endif
 
-	<script type="text/javascript" src="{{ asset('main/js/staff_add_row.js') }}"></script>
+	@if(auth()->user()->staff->SupervisorFlag)
+
+		<script type="text/javascript" src="{{ asset('main/js/staff_add_row.js') }}"></script>
+
+	@endif
+
+	@if(!auth()->user()->staff->SupervisorFlag)
+
+		<script type="text/javascript" src="{{ asset('main/js/staff_add_row.js') }}"></script>
+
+	@endif
 
 	<script type="text/javascript" src="{{ asset('main/js/delete_checkbox_ids.js') }}"></script>
 

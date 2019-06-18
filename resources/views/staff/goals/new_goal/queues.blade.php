@@ -15,13 +15,10 @@
 					<table class="table table-hover" id="basicTable">
 						<thead>
 						<tr>
-							<th style="width:1%">
-								<button class="btn"><i class="pg-trash"></i>
-								</button>
-							</th>
-							<th style="width:40%">Period</th>
-							<th style="width:29%">Action</th>
-							<th style="width:30%">Status</th>
+							<th style="width:20%">Period</th>
+							<th style="width:30%">Supervisor</th>
+							<th style="width:30%">Action</th>
+							<th style="width:20%">Status</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -29,14 +26,11 @@
 							@foreach($appraisals as $appraisal)
 
 								<tr>
-									<td class="v-align-middle">
-										<div class="checkbox ">
-											<input type="checkbox" value="3" id="checkbox1">
-											<label for="checkbox1"></label>
-										</div>
-									</td>
 									<td class="v-align-middle ">
 										<p>{{ $appraisal->period }}</p>
+									</td>
+									<td class="v-align-middle ">
+										<p>{{ $appraisal->staff->supervisor->getFullNameAttribute() }}</p>
 									</td>
 									<td class="v-align-middle">
 
@@ -61,18 +55,22 @@
 										@elseif($appraisal->status == 1)
 											<p>Submitted, awaiting supervisor's feedback.</p>
 										@elseif($appraisal->status == 2)
-											<p>Approved</p>
+											<p>Approved by {{ $appraisal->staff->supervisor->getFullNameAttribute() }}</p>
 										@elseif($appraisal->status == 4)
 											<p>Approved, sent to HR</p>
 										@elseif($appraisal->status == 3)
 											<p>
-												<strong>Rejected,</strong>
-												<button type="button" class="btn btn-primary commentDialog"
-														data-comment="{{ $appraisal->supervisorComment }}"
-														data-toggle="modal"
-														data-target="#supervisorCommentModal">
-													View Comment/Reason
-												</button>
+												Rejected, by {{ $appraisal->staff->supervisor->getFullNameAttribute() }}
+												<br><br>
+												<a href="{{ route('editAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">
+													View Comment
+												</a>
+{{--												<button type="button" class="btn btn-primary commentDialog"--}}
+{{--														data-comment="{{ $appraisal->supervisorComment }}"--}}
+{{--														data-toggle="modal"--}}
+{{--														data-target="#supervisorCommentModal">--}}
+{{--													View Comment--}}
+{{--												</button>--}}
 											</p>
 										@endif
 									</td>

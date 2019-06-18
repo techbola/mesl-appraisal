@@ -18,6 +18,7 @@
 									<th style="width:20%">KPIs</th>
 									<th style="width:15%">Targets</th>
 									<th style="width:20%">Constraints</th>
+									<th style="width:25%;">Comment</th>
 								</tr>
 								</thead>
 								<tbody>
@@ -43,6 +44,11 @@
 											<p>
 												{{ $appraisal_learning->constraint }}
 											</p>
+										</td>
+										<td class="v-align-middle">
+											<div class="form-group form-group-default">
+												<input type="text" class="form-control" name="learning_comment[]">
+											</div>
 										</td>
 									</tr>
 								@endforeach

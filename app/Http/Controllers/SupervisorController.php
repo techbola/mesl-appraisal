@@ -31,7 +31,7 @@ class SupervisorController extends Controller
             ->where('sentFlag', True)
             ->get()->all();
 
-        return view('supervisor.index')->with([
+        return view('supervisor.goals.index')->with([
             'appraisals' => $appraisals,
         ]);
 
@@ -67,7 +67,7 @@ class SupervisorController extends Controller
 
         $behaviourals3 = Behavioural::whereIn('id', $behaviourals2)->get();
 
-        return view('supervisor.appraisal')->with([
+        return view('supervisor.goals.appraisal')->with([
             'appraisal_finances' => $appraisal_finances,
             'appraisal_customers' => $appraisal_customers,
             'appraisal_internals' => $appraisal_internals,
@@ -86,6 +86,7 @@ class SupervisorController extends Controller
     {
 
         switch ($request->input('action')) {
+
             case 'approve':
 
                 $appraisal = Appraisal::find($appraisalID);
@@ -95,27 +96,27 @@ class SupervisorController extends Controller
                 $staff = Staff::find($staffID);
                 $staff_email = $staff->user->email;
 
-                if (!empty($request->comment)){
-
-                    $comment = $request->comment;
+//                if (!empty($request->comment)){
+//
+//                    $comment = $request->comment;
+//
+//                    Mail::to($staff_email)->send(new ApproveStaffGoals($staff, $appraisal));
+//
+//                    $appraisal->supervisorComment = $comment;
+//                    $appraisal->status = 2;
+//
+//                    $appraisal->save();
+//
+//                }
+//                else{
 
                     Mail::to($staff_email)->send(new ApproveStaffGoals($staff, $appraisal));
 
-                    $appraisal->supervisorComment = $comment;
                     $appraisal->status = 2;
 
                     $appraisal->save();
 
-                }
-                else{
-
-                    Mail::to($staff_email)->send(new ApproveStaffGoals($staff, $appraisal));
-
-                    $appraisal->status = 2;
-
-                    $appraisal->save();
-
-                }
+//                }
 
                 Session::flash('success', 'Goals Approved!');
 
@@ -125,9 +126,43 @@ class SupervisorController extends Controller
 
             case 'reject':
 
-                $this->validate($request, [
-                   'comment' => 'required|string|min:5'
-                ]);
+                $financialComments = $request->financial_comment;
+                $customerComments = $request->customer_comment;
+                $internalComments = $request->internal_comment;
+                $learningComments = $request->learning_comment;
+
+                $financeGoals = AppraisalFinance::where('appraisal_id', $appraisalID)->get()->all();
+                $customerGoals = AppraisalCustomer::where('appraisal_id', $appraisalID)->get()->all();
+                $internalGoals = AppraisalInternal::where('appraisal_id', $appraisalID)->get()->all();
+                $learningGoals = AppraisalLearning::where('appraisal_id', $appraisalID)->get()->all();
+
+                $i=0;
+                foreach ($financeGoals as $financeGoal){
+                    $financeGoal->justification = $financialComments[$i];
+                    $financeGoal->save();
+                    $i++;
+                }
+
+                $j=0;
+                foreach ($customerGoals as $customerGoal){
+                    $customerGoal->justification = $customerComments[$j];
+                    $customerGoal->save();
+                    $j++;
+                }
+
+                $k=0;
+                foreach ($internalGoals as $internalGoal){
+                    $internalGoal->justification = $internalComments[$k];
+                    $internalGoal->save();
+                    $k++;
+                }
+
+                $l=0;
+                foreach ($learningGoals as $learningGoal){
+                    $learningGoal->justification = $learningComments[$l];
+                    $learningGoal->save();
+                    $l++;
+                }
 
                 $appraisal = Appraisal::find($appraisalID);
 
