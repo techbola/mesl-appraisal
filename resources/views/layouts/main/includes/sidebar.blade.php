@@ -16,7 +16,7 @@
 
 	@elseif(auth()->user()->hasRole('HR Supervisor') && auth()->user()->staff->SupervisorFlag)
 		<li class="m-t-30">
-			<a href="{{ route('supervisor.index') }}" class="detailed">
+			<a href="{{ route('hrStaffGoals') }}" class="detailed">
 				<span class="title">Staff Goals</span>
 			</a>
 			<span class="icon-thumbnail">sg</span>

@@ -89,10 +89,12 @@
 											</button>
 										</form>
 									</th>
-									<th style="width:20%">Objectives</th>
-									<th style="width:20%">KPIs</th>
-									<th style="width:15%">Targets</th>
+									<th style="width:15%">Objectives</th>
+									<th style="width:10%">KPIs</th>
+									<th style="width:10%">Targets</th>
 									<th style="width:20%">Constraints</th>
+									<th style="width:20%">Supervisor Comment</th>
+									<th style="width:20%">HR Comment</th>
 									<th style="width:5%">Action</th>
 								</tr>
 								</thead>
@@ -124,6 +126,16 @@
 											<td class="v-align-middle">
 												<p>
 													{{ $appraisal_finance->constraint }}
+												</p>
+											</td>
+											<td class="v-align-middle">
+												<p>
+													{{ $appraisal_finance->justification ? $appraisal_finance->justification : '' }}
+												</p>
+											</td>
+											<td class="v-align-middle">
+												<p>
+													{{ $appraisal_finance->hrComment ? $appraisal_finance->hrComment : '' }}
 												</p>
 											</td>
 											<td class="v-align-middle">

@@ -48,13 +48,18 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
     ]);
 
     Route::get('/submit/appraisal/{id}/hr', [
-        'uses' => 'AppraisalController@submitAppraisalHR',
-        'as' => 'submitAppraisalHR'
+        'uses' => 'AppraisalController@submitAppraisalSupervisor',
+        'as' => 'submitAppraisalSupervisor'
     ]);
 
     Route::get('/view/goals/{id}', [
         'uses' => 'AppraisalController@viewGoals',
         'as' => 'viewGoals'
+    ]);
+
+    Route::get('/rejected/goals/{id}', [
+        'uses' => 'AppraisalController@rejectedGoalsa',
+        'as' => 'rejectedGoals'
     ]);
 
 //    Finance Appraisal

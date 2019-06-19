@@ -18,6 +18,7 @@ class CreateAppraisalTable extends Migration
             $table->bigIncrements('id');
             $table->integer('staffID')->unsigned();
             $table->integer('supervisorID')->unsigned();
+            $table->integer('hrID')->unsigned()->nullable();
 
             $table->string('employee_name');
             $table->string('job_position')->nullable();

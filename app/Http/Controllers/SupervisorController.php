@@ -40,6 +40,8 @@ class SupervisorController extends Controller
     public function appraisal($appraisalID)
     {
 
+        $ap = Appraisal::find($appraisalID);
+
         $appraisal_finances = AppraisalFinance::where('appraisal_id', $appraisalID)->get();
         $appraisal_customers = AppraisalCustomer::where('appraisal_id', $appraisalID)->get();
         $appraisal_internals = AppraisalInternal::where('appraisal_id', $appraisalID)->get();
@@ -78,6 +80,7 @@ class SupervisorController extends Controller
             'staffName' => $staffName,
             'behaviourals' => $behaviourals3,
             'staffLevelID' => $staff->user->level_id,
+            'ap' => $ap,
         ]);
 
     }
@@ -175,7 +178,6 @@ class SupervisorController extends Controller
 
                 Mail::to($staff_email)->send(new RejectStaffGoals($staff, $appraisal));
 
-                $appraisal->supervisorComment = $comment;
                 $appraisal->sentFlag = False;
                 $appraisal->status = 3;
 
@@ -198,7 +200,7 @@ class SupervisorController extends Controller
 
         $hr = $users[0];
 
-//        dd($hr->email);
+//        dd($hr->staff->StaffRef);
 
         $appraisal = Appraisal::find($appraisalID);
 
@@ -209,6 +211,7 @@ class SupervisorController extends Controller
         Mail::to($hr->email)->send(new SendGoalsToHr($staff));
 
         $appraisal->status = 4;
+        $appraisal->hrID = $hr->staff->StaffRef;
 
         $appraisal->save();
 

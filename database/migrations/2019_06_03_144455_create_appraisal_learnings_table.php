@@ -28,6 +28,7 @@ class CreateAppraisalLearningsTable extends Migration
             $table->decimal('weight', 3,1)->nullable();
             $table->decimal('supervisorAssessment',3,1)->nullable();
             $table->string('justification')->nullable();
+            $table->string('hrComment')->nullable();
 
             $table->timestamps();
         });

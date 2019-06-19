@@ -8,7 +8,7 @@ class AppraisalLearning extends Model
 {
     protected $fillable = [
         'staffID', 'supervisorID', 'objective', 'kpi', 'target', 'selfAssessment', 'constraint',
-        'supervisorAssessment', 'weight', 'justification', 'appraisal_id',
+        'supervisorAssessment', 'weight', 'justification', 'appraisal_id', 'hrComment',
     ];
 
     public function staff()

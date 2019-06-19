@@ -16,4 +16,19 @@ Route::middleware(['auth'])->prefix('hr')->group(function () {
     Route::resource('behavioural_item', 'BehaviouralItemController');
     Route::resource('levels', 'LevelController');
 
+    Route::get('/staff/goals', [
+        'uses' => 'HrController@hrStaffGoals',
+        'as' => 'hrStaffGoals'
+    ]);
+
+    Route::get('/appraisal/{appraisalID}', [
+        'uses' => 'HrController@appraisal',
+        'as' => 'hrViewAppraisal'
+    ]);
+
+    Route::post('/goals/{appraisalID}/approval', [
+        'uses' => 'HrController@goalsApproval',
+        'as' => 'hrGoalsApproval'
+    ]);
+
 });
