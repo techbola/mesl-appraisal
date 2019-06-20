@@ -34,7 +34,6 @@
 										<div class="form-group">
 											<button type="submit" class="btn btn-danger pull-left" name="action" value="reject">Reject & Send to Staff</button>
 											<button type="submit" class="btn btn-primary pull-left" name="action" value="approve" style="margin-left: 30px;">Approve</button>
-
 										</div>
 									</div>
 								</div>

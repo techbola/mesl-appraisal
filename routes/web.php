@@ -47,7 +47,7 @@ Route::middleware(['auth'])->prefix('appraisal')->group(function () {
         'as' => 'editAppraisal'
     ]);
 
-    Route::get('/submit/appraisal/{id}/hr', [
+    Route::get('/submit/appraisal/{id}', [
         'uses' => 'AppraisalController@submitAppraisalSupervisor',
         'as' => 'submitAppraisalSupervisor'
     ]);

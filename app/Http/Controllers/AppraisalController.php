@@ -116,44 +116,37 @@ class AppraisalController extends Controller
     public function staffDetailsStore(Request $request)
     {
 
-        if (!auth()->user()->staff->SupervisorFlag){
+        $this->validate($request, [
 
-            $this->validate($request, [
+            'employee_name' => 'required|string',
+           'appraiser_period' => 'required|string',
 
-                'employee_name' => 'required|string',
-               'appraiser_period' => 'required|string',
+        ]);
 
-            ]);
+        $data = Appraisal::where('period', $request->appraiser_period)->where('StaffID', auth()->user()->staff->StaffRef)->first();
 
-            $data = Appraisal::where('period', $request->appraiser_period)->where('StaffID', auth()->user()->staff->StaffRef)->first();
+        if ($data){
 
-            if ($data){
+            Session::flash('errorFlag', 'Appraisal for this period already started, check your queue.');
 
-                Session::flash('errorFlag', 'Appraisal for this period already started, check your queue.');
+            return back();
 
-                return back();
+        } else{
 
-            } else{
+            $appraisal = new Appraisal;
 
-                $appraisal = new Appraisal;
+            $staff = Staff::where('UserID', auth()->user()->id)->first();
 
-                $staff = Staff::where('UserID', auth()->user()->id)->first();
+            $appraisal->supervisorID = $staff->SupervisorID;
+            $appraisal->staffID = $staff->StaffRef;
+            $appraisal->employee_name = $request->employee_name;
+            $appraisal->period = $request->appraiser_period;
 
-//                dd($staff->SupervisorID);
+            $appraisal->save();
 
-                $appraisal->supervisorID = $staff->SupervisorID;
-                $appraisal->staffID = $staff->StaffRef;
-                $appraisal->employee_name = $request->employee_name;
-                $appraisal->period = $request->appraiser_period;
+            Session::flash('success', 'Saved, move to the next section.');
 
-                $appraisal->save();
-
-                Session::flash('success', 'Saved, move to the next section.');
-
-                return redirect()->route('dashboard', ['appraisalID' => $appraisal->id]);
-
-            }
-
+            return redirect()->route('dashboard', ['appraisalID' => $appraisal->id]);
 
         }
 
@@ -306,8 +299,6 @@ class AppraisalController extends Controller
 
         $supervisor = Staff::find($supervisorID);
         $supervisor_email = $supervisor->user->email;
-
-//        dd($supervisor_email);
 
         Mail::to($supervisor_email)->send(new StaffSendAppraisal());
 
