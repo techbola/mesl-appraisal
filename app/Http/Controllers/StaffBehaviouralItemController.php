@@ -52,14 +52,12 @@ class StaffBehaviouralItemController extends Controller
 
         Session::flash('success', 'Saved!');
 
-        return redirect()->route('editAppraisal', ['appraisalID' => $request->appraisalID]);
+        return redirect()->route('staffAppraisalEdit', ['appraisalID' => $request->appraisalID]);
 
     }
 
     public function updateStaffBehavioural(Request $request)
     {
-
-//        dd($request->staffBehaviouralItem_id);
 
         $staff = Staff::where('UserID',auth()->user()->id)->first();
 
@@ -81,25 +79,25 @@ class StaffBehaviouralItemController extends Controller
 
         }
 
-        for($i=0;$i<count($request->selfAssess);$i++){
+        $items = StaffBehaviouralItem::where('appraisal_id', $request->appraisalID)->get()->all();
 
-            $staff_behavioural_item = StaffBehaviouralItem::find($request->staffBehaviouralItem_id[$i]);
+        for($i=0;$i<count($items);$i++){
 
-            $staff_behavioural_item->behaviouralCat_id = $behaviouralCatIds[$i];
-            $staff_behavioural_item->behaviouralItem_id = $behaviouralItemsIds[$i];
-            $staff_behavioural_item->selfAssessment = $request->selfAssess[$i];
-            $staff_behavioural_item->supervisorID = $staff->SupervisorID;
-            $staff_behavioural_item->staffID = $staff->StaffRef;
-            $staff_behavioural_item->appraisal_id = $request->appraisalID;
+            $items[$i]->behaviouralCat_id = $behaviouralCatIds[$i];
+            $items[$i]->behaviouralItem_id = $behaviouralItemsIds[$i];
+            $items[$i]->selfAssessment = $request->selfAssess[$i];
+            $items[$i]->supervisorID = $staff->SupervisorID;
+            $items[$i]->staffID = $staff->StaffRef;
+            $items[$i]->appraisal_id = $request->appraisalID;
 
 
-            $staff_behavioural_item->save();
+            $items[$i]->save();
 
         }
 
         Session::flash('success', 'Saved!');
 
-        return redirect()->route('editAppraisal', ['appraisalID' => $request->appraisalID]);
+        return redirect()->route('staffAppraisalEdit', ['appraisalID' => $request->appraisalID]);
 
     }
 

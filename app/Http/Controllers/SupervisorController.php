@@ -33,7 +33,7 @@ class SupervisorController extends Controller
             ->where('sentFlag', True)
             ->get()->all();
 
-        return view('supervisor.goals.index')->with([
+        return view('supervisor.index')->with([
             'appraisals' => $appraisals,
         ]);
 

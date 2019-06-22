@@ -29,11 +29,12 @@
 							<table class="table table-hover" id="basicTable">
 								<thead>
 								<tr>
-									<th style="width:40%">Staff</th>
-									<th style="width:5%">Period</th>
-									<th style="width:25%">Date Submitted</th>
-									<th style="width:15%">Action</th>
-									<th style="width:15%">Status</th>
+									<th style="width:20%">Staff</th>
+									<th style="width:20%">Supervisor</th>
+									<th style="width:10%">Period</th>
+									<th style="width:20%">Action</th>
+									<th style="width:15%">Goal Status</th>
+									<th style="width:15%">Appraisal Status</th>
 								</tr>
 								</thead>
 								<tbody>
@@ -42,33 +43,31 @@
 
 										<tr>
 											<td class="v-align-middle ">
-												<p>{{ $appraisal->staff->user->first_name. ' ' .$appraisal->staff->user->last_name }}</p>
+												<p>{{ $appraisal->staff->user->getFullNameAttribute() }}</p>
+											</td>
+											<td class="v-align-middle ">
+												<p>{{ $appraisal->staff->supervisor->getFullNameAttribute() }}</p>
 											</td>
 											<td class="v-align-middle ">
 												<p>{{ $appraisal->period }}</p>
 											</td>
 											<td class="v-align-middle">
-												<p>{{ $appraisal->updated_at->toFormattedDateString() }}</p>
-											</td>
-											<td class="v-align-middle">
 												<p>
-													<a href="{{ route('supervisorViewAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-info btn-sm">View</a>
-												</p>
-												<p>
-													@if($appraisal->status == 2)
-														<a href="{{ route('submitToHr', ['appraisalID' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Submit to HR</a>
-													@endif
+													<a href="{{ route('hrViewStaffAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-info btn-sm">View</a>
 												</p>
 											</td>
 											<td class="v-align-middle">
-												@if($appraisal->status == 2)
+												@if($appraisal->status == 6)
 													<p>Approved</p>
-												@elseif($appraisal->status == 4)
-													<p>Approved, sent to HR</p>
-												@elseif($appraisal->status == 6)
-													<p>Approved by HR</p>
 												@else
 													<p>Not Yet Seen</p>
+												@endif
+											</td>
+											<td class="v-align-middle">
+												@if($appraisal->appraisalStatus == 2)
+													<p>Approved by {{ $appraisal->staff->supervisor->getFullNameAttribute() }}</p>
+												@else
+													<p>Not Yet Approved</p>
 												@endif
 											</td>
 										</tr>
@@ -76,7 +75,7 @@
 									@endforeach
 								@else
 									<tr>
-										<td>No Appraisal has been submitted yet!</td>
+										<td>No Goal has been submitted yet!</td>
 									</tr>
 
 								</tbody>

@@ -22,6 +22,12 @@
 			<span class="icon-thumbnail">sg</span>
 		</li>
 		<li>
+			<a href="{{ route('hrStaffAppraisals') }}" class="detailed">
+				<span class="title">Staff Appraisals</span>
+			</a>
+			<span class="icon-thumbnail">sa</span>
+		</li>
+		<li>
 			<a href="javascript:;"><span class="title">Behavioural</span>
 				<span class=" arrow"></span></a>
 			<span class="icon-thumbnail">Be</span>
@@ -45,6 +51,18 @@
 
 	@elseif(auth()->user()->hasRole('HR Supervisor')){
 		<li class="m-t-30">
+			<a href="{{ route('hrStaffGoals') }}" class="detailed">
+				<span class="title">Staff Goals</span>
+			</a>
+			<span class="icon-thumbnail">sg</span>
+		</li>
+		<li>
+			<a href="{{ route('hrStaffAppraisals') }}" class="detailed">
+				<span class="title">Staff Appraisals</span>
+			</a>
+			<span class="icon-thumbnail">sa</span>
+		</li>
+		<li>
 			<a href="javascript:;"><span class="title">Behavioural</span>
 				<span class=" arrow"></span></a>
 			<span class="icon-thumbnail">Be</span>

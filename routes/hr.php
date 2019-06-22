@@ -31,4 +31,14 @@ Route::middleware(['auth'])->prefix('hr')->group(function () {
         'as' => 'hrGoalsApproval'
     ]);
 
+    Route::get('/staff/appraisals', [
+        'uses' => 'Appraisal\HrAppraisalController@hrStaffAppraisals',
+        'as' => 'hrStaffAppraisals'
+    ]);
+
+    Route::get('/staff/appraisal/{appraisalID}', [
+        'uses' => 'Appraisal\HrAppraisalController@viewAppraisal',
+        'as' => 'hrViewStaffAppraisal'
+    ]);
+
 });

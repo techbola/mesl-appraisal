@@ -16,9 +16,10 @@
 						<thead>
 						<tr>
 							<th style="width:20%">Period</th>
-							<th style="width:30%">Supervisor</th>
-							<th style="width:30%">Action</th>
-							<th style="width:20%">Status</th>
+							<th style="width:20%">Supervisor</th>
+							<th style="width:20%">Action</th>
+							<th style="width:20%">Goal Status</th>
+							<th style="width:20%">Appraisal Status</th>
 						</tr>
 						</thead>
 						<tbody>
@@ -35,33 +36,60 @@
 									<td class="v-align-middle">
 
 										@if($appraisal->sentFlag && $appraisal->status == 1)
-											<a href="#" class="btn btn-info btn-sm" disabled="">Appraisal Submitted</a>
+											<a href="#" class="btn btn-info btn-sm" disabled="">Goals Submitted</a>
+
 										@elseif($appraisal->sentFlag && $appraisal->status == 2)
 											<a href="{{ route('viewGoals', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">View Goals</a>
+
 										@elseif(!$appraisal->sentFlag && $appraisal->status == 3 || !$appraisal->sentFlag && $appraisal->status == 5)
-											<a href="{{ route('submitAppraisalSupervisor', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">Submit To Supervisor</a>
+											<a href="{{ route('submitAppraisalSupervisor', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">Submit Goals To Supervisor</a>
 											|
 											<a href="{{ route('deleteAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-danger btn-sm">Delete</a>
+
 										@elseif($appraisal->sentFlag && $appraisal->status == 4)
 											<a href="{{ route('viewGoals', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">View Goals</a>
-										@elseif($appraisal->sentFlag && $appraisal->status == 6)
-											<a href="{{ route('viewGoals', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">View Goals</a>
+
+										@elseif($appraisal->sentFlag && $appraisal->status == 6 && $appraisal->appraisalStatus == 1)
+											<p><a href="{{ route('viewGoals', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm mb">View Goals</a></p>
+											<p><a href="{{ route('viewAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">View Appraisal</a></p>
+
+										@elseif($appraisal->sentFlag && $appraisal->status == 6 && $appraisal->appraisalStatus == 0 && $appraisal->startAppraisalFlag == 0)
+											<p><a href="{{ route('viewGoals', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm mb">View Goals</a></p>
+											<p><a href="{{ route('staffAppraisalCreate', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Start Appraisal</a></p>
+											<p><a href="{{ route('staffAppraisalSubmitSupervisor', ['id' => $appraisal->id]) }}" class="btn btn-success btn-sm">Submit Appraisal To Supervisor</a></p>
+
+										@elseif($appraisal->sentFlag && $appraisal->status == 6 && $appraisal->appraisalStatus == 0 && $appraisal->startAppraisalFlag == 1)
+											<p><a href="{{ route('viewGoals', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm mb">View Goals</a></p>
+											<p><a href="{{ route('staffAppraisalEdit', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Edit Appraisal</a></p>
+											<p><a href="{{ route('staffAppraisalSubmitSupervisor', ['id' => $appraisal->id]) }}" class="btn btn-success btn-sm">Submit Appraisal To Supervisor</a></p>
+
+										@elseif($appraisal->sentFlag && $appraisal->status == 6 && $appraisal->appraisalStatus == 3)
+											<p><a href="{{ route('viewGoals', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm mb">View Goals</a></p>
+											<p><a href="{{ route('staffAppraisalEdit', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Edit Appraisal</a></p>
+											<p><a href="{{ route('staffAppraisalSubmitSupervisor', ['id' => $appraisal->id]) }}" class="btn btn-success btn-sm">Submit Appraisal To Supervisor</a></p>
+
+										@elseif($appraisal->sentFlag && $appraisal->status == 6 && $appraisal->appraisalStatus == 2)
+											<p><a href="{{ route('viewGoals', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm mb">View Goals</a></p>
+											<p><a href="{{ route('viewAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">View Appraisal</a></p>
+
 										@else
-											<a href="{{ route('submitAppraisalSupervisor', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">Submit To Supervisor</a>
-											|
-											<a href="{{ route('editAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Edit</a>
-											|
-											<a href="{{ route('deleteAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-danger btn-sm">Delete</a>
+											<p><a href="{{ route('submitAppraisalSupervisor', ['id' => $appraisal->id]) }}" class="btn btn-info btn-sm">Submit Goals To Supervisor</a></p>
+											<p><a href="{{ route('editAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Edit Goals</a></p>
+											<p><a href="{{ route('deleteAppraisal', ['id' => $appraisal->id]) }}" class="btn btn-danger btn-sm">Delete</a></p>
 										@endif
 
 									</td>
 									<td class="v-align-middle">
+
 										@if($appraisal->status == 0)
 											<p>Not Submitted.</p>
+
 										@elseif($appraisal->status == 1)
 											<p>Submitted, awaiting supervisor's feedback.</p>
+
 										@elseif($appraisal->status == 2)
 											<p>Approved by {{ $appraisal->staff->supervisor->getFullNameAttribute() }}</p>
+
 										@elseif($appraisal->status == 3)
 											<p>
 												Rejected, by {{ $appraisal->staff->supervisor->getFullNameAttribute() }}
@@ -69,15 +97,11 @@
 												<a href="{{ route('rejectedGoals', ['id' => $appraisal->id]) }}" class="btn btn-primary btn-sm">
 													View Comment
 												</a>
-{{--												<button type="button" class="btn btn-primary commentDialog"--}}
-{{--														data-comment="{{ $appraisal->supervisorComment }}"--}}
-{{--														data-toggle="modal"--}}
-{{--														data-target="#supervisorCommentModal">--}}
-{{--													View Comment--}}
-{{--												</button>--}}
 											</p>
+
 										@elseif($appraisal->status == 4)
 											<p>Approved by {{ $appraisal->staff->supervisor->getFullNameAttribute() }}, sent to HR</p>
+
 										@elseif($appraisal->status == 5)
 											<p>
 												Rejected, by HR
@@ -86,9 +110,29 @@
 													View Comment
 												</a>
 											</p>
+
 										@elseif($appraisal->status == 6)
 											<p>Approved by HR</p>
+
 										@endif
+
+									</td>
+									<td class="v-align-middle">
+
+										@if($appraisal->appraisalStatus == 1)
+											<p>Appraisal Submitted, Awaiting Supervisor's approval.</p>
+
+										@elseif($appraisal->appraisalStatus == 2)
+											<p>Appraisal Approved by {{ $appraisal->staff->supervisor->getFullNameAttribute() }}.</p>
+
+										@elseif($appraisal->appraisalStatus == 3)
+											<p>Appraisal Rejected by {{ $appraisal->staff->supervisor->getFullNameAttribute() }}.</p>
+
+										@else($appraisal->status == 6)
+											<p>Not yet Started</p>
+
+										@endif
+
 									</td>
 								</tr>
 

@@ -36,7 +36,7 @@ class AppraisalController extends Controller
 
         if (!auth()->user()->staff->SupervisorFlag && !auth()->user()->hasRole('HR Supervisor')){
 
-            return view('staff.goals.new_goal.index');
+            return view('staff.index');
 
         }
 
@@ -65,7 +65,7 @@ class AppraisalController extends Controller
 
         $appraisals = Appraisal::where('StaffID', auth()->user()->staff->StaffRef)->get();
 
-        return view('staff.goals.new_goal.queues')->with([
+        return view('staff.queues')->with([
             'appraisals' => $appraisals
         ]);
 
@@ -307,7 +307,7 @@ class AppraisalController extends Controller
 
         $appraisal->save();
 
-        Session::flash('success', 'Appraisal Submitted!');
+        Session::flash('success', 'Goals Submitted!');
 
         return back();
 
