@@ -14,27 +14,17 @@
 							<table class="table table-hover" id="basicTable">
 								<thead>
 								<tr>
-									@if($ap->status != 6)
-										<th style="width:20%">Objectives</th>
-										<th style="width:15%">KPIs</th>
-										<th style="width:15%">Targets</th>
-										<th style="width:20%">Constraints</th>
-										<th style="width:15%">Supervisor's Comment</th>
-										<th style="width:15%;">Comment</th>
-									@else($ap->status == 6)
-										<th style="width:20%">Objectives</th>
-										<th style="width:15%">KPIs</th>
-										<th style="width:15%">Targets</th>
-										<th style="width:20%">Constraints</th>
-										<th style="width:15%">Supervisor's Comment</th>
-										<th style="width:15%;">HR Comment</th>
-									@endif
+									<th style="width:20%">Objectives</th>
+									<th style="width:15%">KPIs</th>
+									<th style="width:15%">Targets</th>
+									<th style="width:20%">Staff Assessment</th>
+									<th style="width:20%">Staff Comment</th>
+									<th style="width:15%">Supervisor Assessment</th>
+									<th style="width:15%;">Supervisor Comment</th>
 								</tr>
 								</thead>
 								<tbody>
 
-								@if($ap->status != 6)
-
 									@foreach($appraisal_learnings as $appraisal_learning)
 										<tr>
 											<td class="v-align-middle ">
@@ -54,60 +44,26 @@
 											</td>
 											<td class="v-align-middle">
 												<p>
-													{{ $appraisal_learning->constraint }}
+													{{ $appraisal_learning->selfAssessment }}
 												</p>
 											</td>
 											<td class="v-align-middle">
 												<p>
-													{{ $appraisal_learning->justification ? $appraisal_learning->justification : '' }}
-												</p>
-											</td>
-											<td class="v-align-middle">
-												<div class="form-group form-group-default">
-													<input type="text" class="form-control" name="learning_comment[]">
-												</div>
-											</td>
-										</tr>
-									@endforeach
-
-								@else($ap->status == 6)
-
-									@foreach($appraisal_learnings as $appraisal_learning)
-										<tr>
-											<td class="v-align-middle ">
-												<p>
-													{{ $appraisal_learning->objective }}
+													{{ $appraisal_learning->staffAppraisalComment }}
 												</p>
 											</td>
 											<td class="v-align-middle">
 												<p>
-													{{ $appraisal_learning->kpi }}
+													{{ $appraisal_learning->supervisorAssessment }}
 												</p>
 											</td>
 											<td class="v-align-middle">
 												<p>
-													{{ $appraisal_learning->target }}
-												</p>
-											</td>
-											<td class="v-align-middle">
-												<p>
-													{{ $appraisal_learning->constraint }}
-												</p>
-											</td>
-											<td class="v-align-middle">
-												<p>
-													{{ $appraisal_learning->justification ? $appraisal_learning->justification : '' }}
-												</p>
-											</td>
-											<td class="v-align-middle">
-												<p>
-													{{ $appraisal_learning->hrComment ? $appraisal_learning->hrComment : '' }}
+													{{ $appraisal_learning->supervisorAppraisalComment }}
 												</p>
 											</td>
 										</tr>
 									@endforeach
-
-								@endif
 
 								</tbody>
 							</table>

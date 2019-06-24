@@ -17,7 +17,7 @@
 			<!-- START PANEL -->
 			<div class="panel panel-transparent">
 				<div class="panel-heading">
-					<div class="panel-title">Staff Goals
+					<div class="panel-title">Staff Appraisal
 					</div>
 					<div class="clearfix"></div>
 				</div>
@@ -33,7 +33,6 @@
 									<th style="width:20%">Supervisor</th>
 									<th style="width:10%">Period</th>
 									<th style="width:20%">Action</th>
-									<th style="width:15%">Goal Status</th>
 									<th style="width:15%">Appraisal Status</th>
 								</tr>
 								</thead>
@@ -53,15 +52,11 @@
 											</td>
 											<td class="v-align-middle">
 												<p>
-													<a href="{{ route('hrViewStaffAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-info btn-sm">View</a>
+													<a href="{{ route('hrViewStaffAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-info btn-sm">View Appraisal</a>
 												</p>
-											</td>
-											<td class="v-align-middle">
-												@if($appraisal->status == 6)
-													<p>Approved</p>
-												@else
-													<p>Not Yet Seen</p>
-												@endif
+												<p>
+													<a href="{{ route('hrViewScoreReport', ['appraisalID' => $appraisal->id]) }}" class="btn btn-primary btn-sm">View Score Report</a>
+												</p>
 											</td>
 											<td class="v-align-middle">
 												@if($appraisal->appraisalStatus == 2)
