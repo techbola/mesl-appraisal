@@ -80,6 +80,13 @@ class SupervisorAppraisalController extends Controller
 
             case 'approve':
 
+                $this->validate($request, [
+                    'f_supervisorAssessment.*' => 'required|numeric|max:5',
+                    'c_supervisorAssessment.*' => 'required|numeric|max:5',
+                    'i_supervisorAssessment.*' => 'required|numeric|max:5',
+                    'l_supervisorAssessment.*' => 'required|numeric|max:5',
+                ]);
+
                 $appraisal = Appraisal::find($appraisalID);
 
                 $staffID = $appraisal->staffID;
@@ -181,6 +188,13 @@ class SupervisorAppraisalController extends Controller
                 break;
 
             case 'reject':
+
+                $this->validate($request, [
+                    'f_supervisorAssessment.*' => 'required|numeric|max:5',
+                    'c_supervisorAssessment.*' => 'required|numeric|max:5',
+                    'i_supervisorAssessment.*' => 'required|numeric|max:5',
+                    'l_supervisorAssessment.*' => 'required|numeric|max:5',
+                ]);
 
                 $appraisal = Appraisal::find($appraisalID);
 

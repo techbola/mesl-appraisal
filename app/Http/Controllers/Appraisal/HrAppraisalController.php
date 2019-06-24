@@ -223,4 +223,28 @@ class HrAppraisalController extends Controller
 
     }
 
+    public function allStaffIndexAppraisals()
+    {
+
+        return view('hr.appraisals.all_staffs_index');
+
+    }
+
+    public function allStaffAppraisals(Request $request)
+    {
+
+        $period = $request->appraiser_period;
+
+        $appraisals = Appraisal::where('hrID', auth()->user()->staff->StaffRef)
+            ->where('appraisalStatus', 2)
+            ->where('period', $period)
+            ->get()->all();
+
+        return view('hr.appraisals.all_staff')->with([
+            'appraisals' => $appraisals,
+            'period' => $period,
+        ]);
+
+    }
+
 }

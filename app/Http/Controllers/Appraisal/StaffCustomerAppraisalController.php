@@ -15,7 +15,7 @@ class StaffCustomerAppraisalController extends Controller
     {
 
         $this->validate($request, [
-            'selfAssessment.*' => 'required|numeric',
+            'selfAssessment.*' => 'required|numeric|max:5',
         ]);
 
         $customerGoals = AppraisalCustomer::where('appraisal_id', $request->appraisalID)->get()->all();
@@ -38,7 +38,7 @@ class StaffCustomerAppraisalController extends Controller
     {
 
         $this->validate($request, [
-            'selfAssessment.*' => 'required|numeric',
+            'selfAssessment.*' => 'required|numeric|max:5',
         ]);
 
         $customerGoals = AppraisalCustomer::where('appraisal_id', $request->appraisalID)->get()->all();

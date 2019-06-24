@@ -141,7 +141,7 @@
 
 							<tr>
 								<td class="v-align-middle ">
-									<p><strong>Overall Total</strong></p>
+									<p><strong>Overall Total (100%)</strong></p>
 								</td>
 								<td class="v-align-middle ">
 									<p>{{ $overallStaffScore }}</p>

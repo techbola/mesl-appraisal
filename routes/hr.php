@@ -46,4 +46,14 @@ Route::middleware(['auth'])->prefix('hr')->group(function () {
         'as' => 'hrViewScoreReport'
     ]);
 
+    Route::get('/all/staff/appraisals/home', [
+        'uses' => 'Appraisal\HrAppraisalController@allStaffIndexAppraisals',
+        'as' => 'hrAllStaffIndexAppraisals'
+    ]);
+
+    Route::post('/all/staff/appraisals/', [
+        'uses' => 'Appraisal\HrAppraisalController@allStaffAppraisals',
+        'as' => 'hrAllStaffAppraisals'
+    ]);
+
 });

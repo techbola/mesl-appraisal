@@ -95,12 +95,14 @@
 												</td>
 												<td class="v-align-middle">
 													<div class="form-group form-group-default">
-														<input type="text" class="form-control" name="f_supervisorAssessment[]">
+														<input type="text" class="form-control" name="f_supervisorAssessment[]"
+															   value="{{ $appraisal_finance->supervisorAssessment ? $appraisal_finance->supervisorAssessment : '' }}">
 													</div>
 												</td>
 												<td class="v-align-middle">
 													<div class="form-group form-group-default">
-														<input type="text" class="form-control" name="f_supervisorComment[]">
+														<input type="text" class="form-control" name="f_supervisorComment[]"
+															   value="{{ $appraisal_finance->supervisorAppraisalComment ? $appraisal_finance->supervisorAppraisalComment : '' }}">
 													</div>
 												</td>
 											</tr>

@@ -28,6 +28,12 @@
 			<span class="icon-thumbnail">sa</span>
 		</li>
 		<li>
+			<a href="{{ route('hrAllStaffIndexAppraisals') }}" class="detailed">
+				<span class="title">All Staff Appraisals</span>
+			</a>
+			<span class="icon-thumbnail">asa</span>
+		</li>
+		<li>
 			<a href="javascript:;"><span class="title">Behavioural</span>
 				<span class=" arrow"></span></a>
 			<span class="icon-thumbnail">Be</span>
@@ -58,6 +64,12 @@
 		</li>
 		<li>
 			<a href="{{ route('hrStaffAppraisals') }}" class="detailed">
+				<span class="title">Staff Appraisals</span>
+			</a>
+			<span class="icon-thumbnail">sa</span>
+		</li>
+		<li>
+			<a href="{{ route('hrAllStaffAppraisals') }}" class="detailed">
 				<span class="title">Staff Appraisals</span>
 			</a>
 			<span class="icon-thumbnail">sa</span>

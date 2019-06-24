@@ -25,7 +25,7 @@
 								</thead>
 								<tbody>
 
-									@if($ap->status == 4 || $ap->status == 2)
+									@if($ap->appraisalStatus == 4 || $ap->appraisalStatus == 2)
 										@foreach($appraisal_internals as $appraisal_internal)
 											<tr>
 												<td class="v-align-middle ">
@@ -65,7 +65,7 @@
 												</td>
 											</tr>
 										@endforeach
-									@elseif($ap->status != 4 && $ap->status != 2)
+									@elseif($ap->appraisalStatus != 4 && $ap->appraisalStatus != 2)
 										@foreach($appraisal_internals as $appraisal_internal)
 											<tr>
 												<td class="v-align-middle ">
@@ -95,12 +95,14 @@
 												</td>
 												<td class="v-align-middle">
 													<div class="form-group form-group-default">
-														<input type="text" class="form-control" name="i_supervisorAssessment[]">
+														<input type="text" class="form-control" name="i_supervisorAssessment[]"
+															   value="{{ $appraisal_internal->supervisorAssessment ? $appraisal_internal->supervisorAssessment : '' }}">
 													</div>
 												</td>
 												<td class="v-align-middle">
 													<div class="form-group form-group-default">
-														<input type="text" class="form-control" name="i_supervisorComment[]">
+														<input type="text" class="form-control" name="i_supervisorComment[]"
+															   value="{{ $appraisal_internal->supervisorAppraisalComment ? $appraisal_internal->supervisorAppraisalComment : '' }}">
 													</div>
 												</td>
 											</tr>
