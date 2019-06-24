@@ -78,7 +78,7 @@
 											<p>{{ $appraisal->staff->supervisor->getFullNameAttribute() }}</p>
 										</td>
 										<td class="v-align-middle ">
-											<p>{{ 'test' }}</p>
+											<p>{{ $appraisal->staff->user->level->name }}</p>
 										</td>
 										<td class="v-align-middle">
 											<p>{{ 'test' }}</p>

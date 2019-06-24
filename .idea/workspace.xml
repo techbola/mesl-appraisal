@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d41b074-6da4-4e61-9730-68d849b48eec" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/HrAppraisalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/HrAppraisalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/StaffCustomerAppraisalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/StaffCustomerAppraisalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/StaffFinancialAppraisalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/StaffFinancialAppraisalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/StaffInternalAppraisalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/StaffInternalAppraisalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/StaffLearningAppraisalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/StaffLearningAppraisalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/SupervisorAppraisalController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Appraisal/SupervisorAppraisalController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/hr/appraisals/scrore_report.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/hr/appraisals/scrore_report.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/main/includes/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/main/includes/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/supervisor/appraisal/includes/bsc_customer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/supervisor/appraisal/includes/bsc_customer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/supervisor/appraisal/includes/bsc_financial.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/supervisor/appraisal/includes/bsc_financial.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/supervisor/appraisal/includes/bsc_internal.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/supervisor/appraisal/includes/bsc_internal.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/supervisor/appraisal/includes/bsc_learning.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/supervisor/appraisal/includes/bsc_learning.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/hr.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/hr.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Level.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Level.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/hr/appraisals/all_staff.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/hr/appraisals/all_staff.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Appraisal/HrAppraisalController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="235" column="44" selection-start-line="235" selection-start-column="44" selection-end-line="235" selection-end-column="44" />
+            <state relative-caret-position="375">
+              <caret line="244" column="32" selection-start-line="244" selection-start-column="32" selection-end-line="244" selection-end-column="32" />
               <folding>
                 <element signature="e#50#68#0#PHP" expanded="true" />
                 <element signature="e#722#2685#0#PHP" />
@@ -59,12 +49,13 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/hr/appraisals/all_staff.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="19" column="80" selection-start-line="19" selection-start-column="80" selection-end-line="19" selection-end-column="80" />
+            <state relative-caret-position="238">
+              <caret line="80" column="80" selection-start-line="80" selection-start-column="80" selection-end-line="80" selection-end-column="80" />
               <folding>
+                <element signature="e#2173#2198#0#HTML" expanded="true" />
                 <element signature="e#1083#1100#0#HTML" expanded="true" />
                 <element signature="e#1125#1142#0#HTML" expanded="true" />
                 <element signature="e#1172#1189#0#HTML" expanded="true" />
@@ -79,19 +70,28 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/hr/appraisals/all_staffs_index.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="30" column="66" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="66" />
+            <state relative-caret-position="361">
+              <caret line="179" column="28" selection-start-line="179" selection-start-column="22" selection-end-line="179" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/layouts/main/includes/sidebar.blade.php">
+        <entry file="file://$PROJECT_DIR$/app/Staff.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="30" column="56" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="56" />
+            <state relative-caret-position="-17">
+              <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Level.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -120,8 +120,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/views/emails/staff_appraisal.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/staff/appraisals/view_appraisal/staff.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/SupervisorController.php" />
         <option value="$PROJECT_DIR$/routes/supervisor.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/appraisal/supervisor_approve_appraisal.blade.php" />
@@ -168,9 +166,11 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Appraisal/SupervisorAppraisalController.php" />
         <option value="$PROJECT_DIR$/resources/views/layouts/main/includes/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/routes/hr.php" />
-        <option value="$PROJECT_DIR$/resources/views/hr/appraisals/all_staffs_index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Appraisal/HrAppraisalController.php" />
+        <option value="$PROJECT_DIR$/resources/views/hr/appraisals/all_staffs_index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/hr/appraisals/all_staff.blade.php" />
+        <option value="$PROJECT_DIR$/app/User.php" />
+        <option value="$PROJECT_DIR$/app/Level.php" />
       </list>
     </option>
   </component>
@@ -440,12 +440,12 @@
       <workItem from="1560416599620" duration="57962000" />
       <workItem from="1560878179281" duration="21625000" />
       <workItem from="1561111697504" duration="257000" />
-      <workItem from="1561115394992" duration="40278000" />
+      <workItem from="1561115394992" duration="41088000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="255473000" />
+    <option name="totallyTimeSpent" value="256283000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -480,27 +480,6 @@
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.env" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/routes/supervisor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="32" column="68" lean-forward="true" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/staff/appraisals/edit_appraisal/includes/bsc_learning.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="13" column="71" selection-start-line="13" selection-start-column="71" selection-end-line="13" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/staff/appraisals/edit_appraisal/includes/bsc_internal.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="13" column="70" selection-start-line="13" selection-start-column="70" selection-end-line="13" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/staff/goals/edit_goal/includes/staff_behavioural.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -897,13 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/hr/appraisals/all_staffs_index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="30" column="66" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/hr.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="205">
@@ -913,8 +885,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Appraisal/HrAppraisalController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="235" column="44" selection-start-line="235" selection-start-column="44" selection-end-line="235" selection-end-column="44" />
+        <state relative-caret-position="375">
+          <caret line="244" column="32" selection-start-line="244" selection-start-column="32" selection-end-line="244" selection-end-column="32" />
           <folding>
             <element signature="e#50#68#0#PHP" expanded="true" />
             <element signature="e#722#2685#0#PHP" />
@@ -923,11 +895,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/hr/appraisals/all_staffs_index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="48" column="76" selection-start-line="48" selection-start-column="76" selection-end-line="48" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/hr/appraisals/all_staff.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="19" column="80" selection-start-line="19" selection-start-column="80" selection-end-line="19" selection-end-column="80" />
+        <state relative-caret-position="238">
+          <caret line="80" column="80" selection-start-line="80" selection-start-column="80" selection-end-line="80" selection-end-column="80" />
           <folding>
+            <element signature="e#2173#2198#0#HTML" expanded="true" />
             <element signature="e#1083#1100#0#HTML" expanded="true" />
             <element signature="e#1125#1142#0#HTML" expanded="true" />
             <element signature="e#1172#1189#0#HTML" expanded="true" />
@@ -937,6 +917,27 @@
             <element signature="e#1369#1386#0#HTML" expanded="true" />
             <element signature="e#1416#1433#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="179" column="28" selection-start-line="179" selection-start-column="22" selection-end-line="179" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Staff.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Level.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
         </state>
       </provider>
     </entry>

@@ -11,9 +11,9 @@ class Level extends Model
 
     public $primaryKey = 'id';
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo('App\User');
+        return $this->hasMany('App\User', 'level_id');
     }
 
     public function behavioural_item()

@@ -177,7 +177,7 @@ class User extends Authenticatable
 
     public function level()
     {
-        return $this->hasOne('App\Level');
+        return $this->belongsTo('App\Level', 'level_id');
     }
 
 }
