@@ -19,9 +19,9 @@
 				<div class="panel-heading">
 					<div class="panel-title">
 
-						<h2>Score Report for {{ $ap->staff->user->getFullNameAttribute() }}</h2>
+						<h2>Score Report for {{ $data['staffName'] }}</h2>
 
-						Period - {{ $ap->period }}
+						Period - {{ $data['period'] }}
 
 					</div>
 					<div class="clearfix"></div>
@@ -42,65 +42,65 @@
 							</thead>
 							<tbody>
 
-								<tr>
-									<td class="v-align-middle ">
-										<p><strong>Financial</strong></p>
-									</td>
-									<td class="v-align-middle ">
-										<p>100</p>
-									</td>
-									<td class="v-align-middle ">
-										<p>{{ $staffFinancial }}</p>
-									</td>
-									<td class="v-align-middle">
-										<p>{{ $supervisor_financial }}</p>
-									</td>
-								</tr>
+							<tr>
+								<td class="v-align-middle ">
+									<p><strong>Financial</strong></p>
+								</td>
+								<td class="v-align-middle ">
+									<p>100</p>
+								</td>
+								<td class="v-align-middle ">
+									<p>{{ $data['staffFinancial'] }}</p>
+								</td>
+								<td class="v-align-middle">
+									<p>{{ $data['supervisor_financial'] }}</p>
+								</td>
+							</tr>
 
-								<tr>
-									<td class="v-align-middle ">
-										<p><strong>Customer/Stakeholders</strong></p>
-									</td>
-									<td class="v-align-middle ">
-										<p>100</p>
-									</td>
-									<td class="v-align-middle ">
-										<p>{{ $staffCustomer }}</p>
-									</td>
-									<td class="v-align-middle">
-										<p>{{ $supervisor_customer }}</p>
-									</td>
-								</tr>
+							<tr>
+								<td class="v-align-middle ">
+									<p><strong>Customer/Stakeholders</strong></p>
+								</td>
+								<td class="v-align-middle ">
+									<p>100</p>
+								</td>
+								<td class="v-align-middle ">
+									<p>{{ $data['staffCustomer'] }}</p>
+								</td>
+								<td class="v-align-middle">
+									<p>{{ $data['supervisor_customer'] }}</p>
+								</td>
+							</tr>
 
-								<tr>
-									<td class="v-align-middle ">
-										<p><strong>Internal Process</strong></p>
-									</td>
-									<td class="v-align-middle ">
-										<p>100</p>
-									</td>
-									<td class="v-align-middle ">
-										<p>{{ $staffInternal }}</p>
-									</td>
-									<td class="v-align-middle">
-										<p>{{ $supervisor_internal }}</p>
-									</td>
-								</tr>
+							<tr>
+								<td class="v-align-middle ">
+									<p><strong>Internal Process</strong></p>
+								</td>
+								<td class="v-align-middle ">
+									<p>100</p>
+								</td>
+								<td class="v-align-middle ">
+									<p>{{ $data['staffInternal'] }}</p>
+								</td>
+								<td class="v-align-middle">
+									<p>{{ $data['supervisor_internal'] }}</p>
+								</td>
+							</tr>
 
-								<tr>
-									<td class="v-align-middle ">
-										<p><strong>People/Learning</strong></p>
-									</td>
-									<td class="v-align-middle ">
-										<p>100</p>
-									</td>
-									<td class="v-align-middle ">
-										<p>{{ $staffLearning }}</p>
-									</td>
-									<td class="v-align-middle">
-										<p>{{ $supervisor_learning }}</p>
-									</td>
-								</tr>
+							<tr>
+								<td class="v-align-middle ">
+									<p><strong>People/Learning</strong></p>
+								</td>
+								<td class="v-align-middle ">
+									<p>100</p>
+								</td>
+								<td class="v-align-middle ">
+									<p>{{ $data['staffLearning'] }}</p>
+								</td>
+								<td class="v-align-middle">
+									<p>{{ $data['supervisor_learning'] }}</p>
+								</td>
+							</tr>
 
 							</tbody>
 						</table>
@@ -124,10 +124,10 @@
 									<p><strong>BSC Total (90%)</strong></p>
 								</td>
 								<td class="v-align-middle ">
-									<p>{{ $bscStaffScore }}</p>
+									<p>{{ $data['bscStaffScore'] }}</p>
 								</td>
 								<td class="v-align-middle ">
-									<p>{{ $bscSupervisorScore }}</p>
+									<p>{{ $data['bscSupervisorScore'] }}</p>
 								</td>
 							</tr>
 
@@ -136,10 +136,10 @@
 									<p><strong>Attitudinal Total (10%)</strong></p>
 								</td>
 								<td class="v-align-middle ">
-									<p>{{ $staffBehavioural }}</p>
+									<p>{{ $data['staffBehavioural'] }}</p>
 								</td>
 								<td class="v-align-middle">
-									<p>{{ $supervisorBehavioural }}</p>
+									<p>{{ $data['supervisorBehavioural'] }}</p>
 								</td>
 							</tr>
 
@@ -148,32 +148,16 @@
 									<p><strong>Overall Total (100%)</strong></p>
 								</td>
 								<td class="v-align-middle ">
-									<p>{{ $overallStaffScore }}</p>
+									<p>{{ $data['overallStaffScore'] }}</p>
 								</td>
 								<td class="v-align-middle">
-									<p>{{ $overallSupervisorScore }}</p>
+									<p>{{ $data['overallSupervisorScore'] }}</p>
 								</td>
 							</tr>
 
 							</tbody>
 						</table>
 					</div>
-
-					<table>
-						<tr>
-							<td>
-								<button class="btn btn-info btn-sm" onclick="printMe()">
-									<i class="fa fa-print"></i>&nbsp; Print
-								</button>
-							</td>
-							<td></td>
-							<td>
-								<a class="btn btn-primary btn-sm" href="{{ route('downloadScoreReport', $ap->id) }}">
-									<i class="fa fa-download"></i>&nbsp; Download
-								</a>
-							</td>
-						</tr>
-					</table>
 
 				</div>
 			</div>
@@ -185,16 +169,6 @@
 @endsection
 
 @push('scripts')
-
-	<script src="{{ asset('main/assets/js/jquery-printme.js') }}"></script>
-	<script>
-		function printMe() {
-            $("#staffScoreReport").printMe({
-				"title": "Balance Score Card",
-                "path": ["/main/assets/css/staff_score_report.css"]
-            });
-        }
-	</script>
 
 	<script src="{{ asset('main/assets/js/tables.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('main/assets/js/scripts.js') }}" type="text/javascript"></script>

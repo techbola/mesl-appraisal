@@ -151,4 +151,60 @@ class HrAppraisalController extends Controller
 
     }
 
+    public function downloadScoreReport($apID)
+    {
+
+        $ap = Appraisal::find($apID);
+
+        $staffAppraisals = new StaffScoreReport();
+
+        $staffBsc = $staffAppraisals->bsc($apID);
+
+        $staffBehaviorals = $staffAppraisals->behavioural($apID);
+
+        $financial = $staffBsc['staffFinancial'];
+        $customer = $staffBsc['staffCustomer'];
+        $internal = $staffBsc['staffInternal'];
+        $learning = $staffBsc['staffLearning'];
+
+        $supervisor_financial = $staffBsc['supervisor_financial'];
+        $supervisor_customer = $staffBsc['supervisor_customer'];
+        $supervisor_internal = $staffBsc['supervisor_internal'];
+        $supervisor_learning = $staffBsc['supervisor_learning'];
+
+        $bscStaffScore = $staffBsc['bscStaffScore'];
+        $bscSupervisorScore = $staffBsc['bscSupervisorScore'];
+
+        $staffBehavioural = $staffBehaviorals['staffBehavioural'];
+        $supervisorBehavioural = $staffBehaviorals['supervisorBehavioural'];
+
+        $overallStaffScore = $bscStaffScore + $staffBehavioural;
+        $overallSupervisorScore = $bscSupervisorScore + $supervisorBehavioural;
+
+        $data = [
+            'staffName' => $ap->staff->user->getFullNameAttribute(),
+            'period' => $ap->period,
+            'staffFinancial' => $financial,
+            'staffCustomer' => $customer,
+            'staffInternal' => $internal,
+            'staffLearning' => $learning,
+            'supervisor_financial' => $supervisor_financial,
+            'supervisor_customer' => $supervisor_customer,
+            'supervisor_internal' => $supervisor_internal,
+            'supervisor_learning' => $supervisor_learning,
+            'staffBehavioural' => $staffBehavioural,
+            'supervisorBehavioural' => $supervisorBehavioural,
+            'bscStaffScore' => $bscStaffScore,
+            'bscSupervisorScore' => $bscSupervisorScore,
+            'overallStaffScore' => $overallStaffScore,
+            'overallSupervisorScore' => $overallSupervisorScore,
+        ];
+
+//        dd($data);
+
+        $pdf = PDF::loadView('hr.appraisals.score_report_pdf', compact('data'));
+        return $pdf->download('score_report.pdf');
+
+    }
+
 }

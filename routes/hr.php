@@ -56,4 +56,9 @@ Route::middleware(['auth'])->prefix('hr')->group(function () {
         'as' => 'hrAllStaffAppraisals'
     ]);
 
+    Route::get('/download/score/report/{apID}', [
+        'uses' => 'Appraisal\HrAppraisalController@downloadScoreReport',
+        'as' => 'downloadScoreReport'
+    ]);
+
 });
