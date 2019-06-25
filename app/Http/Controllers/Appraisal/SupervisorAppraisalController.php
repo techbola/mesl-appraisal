@@ -16,7 +16,9 @@ use App\Mail\RejectStaffGoals;
 use App\Mail\SupervisorApproveAppraisal;
 use App\Mail\SupervisorRejectAppraisal;
 use App\Staff;
+use App\StaffAppraisal;
 use App\StaffBehaviouralItem;
+use App\StaffScoreReport;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
@@ -170,6 +172,55 @@ class SupervisorAppraisalController extends Controller
                     $items[$i]->save();
 
                 }
+
+                $staffAppraisals = new StaffScoreReport();
+
+                $staffBsc = $staffAppraisals->bsc($appraisalID);
+
+                $staffBehaviorals = $staffAppraisals->behavioural($appraisalID);
+
+//                dd($staffBehaviorals);
+
+                $financial = $staffBsc['staffFinancial'];
+                $customer = $staffBsc['staffCustomer'];
+                $internal = $staffBsc['staffInternal'];
+                $learning = $staffBsc['staffLearning'];
+
+                $supervisor_financial = $staffBsc['supervisor_financial'];
+                $supervisor_customer = $staffBsc['supervisor_customer'];
+                $supervisor_internal = $staffBsc['supervisor_internal'];
+                $supervisor_learning = $staffBsc['supervisor_learning'];
+
+                $bscStaffScore = $staffBsc['bscStaffScore'];
+                $bscSupervisorScore = $staffBsc['bscSupervisorScore'];
+
+                $staffBehavioural = $staffBehaviorals['staffBehavioural'];
+                $supervisorBehavioural = $staffBehaviorals['supervisorBehavioural'];
+
+                $overallStaffScore = $bscStaffScore + $staffBehavioural;
+                $overallSupervisorScore = $bscSupervisorScore + $supervisorBehavioural;
+
+                $newStaffScoreReport = new StaffAppraisal();
+
+                $newStaffScoreReport->staff_id = $staffID;
+                $newStaffScoreReport->appraisal_id = $appraisalID;
+                $newStaffScoreReport->staffFinancialScore = $financial;
+                $newStaffScoreReport->staffCustomerScore = $customer;
+                $newStaffScoreReport->staffInternalScore = $internal;
+                $newStaffScoreReport->staffLearningScore = $learning;
+                $newStaffScoreReport->supervisorFinancialScore = $supervisor_financial;
+                $newStaffScoreReport->supervisorCustomerScore = $supervisor_customer;
+                $newStaffScoreReport->supervisorInternalScore = $supervisor_internal;
+                $newStaffScoreReport->supervisorLearningScore = $supervisor_learning;
+                $newStaffScoreReport->bscStaffScore = $bscStaffScore;
+                $newStaffScoreReport->bscSupervisorScore = $bscSupervisorScore;
+                $newStaffScoreReport->staffBehavioural = $staffBehavioural;
+                $newStaffScoreReport->supervisorBehavioural = $supervisorBehavioural;
+                $newStaffScoreReport->overallStaffScore = $overallStaffScore;
+                $newStaffScoreReport->overallSupervisorScore = $overallSupervisorScore;
+                $newStaffScoreReport->period = $appraisal->period;
+
+                $newStaffScoreReport->save();
 
                 $staff = Staff::find($staffID);
 

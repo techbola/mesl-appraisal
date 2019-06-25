@@ -87,7 +87,7 @@
             },
             "iDisplayLength": 5,
             "oTableTools": {
-                "sSwfPath": "assets/plugins/jquery-datatable/extensions/TableTools/swf/copy_csv_xls_pdf.swf",
+                "sSwfPath": "/main/assets/plugins/jquery-datatable/extensions/TableTools/swf/copy_csv_xls_pdf.swf",
                 "aButtons": [{
                     "sExtends": "csv",
                     "sButtonText": "<i class='pg-grid'></i>",
@@ -96,6 +96,8 @@
                     "sButtonText": "<i class='fa fa-file-excel-o'></i>",
                 }, {
                     "sExtends": "pdf",
+                    "sOrientation" : 'landscape',
+                    "sPageSize" : 'LEGAL',
                     "sButtonText": "<i class='fa fa-file-pdf-o'></i>",
                 }, {
                     "sExtends": "copy",

@@ -208,4 +208,9 @@ class Staff extends Model
         return $this->hasMany('App\StaffBehaviouralItem', 'staffID');
     }
 
+    public function staffAppraisals()
+    {
+        return $this->hasMany('App\StaffAppraisal', 'staff_id');
+    }
+
 }

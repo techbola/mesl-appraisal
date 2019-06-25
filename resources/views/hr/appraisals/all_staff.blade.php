@@ -14,7 +14,7 @@
 	<div class="content ">
 		<!-- START CONTAINER FLUID -->
 		<div class="container-fluid container-fixed-lg bg-white">
-			<!-- START PANEL -->
+
 			<div class="panel panel-transparent">
 				<div class="panel-heading">
 					<div class="panel-title">All Staff Appraisals for {{ $period }}
@@ -52,18 +52,22 @@
 
 					@if(count($appraisals) > 0)
 
-						<div class="table-responsive" style="margin-top: 30px;">
-							<table class="table table-hover" id="basicTable">
+						<div style="margin-top: 30px;margin-bottom: 30px;">
+							<table class="table table-hover nowrap" id="tableWithExportOptions">
 								<thead>
 								<tr>
 									<th style="width:15%">Staff</th>
+									<th style="width:10%">Picture</th>
 									<th style="width:15%">Supervisor</th>
-									<th style="width:15%">GradeLevel</th>
-									<th style="width:5%">BSC</th>
-									<th style="width:10%">Behavioural</th>
-									<th style="width:5%">Total</th>
-									<th style="width:15%">Department</th>
-									<th style="width:15%">Location</th>
+									<th style="width:10%">Grade <br> Level</th>
+									<th style="width:5%">Staff <br> BSC Total</th>
+									<th style="width:5%">Staff <br> Atittudinal Total</th>
+									<th style="width:5%">Staff <br> Overall Total</th>
+									<th style="width:5%">Supervisor <br> BSC Total</th>
+									<th style="width:5%">Supervisor <br> Atittudinal Total</th>
+									<th style="width:5%">Supervisor <br> Overall Total</th>
+									<th style="width:10%">Department</th>
+									<th style="width:10%">Location</th>
 								</tr>
 								</thead>
 								<tbody>
@@ -71,33 +75,46 @@
 								@foreach($appraisals as $appraisal)
 
 									<tr>
-										<td class="v-align-middle ">
+										<td>
 											<p>{{ $appraisal->staff->user->getFullNameAttribute() }}</p>
 										</td>
-										<td class="v-align-middle ">
+										<td>
+											<p>{{ 'Profile Picture' }}</p>
+										</td>
+										<td >
 											<p>{{ $appraisal->staff->supervisor->getFullNameAttribute() }}</p>
 										</td>
-										<td class="v-align-middle ">
+										<td>
 											<p>{{ $appraisal->staff->user->level->name }}</p>
 										</td>
-										<td class="v-align-middle">
-											<p>{{ 'test' }}</p>
+										<td>
+											<p>{{ $appraisal->bscStaffScore }}</p>
 										</td>
-										<td class="v-align-middle">
-											<p>{{ 'test' }}</p>
+										<td>
+											<p>{{ $appraisal->staffBehavioural }}</p>
 										</td>
-										<td class="v-align-middle ">
-											<p>{{ 'test' }}</p>
+										<td>
+											<p>{{ $appraisal->overallStaffScore }}</p>
 										</td>
-										<td class="v-align-middle">
-											<p>{{ 'test' }}</p>
+										<td>
+											<p>{{ $appraisal->bscSupervisorScore }}</p>
 										</td>
-										<td class="v-align-middle">
-											<p>{{ 'test' }}</p>
+										<td>
+											<p>{{ $appraisal->supervisorBehavioural }}</p>
+										</td>
+										<td>
+											<p>{{ $appraisal->overallSupervisorScore }}</p>
+										</td>
+										<td>
+											<p>{{ 'Department' }}</p>
+										</td>
+										<td>
+											<p>{{ 'Location' }}</p>
 										</td>
 									</tr>
 
 								@endforeach
+
 								@else
 									<tr>
 										<td>No Appraisal has been approved yet!</td>
@@ -110,8 +127,9 @@
 					@endif
 
 				</div>
+
 			</div>
-			<!-- END PANEL -->
+
 		</div>
 	</div>
 	<!-- END PAGE CONTENT -->
@@ -121,6 +139,15 @@
 @push('scripts')
 
 	<script src="{{ asset('main/assets/js/tables.js') }}" type="text/javascript"></script>
+
+	<script src="{{ asset('main/assets/plugins/jquery-datatable/media/js/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('main/assets/plugins/jquery-datatable/extensions/TableTools/js/dataTables.tableTools.min.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('main/assets/plugins/jquery-datatable/media/js/dataTables.bootstrap.js') }}" type="text/javascript"></script>
+	<script src="{{ asset('main/assets/plugins/jquery-datatable/extensions/Bootstrap/jquery-datatable-bootstrap.js') }}" type="text/javascript"></script>
+	<script type="text/javascript" src="{{ asset('main/assets/plugins/datatables-responsive/js/datatables.responsive.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('main/assets/plugins/datatables-responsive/js/lodash.min.js') }}"></script>
+
+	<script src="{{ asset('main/assets/js/datatables.js') }}" type="text/javascript"></script>
 	<script src="{{ asset('main/assets/js/scripts.js') }}" type="text/javascript"></script>
 
 @endpush

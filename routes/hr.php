@@ -56,4 +56,9 @@ Route::middleware(['auth'])->prefix('hr')->group(function () {
         'as' => 'hrAllStaffAppraisals'
     ]);
 
+    Route::get('/export/appraisals/pdf', [
+        'uses' => 'Appraisal\HrAppraisalController@export_pdf',
+        'as' => 'exportAppraisals'
+    ]);
+
 });

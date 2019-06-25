@@ -18,13 +18,17 @@
 			<div class="panel panel-transparent">
 				<div class="panel-heading">
 					<div class="panel-title">
-						Staff Score Report for {{ $ap->period }}
+
+						<h2>Staff Score Report for {{ $ap->staff->user->getFullNameAttribute() }}</h2>
+
+						Period - {{ $ap->period }}
+
 					</div>
 					<div class="clearfix"></div>
 				</div>
 				<div class="panel-body">
 
-					<h4>Behavioural Score Card</h4>
+					<h5>Behavioural Score Card</h5>
 
 					<div class="table-responsive">
 						<table class="table table-hover" id="basicTable">
@@ -102,7 +106,7 @@
 						</table>
 					</div>
 
-					<h4>Overall Score Card</h4>
+					<h5>Overall Score Card</h5>
 
 					<div class="table-responsive">
 						<table class="table table-hover" id="basicTable">
