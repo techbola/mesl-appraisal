@@ -151,19 +151,4 @@ class HrAppraisalController extends Controller
 
     }
 
-    public function export_pdf(Request $request)
-    {
-
-        if($request->has('period')){
-
-            $appraisals = StaffAppraisal::where('period', $request->period)->get()->all();
-
-            $pdf = PDF::loadView('hr.appraisals.appraisal_pdf', $appraisals);
-
-            return $pdf->download('hr.appraisals.appraisal_pdf');
-
-        }
-
-    }
-
 }

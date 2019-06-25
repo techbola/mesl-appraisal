@@ -28,7 +28,7 @@
 						<div class="row">
 							<div class="col-sm-12">
 								<div class="form-group">
-									<label>Appraisal Period</label>
+									<label>Select Period</label>
 									<select name="appraiser_period" id="appraiser_period" class="full-width" style="height: 50px;">
 										<option value="2018/2019">2018/2019</option>
 										<option value="2019/2020">2019/2020</option>
@@ -79,7 +79,7 @@
 											<p>{{ $appraisal->staff->user->getFullNameAttribute() }}</p>
 										</td>
 										<td>
-											<p>{{ 'Profile Picture' }}</p>
+											<img src="{{ asset($appraisal->staff->user->avatar) }}" alt="">
 										</td>
 										<td >
 											<p>{{ $appraisal->staff->supervisor->getFullNameAttribute() }}</p>
@@ -106,10 +106,10 @@
 											<p>{{ $appraisal->overallSupervisorScore }}</p>
 										</td>
 										<td>
-											<p>{{ 'Department' }}</p>
+											<p>{{ $appraisal->staff->department->Department }}</p>
 										</td>
 										<td>
-											<p>{{ 'Location' }}</p>
+											<p>{{ $appraisal->staff->location->Location }}</p>
 										</td>
 									</tr>
 

@@ -21,7 +21,7 @@ Route::middleware(['auth'])->prefix('hr')->group(function () {
         'as' => 'hrStaffGoals'
     ]);
 
-    Route::get('/appraisal/{appraisalID}', [
+    Route::get('/staff/goals/{appraisalID}', [
         'uses' => 'HrController@appraisal',
         'as' => 'hrViewAppraisal'
     ]);
@@ -54,11 +54,6 @@ Route::middleware(['auth'])->prefix('hr')->group(function () {
     Route::post('/all/staff/appraisals/', [
         'uses' => 'Appraisal\HrAppraisalController@allStaffAppraisals',
         'as' => 'hrAllStaffAppraisals'
-    ]);
-
-    Route::get('/export/appraisals/pdf', [
-        'uses' => 'Appraisal\HrAppraisalController@export_pdf',
-        'as' => 'exportAppraisals'
     ]);
 
 });

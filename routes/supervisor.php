@@ -46,7 +46,7 @@ Route::middleware(['auth'])->prefix('supervisor')->group(function () {
         'as' => 'supervisorDashboard'
     ]);
 
-    Route::get('/all/appraisals', [
+    Route::get('/all/goals', [
         'uses' => 'SupervisorController@allAppraisals',
         'as' => 'supervisorAppraisals'
     ]);
