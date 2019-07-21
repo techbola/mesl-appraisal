@@ -53,17 +53,17 @@
 											</td>
 											<td class="v-align-middle">
 												<p>
-													<a href="{{ route('supervisorViewAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-info btn-sm">View Goals</a>
+													<a href="{{ route('appraisal.supervisorViewAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-info btn-sm">View Goals</a>
 												</p>
 
 												@if($appraisal->status == 2)
-													<p><a href="{{ route('submitToHr', ['appraisalID' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Submit to HR</a></p>
+													<p><a href="{{ route('appraisal.submitToHr', ['appraisalID' => $appraisal->id]) }}" class="btn btn-primary btn-sm">Submit to HR</a></p>
 
 												@elseif($appraisal->status == 6 && $appraisal->appraisalStatus == 1)
-													<p><a href="{{ route('supervisorViewStaffAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-primary btn-sm">View Appraisal</a></p>
+													<p><a href="{{ route('appraisal.supervisorViewStaffAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-primary btn-sm">View Appraisal</a></p>
 
 												@elseif($appraisal->status == 6 && $appraisal->appraisalStatus == 2)
-													<p><a href="{{ route('supervisorViewStaffAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-primary btn-sm">View Appraisal</a></p>
+													<p><a href="{{ route('appraisal.supervisorViewStaffAppraisal', ['appraisalID' => $appraisal->id]) }}" class="btn btn-primary btn-sm">View Appraisal</a></p>
 
 												@endif
 
